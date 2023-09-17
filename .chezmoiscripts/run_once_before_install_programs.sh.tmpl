@@ -1,0 +1,26 @@
+{{if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+echo "This script must be watched"
+read -e -p "Press y to continue. Anything else will quit this script. THIS SCRIPT WILL NOT RUN AGAIN IF YOU CHOOSE NO. " choice
+[[ "$choice" == [Yy]* ]] && echo "Continuing..." || exit 0
+# Install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Install rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# Install basic programs
+brew install zoxide fzf eza lazygit sk ripgrep mpv chafa yt-dlp neovim starship git cmake node
+brew install --cask wezterm firefox amethyst textmate vlc mac-mouse-fix font-fira-code font-fira-code-nerd-font font-monokai qbittorrent raycast stats dozer
+# Install LunarVim
+LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+# And we're done?
+echo "Installation complete!"
+{{else if eq .chezmoi.os "linux" }}
+{{  if eq .chezmoi.osRelease.id "opensuse-tumbleweed" -}}
+#!/bin/sh
+# TODO: put setup script here
+echo "TODO: put required programs and stuff for config here"
+{{  else -}}
+#!/bin/sh
+echo "This distro is not currently supported"
+{{  end }}
+{{ end }}
