@@ -1,0 +1,44 @@
+[colors]
+foreground = "#545464"
+background = "#f2ecbc"
+cursor_bg = "#43436c"
+cursor_border = "#C8C093"
+cursor_fg = "#f2ecbc"
+selection_bg = "#c9cbd1"
+selection_fg = "#43436c"
+
+ansi = ["#1F1F28", "#c84053", "#6f894e", "#77713f", "#4d699b", "#b35b79", "#597b75", "#545464"]
+brights = ["#8a8980", "#d7474b", "#6e915f", "#836f4a", "#6693bf", "#624c83", "#5e857a", "#43436c"]
+
+[colors.tab_bar]
+inactive_tab_edge = "#C8C093"
+background = "#aba47e"
+
+[colors.tab_bar.active_tab]
+fg_color = "#716e61"
+bg_color = "#e5ddb0"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#d5cea3"
+fg_color = "#8a8980"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#C8C093"
+fg_color = "#1F1F28"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#e5ddb0"
+fg_color = "#1F1F28"
+
+[colors.tab_bar.new_tab]
+fg_color = "#716e61"
+bg_color = "#aba47e"
+
+[colors.indexed] # I cannot find how to use these
+# color16 #cc6d00
+# color17 #e82424
+
+[metadata]
+aliases = ["kanagawa lotus"]
+author = "Tommaso Laurenzi"
+name = "kanagawa light"
