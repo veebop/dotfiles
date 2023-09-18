@@ -28,6 +28,16 @@ lvim.builtin.treesitter.rainbow.enable = true
 -- Add a shortcut for inc-rename.nvim
 lvim.builtin.which_key.mappings["lR"] = { "<cmd>IncRename ", "IncRename" }
 
+-- Shortcuts for Neorg
+lvim.builtin.which_key.mappings["n"] =
+{
+  name = "Neorg",
+  n = { "<cmd>Neorg workspace notes<CR>", "Open notes" },
+  t = { "<cmd>Neorg journal today<CR>", "Open today's journal" },
+  j = { "<cmd>Neorg journal<CR>", "Journal" },
+  i = { "<cmd>Neorg index<CR>", "Open index" },
+}
+
 -- Shortcut for nabla (LaTeX)
 lvim.builtin.which_key.mappings["T"] = {
   name = "LaTeX",
