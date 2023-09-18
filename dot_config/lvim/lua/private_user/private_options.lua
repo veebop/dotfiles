@@ -28,6 +28,13 @@ lvim.builtin.treesitter.rainbow.enable = true
 -- Add a shortcut for inc-rename.nvim
 lvim.builtin.which_key.mappings["lR"] = { "<cmd>IncRename ", "IncRename" }
 
+-- Shortcut for nabla (LaTeX)
+lvim.builtin.which_key.mappings["T"] = {
+  name = "LaTeX",
+  T = { "<cmd>lua require'nabla'.toggle_virt()<CR>", "Toggle Nabla" },
+  p = { "<cmd>lua require'nabla'.popup()<CR>", "Nabla Popup" },
+}
+
 -- Customize alpha
 lvim.builtin.alpha.dashboard.section.footer.val[2] = ""
 

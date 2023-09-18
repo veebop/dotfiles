@@ -99,6 +99,11 @@ lvim.plugins = {
       }
     end,
   },
+  -- Adds LaTeX rendering using Unicode characters and ASCII art like representation.
+  {
+    "jbyuki/nabla.nvim",
+    lazy = true,
+  },
   -- RUST --
   -- Additional support for rust
   {
