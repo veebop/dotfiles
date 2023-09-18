@@ -17,16 +17,16 @@ vim.opt.guifont = "FiraCode Nerd Font Mono:h11"
 
 -- Telescope
 lvim.builtin.telescope.theme = "center"
-lvim.keys.normal_mode["<leader>sT"] = ":Telescope<CR>"
+lvim.builtin.which_key.mappings["sT"] = { "<cmd>Telescope<CR>", "Telescope" }
 
 -- Zen Mode toggle
-lvim.keys.normal_mode["<leader>z"] = ":ZenMode<CR>"
+lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<CR>", "Zen Mode" }
 
 -- Rainbow Parenthesis
 lvim.builtin.treesitter.rainbow.enable = true
 
 -- Add a shortcut for inc-rename.nvim
-lvim.keys.normal_mode["<leader>lR"] = ":IncRename "
+lvim.builtin.which_key.mappings["lR"] = { "<cmd>IncRename ", "IncRename" }
 
 -- Customize alpha
 lvim.builtin.alpha.dashboard.section.footer.val[2] = ""
