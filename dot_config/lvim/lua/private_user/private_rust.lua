@@ -77,4 +77,3 @@ lvim.builtin.which_key.mappings["R"] = {
   f = { "<cmd>lua require'crates'.show_features_popup()<cr>", "[crates] show features" },
   D = { "<cmd>lua require'crates'.show_dependencies_popup()<cr>", "[crates] show dependencies" },
 }
-

@@ -35,7 +35,7 @@ if not current_scheme then
 end
 
 ----- FONT -----
-config.font = wez.font_with_fallback  {
+config.font = wez.font_with_fallback {
   {
     family = 'Fira Code',
     harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
@@ -89,30 +89,30 @@ end)
 config.keys = {
   ----- PANES -----
   -- Create and destroy panes
-  { key = 'v', mods = 'SUPER|SHIFT', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
-  { key = 'c', mods = 'SUPER|SHIFT', action = act.SplitVertical { domain = 'CurrentPaneDomain' }, },
-  { key = 'x', mods = 'SUPER|SHIFT', action = act.CloseCurrentPane { confirm = true }, },
+  { key = 'v',     mods = 'SUPER|SHIFT',      action = act.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
+  { key = 'c',     mods = 'SUPER|SHIFT',      action = act.SplitVertical { domain = 'CurrentPaneDomain' }, },
+  { key = 'x',     mods = 'SUPER|SHIFT',      action = act.CloseCurrentPane { confirm = true }, },
   -- Move between panes
-  { key = 'h', mods = 'SUPER|SHIFT', action = act.ActivatePaneDirection 'Left', },
-  { key = 'j', mods = 'SUPER|SHIFT', action = act.ActivatePaneDirection 'Down', },
-  { key = 'k', mods = 'SUPER|SHIFT', action = act.ActivatePaneDirection 'Up', },
-  { key = 'l', mods = 'SUPER|SHIFT', action = act.ActivatePaneDirection 'Right', },
-  { key = 'b', mods = 'SUPER|SHIFT', action = act.PaneSelect, },
+  { key = 'h',     mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Left', },
+  { key = 'j',     mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Down', },
+  { key = 'k',     mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Up', },
+  { key = 'l',     mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Right', },
+  { key = 'b',     mods = 'SUPER|SHIFT',      action = act.PaneSelect, },
   -- Resize panes
-  { key = 'h', mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Left', 5 }, },
-  { key = 'j', mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Down', 5 }, },
-  { key = 'k', mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Up', 5 }, },
-  { key = 'l', mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Right', 5 }, },
-  { key = 'z', mods = 'SUPER|SHIFT', action = act.TogglePaneZoomState, },
+  { key = 'h',     mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Left', 5 }, },
+  { key = 'j',     mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Down', 5 }, },
+  { key = 'k',     mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Up', 5 }, },
+  { key = 'l',     mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Right', 5 }, },
+  { key = 'z',     mods = 'SUPER|SHIFT',      action = act.TogglePaneZoomState, },
   -- Rotate panes
-  { key = 'n', mods = 'SUPER|SHIFT', action = act.RotatePanes 'Clockwise' },
-  { key = 'm', mods = 'SUPER|SHIFT', action = act.RotatePanes 'CounterClockwise' },
+  { key = 'n',     mods = 'SUPER|SHIFT',      action = act.RotatePanes 'Clockwise' },
+  { key = 'm',     mods = 'SUPER|SHIFT',      action = act.RotatePanes 'CounterClockwise' },
   ----- OTHER KEYBINDINGS -----
-  { key = 'p', mods = 'SUPER|SHIFT', action = act.ActivateCommandPalette, },
-  { key = ' ', mods = 'SUPER|SHIFT', action = act.QuickSelect, },
-  { key = 'f', mods = 'SUPER|SHIFT', action = act.ActivateCopyMode, },
-  { key = 'u', mods = 'SUPER', action = act.EmitEvent 'toggle-opacity', },
-  { key = 'Enter', mods = 'SUPER', action = act.ToggleFullScreen, },
+  { key = 'p',     mods = 'SUPER|SHIFT',      action = act.ActivateCommandPalette, },
+  { key = ' ',     mods = 'SUPER|SHIFT',      action = act.QuickSelect, },
+  { key = 'f',     mods = 'SUPER|SHIFT',      action = act.ActivateCopyMode, },
+  { key = 'u',     mods = 'SUPER',            action = act.EmitEvent 'toggle-opacity', },
+  { key = 'Enter', mods = 'SUPER',            action = act.ToggleFullScreen, },
 }
 
 ----- RIGHT STATUS BAR -----
@@ -133,7 +133,7 @@ wez.on('update-right-status', function(window, pane)
       -- a URL object here, making this simple!
 
       cwd = cwd_uri.file_path
-      hostname =  wezterm.hostname() or cwd_uri.host
+      hostname = wezterm.hostname() or cwd_uri.host
     else
       -- an older version of wezterm, 20230712-072601-f4abf8fd or earlier,
       -- which doesn't have the Url object
@@ -203,28 +203,27 @@ end)
 
 -- Neovim zen-mode.nvim integration
 wezterm.on('user-var-changed', function(window, pane, name, value)
-    local overrides = window:get_config_overrides() or {}
-    if name == "ZEN_MODE" then
-        local incremental = value:find("+")
-        local number_value = tonumber(value)
-        if incremental ~= nil then
-            while (number_value > 0) do
-                window:perform_action(wezterm.action.IncreaseFontSize, pane)
-                number_value = number_value - 1
-            end
-            overrides.enable_tab_bar = false
-        elseif number_value < 0 then
-            window:perform_action(wezterm.action.ResetFontSize, pane)
-            overrides.font_size = nil
-            overrides.enable_tab_bar = true
-        else
-            overrides.font_size = number_value
-            overrides.enable_tab_bar = false
-        end
+  local overrides = window:get_config_overrides() or {}
+  if name == "ZEN_MODE" then
+    local incremental = value:find("+")
+    local number_value = tonumber(value)
+    if incremental ~= nil then
+      while (number_value > 0) do
+        window:perform_action(wezterm.action.IncreaseFontSize, pane)
+        number_value = number_value - 1
+      end
+      overrides.enable_tab_bar = false
+    elseif number_value < 0 then
+      window:perform_action(wezterm.action.ResetFontSize, pane)
+      overrides.font_size = nil
+      overrides.enable_tab_bar = true
+    else
+      overrides.font_size = number_value
+      overrides.enable_tab_bar = false
     end
-    window:set_config_overrides(overrides)
+  end
+  window:set_config_overrides(overrides)
 end)
 
 -- and finally, return the configuration to wezterm
 return config
-
