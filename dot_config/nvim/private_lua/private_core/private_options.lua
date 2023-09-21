@@ -4,4 +4,4 @@ vim.opt_global.softtabstop = -1
 vim.opt_global.shiftwidth = 0
 
 -- Setup theme
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd('colorscheme kanagawa')
