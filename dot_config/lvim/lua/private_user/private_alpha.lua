@@ -77,6 +77,8 @@ local large_header = {
   "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
 }
 
+local dashboard = lvim.builtin.alpha.dashboard
+
 lvim.builtin.alpha.dashboard.section.header = {
   type = "text",
   val = function()
@@ -92,6 +94,45 @@ lvim.builtin.alpha.dashboard.section.header = {
   end,
   opts = {
     position = "center",
-    hl = "DiagnosticError",
+    hl = "Error",
   },
+}
+lvim.builtin.alpha.dashboard.section.footer = {
+  type = "text",
+  val = {"", "", ""}, -- For some reason, I can't just pass the table as the val
+  opts = { position = "center", hl = "String"},
+}
+lvim.autocommands = {
+  {
+    'User',
+    {
+      pattern = 'LazyVimStarted',
+      callback = function()
+        local stats = require('lazy').stats()
+        local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+        local platform = function()
+          if vim.loop.os_uname().sysname == "Darwin" then
+            return " "
+          elseif vim.fn.has('linux') then
+            return " "
+          elseif vim.fn.has('win32') then
+            return " "
+          else
+            return "? "
+          end
+        end
+        local lvim_version = require("lvim.utils.git").get_lvim_version()
+        local datetime = os.date " %m-%d-%Y  %H:%M:%S"
+        local footer_val = {
+          stats.count .. ' plugins loaded in ' .. ms .. "ms",
+          string.format("%s on %s", datetime, platform()),
+          string.format("%s", lvim_version),
+        }
+        lvim.builtin.alpha.dashboard.section.footer.val[1] = footer_val[1]
+        lvim.builtin.alpha.dashboard.section.footer.val[2] = footer_val[2]
+        lvim.builtin.alpha.dashboard.section.footer.val[3] = footer_val[3]
+        pcall(vim.cmd.AlphaRedraw)
+      end,
+    },
+  }
 }

@@ -64,25 +64,22 @@ lvim.builtin.which_key.mappings["T"] = {
   p = { "<cmd>lua require'nabla'.popup()<CR>", "Nabla Popup" },
 }
 
--- Customize alpha
-lvim.builtin.alpha.dashboard.section.footer.val[2] = ""
-
 -- Change how telescope truncates file paths
 lvim.builtin.telescope.defaults.path_display = { "Smart" }
 
 -- Autocommands
-lvim.autocommands = {
-  -- Show plugin loadtime on alpha
-  {
-    "User",
-    {
-      pattern = "LazyVimStarted",
-      callback = function()
-        local stats = require("lazy").stats()
-        local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        lvim.builtin.alpha.dashboard.section.footer.val[1] = "Loaded " .. stats.count .. " plugins in " .. ms .. "ms"
-        pcall(vim.cmd.AlphaRedraw)
-      end,
-    },
-  },
-}
+-- lvim.autocommands = {
+--   -- Show plugin loadtime on alpha
+--   {
+--     "User",
+--     {
+--       pattern = "LazyVimStarted",
+--       callback = function()
+--         local stats = require("lazy").stats()
+--         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+--         lvim.builtin.alpha.dashboard.section.footer.val[1] = "Loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+--         pcall(vim.cmd.AlphaRedraw)
+--       end,
+--     },
+--   },
+-- }
