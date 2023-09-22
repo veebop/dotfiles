@@ -6,7 +6,6 @@ vim.keymap.set('n', '<C-l>', '<C-w>l' )
 
 require("which-key").register({
   ["<leader>"] = {
-    ['/'] = { "Comment toggle" },
     [';'] = { "<cmd>Alpha<CR>", "alpha" },
     c = { "<cmd>BufferKill<CR>", "Close Buffer" },
     f = { "<cmd>Telescope git_files<CR>", "Search project files" },
