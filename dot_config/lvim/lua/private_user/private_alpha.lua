@@ -79,7 +79,7 @@ local large_header = {
 
 local dashboard = lvim.builtin.alpha.dashboard
 
-lvim.builtin.alpha.dashboard.section.header = {
+dashboard.section.header = {
   type = "text",
   val = function()
     local alpha_wins = vim.tbl_filter(function(win)
@@ -97,7 +97,14 @@ lvim.builtin.alpha.dashboard.section.header = {
     hl = "Error",
   },
 }
-lvim.builtin.alpha.dashboard.section.footer = {
+-- Make it so configuration goes to my chezmoi config
+dashboard.section.buttons.entries[6] = {
+  "c",
+  lvim.icons.ui.Gear .. "  Chezmoi",
+  "<CMD>cd ~/.local/share/chezmoi/<CR><CMD>edit .<CR>",
+
+}
+dashboard.section.footer = {
   type = "text",
   val = {"", "", ""}, -- For some reason, I can't just pass the table as the val
   opts = { position = "center", hl = "String"},
@@ -128,9 +135,9 @@ lvim.autocommands = {
           string.format("%s on %s", datetime, platform()),
           string.format("%s", lvim_version),
         }
-        lvim.builtin.alpha.dashboard.section.footer.val[1] = footer_val[1]
-        lvim.builtin.alpha.dashboard.section.footer.val[2] = footer_val[2]
-        lvim.builtin.alpha.dashboard.section.footer.val[3] = footer_val[3]
+        dashboard.section.footer.val[1] = footer_val[1]
+        dashboard.section.footer.val[2] = footer_val[2]
+        dashboard.section.footer.val[3] = footer_val[3]
         pcall(vim.cmd.AlphaRedraw)
       end,
     },
