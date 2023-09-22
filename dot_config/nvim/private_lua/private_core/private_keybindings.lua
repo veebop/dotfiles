@@ -4,6 +4,15 @@ vim.keymap.set('n', '<C-j>', '<C-w>j' )
 vim.keymap.set('n', '<C-k>', '<C-w>k' )
 vim.keymap.set('n', '<C-l>', '<C-w>l' )
 
+-- Move text up and down
+-- Visual --
+vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
+vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
+-- Visual Block --
+vim.keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", { noremap = true, silent = true })
+vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", { noremap = true, silent = true })
+
+
 require("which-key").register({
   ["<leader>"] = {
     [';'] = { "<cmd>Alpha<CR>", "alpha" },

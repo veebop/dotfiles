@@ -26,6 +26,14 @@ lvim.builtin.lualine.sections.lualine_x = {
   'filetype'
 }
 
+-- Move text up and down
+-- Visual --
+vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
+vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
+-- Visual Block --
+vim.keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", { noremap = true, silent = true })
+vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", { noremap = true, silent = true })
+
 -- Telescope
 lvim.builtin.telescope.theme = "center"
 lvim.builtin.which_key.mappings["sT"] = { "<cmd>Telescope<CR>", "Telescope" }
