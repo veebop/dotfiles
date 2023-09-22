@@ -8,8 +8,6 @@ return {
     { "j-hui/fidget.nvim", tag = "legacy", event = "LspAttach" },
     { "folke/neodev.nvim", lazy = true },
     { "RRethy/vim-illuminate", event = "User FileOpened" },
-    { "saadparwaiz1/cmp_luasnip" },
-    { "L3MON4D3/LuaSnip" },
     { "jose-elias-alvarez/null-ls.nvim", lazy = true },
   },
   config = function()
