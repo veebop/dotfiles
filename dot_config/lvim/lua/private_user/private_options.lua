@@ -15,6 +15,17 @@ vim.opt.spelllang = 'en_us'
 -- GUI options
 vim.opt.guifont = "FiraCode Nerd Font Mono:h11"
 
+-- Lualine theme
+lvim.builtin.lualine.style = "default"
+lvim.builtin.lualine.options.theme = "auto"
+lvim.builtin.lualine.sections.lualine_x = {
+  'encoding', {
+    'fileformat',
+    icons_enabled = false,
+  },
+  'filetype'
+}
+
 -- Telescope
 lvim.builtin.telescope.theme = "center"
 lvim.builtin.which_key.mappings["sT"] = { "<cmd>Telescope<CR>", "Telescope" }
