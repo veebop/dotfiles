@@ -9,6 +9,9 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 
+-- Enable formatting on save, otherwise I will always forget
+lvim.format_on_save = true
+
 -- Spellchecking
 vim.opt.spelllang = 'en_us'
 
@@ -20,9 +23,9 @@ lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options.theme = "auto"
 lvim.builtin.lualine.sections.lualine_x = {
   'encoding', {
-    'fileformat',
-    icons_enabled = false,
-  },
+  'fileformat',
+  icons_enabled = false,
+},
   'filetype'
 }
 
@@ -49,22 +52,22 @@ lvim.builtin.which_key.mappings["lR"] = { "<cmd>IncRename ", "IncRename" }
 
 -- Adjust what is shown with which-key.nvim
 lvim.builtin.which_key.setup.plugins = {
-  marks = true, -- shows a list of your marks on ' and `
+  marks = true,     -- shows a list of your marks on ' and `
   registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
   -- the presets plugin, adds help for a bunch of default keybindings in Neovim
   -- No actual key bindings are created
   spelling = {
-    enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+    enabled = true,   -- enabling this will show WhichKey when pressing z= to select spelling suggestions
     suggestions = 20, -- how many suggestions should be shown in the list?
   },
   presets = {
-    operators = true, -- adds help for operators like d, y, ...
-    motions = true, -- adds help for motions
+    operators = true,    -- adds help for operators like d, y, ...
+    motions = true,      -- adds help for motions
     text_objects = true, -- help for text objects triggered after entering an operator
-    windows = true, -- default bindings on <c-w>
-    nav = true, -- misc bindings to work with windows
-    z = true, -- bindings for folds, spelling and others prefixed with z
-    g = true, -- bindings for prefixed with g
+    windows = true,      -- default bindings on <c-w>
+    nav = true,          -- misc bindings to work with windows
+    z = true,            -- bindings for folds, spelling and others prefixed with z
+    g = true,            -- bindings for prefixed with g
   },
 }
 
@@ -93,20 +96,3 @@ lvim.builtin.which_key.mappings["T"] = {
 
 -- Change how telescope truncates file paths
 lvim.builtin.telescope.defaults.path_display = { "Smart" }
-
--- Autocommands
--- lvim.autocommands = {
---   -- Show plugin loadtime on alpha
---   {
---     "User",
---     {
---       pattern = "LazyVimStarted",
---       callback = function()
---         local stats = require("lazy").stats()
---         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
---         lvim.builtin.alpha.dashboard.section.footer.val[1] = "Loaded " .. stats.count .. " plugins in " .. ms .. "ms"
---         pcall(vim.cmd.AlphaRedraw)
---       end,
---     },
---   },
--- }
