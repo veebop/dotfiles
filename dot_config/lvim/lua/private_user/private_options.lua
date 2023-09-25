@@ -50,6 +50,11 @@ lvim.builtin.treesitter.rainbow.enable = true
 -- Add a shortcut for inc-rename.nvim
 lvim.builtin.which_key.mappings["lR"] = { "<cmd>IncRename ", "IncRename" }
 
+-- Code formatters with null-ls (rip)
+lvim.lsp.null_ls.formatters.setup {
+  { name = "rustfmt" },
+}
+
 -- Adjust what is shown with which-key.nvim
 lvim.builtin.which_key.setup.plugins = {
   marks = true,     -- shows a list of your marks on ' and `
