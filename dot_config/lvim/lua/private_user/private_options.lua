@@ -68,6 +68,9 @@ lvim.builtin.which_key.setup.plugins = {
   },
 }
 
+-- Enable completion for the command line
+lvim.builtin.cmp.cmdline.enable = true
+
 -- (Effectively) How fast which_key opens
 vim.o.timeoutlen = 500
 
