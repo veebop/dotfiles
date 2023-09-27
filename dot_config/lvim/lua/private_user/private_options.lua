@@ -70,6 +70,14 @@ vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", { noremap = true, silent = t
 lvim.builtin.telescope.theme = "center"
 lvim.builtin.which_key.mappings["sT"] = { "<cmd>Telescope<CR>", "Telescope" }
 
+-- Enable preview for finding files
+lvim.builtin.which_key.mappings["f"] = {
+  function()
+    require("lvim.core.telescope.custom-finders").find_project_files { previewer = true }
+  end,
+  "Find File"
+}
+
 -- Zen Mode toggle
 lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<CR>", "Zen Mode" }
 
