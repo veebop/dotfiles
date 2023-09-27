@@ -77,6 +77,7 @@ lvim.builtin.which_key.mappings["f"] = {
   end,
   "Find File"
 }
+lvim.builtin.which_key.mappings["bf"] = { "<cmd>Telescope buffers previewer=true<CR>", "Find" }
 
 -- Zen Mode toggle
 lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<CR>", "Zen Mode" }
