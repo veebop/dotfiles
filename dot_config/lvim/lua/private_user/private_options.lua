@@ -72,11 +72,6 @@ lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.which_key.mappings["lR"] = { "IncRename" } -- Name that appears in which-key
 lvim.keys.normal_mode["<leader>lR"] = ":IncRename "
 
--- Code formatters with null-ls (rip)
-lvim.lsp.null_ls.formatters.setup {
-  { name = "rustfmt" },
-}
-
 -- Enable completion for the command line
 lvim.builtin.cmp.cmdline.enable = true
 
