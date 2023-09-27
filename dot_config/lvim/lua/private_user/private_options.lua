@@ -48,7 +48,8 @@ lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<CR>", "Zen Mode" }
 lvim.builtin.treesitter.rainbow.enable = true
 
 -- Add a shortcut for inc-rename.nvim
-lvim.builtin.which_key.mappings["lR"] = { "<cmd>IncRename ", "IncRename" }
+lvim.builtin.which_key.mappings["lR"] = { "IncRename" } -- Name that appears in which-key
+lvim.keys.normal_mode["<leader>lR"] = ":IncRename "
 
 -- Code formatters with null-ls (rip)
 lvim.lsp.null_ls.formatters.setup {
