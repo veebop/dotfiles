@@ -42,6 +42,14 @@ vim.opt.guifont = "FiraCode Nerd Font Mono:h11"
 -- Lualine theme
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options.theme = "auto"
+lvim.builtin.lualine.sections.lualine_c = {
+  {
+    'filename',
+    file_status = true,
+    newfile_status = true,
+    path = 1,
+  }
+}
 lvim.builtin.lualine.sections.lualine_x = {
   'encoding', {
   'fileformat',
