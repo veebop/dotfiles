@@ -247,10 +247,9 @@ require("lazy").setup({
     "akinsho/bufferline.nvim",
     branch = "main",
     dependencies = "nvim-tree/nvim-web-devicons",
-    config = function()
-      vim.opt.termguicolors = true
-      require("bufferline").setup()
-    end,
+    opts = {
+      options = { separator_style = { "thick", "thin" } },
+    },
     event = { "BufRead", "BufNewFile" },
   },
   {
