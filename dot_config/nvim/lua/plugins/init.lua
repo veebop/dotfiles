@@ -29,10 +29,37 @@ require("lazy").setup({
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "mason.nvim" },
-    opts = {},
+    opts = {
+      ensure_installed = {
+        "bashls",
+        "clangd",
+        "cmake",
+        "jsonls",
+        "jdtls",
+        "lua_ls",
+        "pyright",
+        "rust_analyzer",
+        "tsserver",
+        "yamlls",
+        "zls",
+      },
+    },
     lazy = true,
     cmd = { "LspInstall", "LspUninstall" },
-    event = "BufRead",
+    event = { "BufReadPre", "BufNewFile" },
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    dependencies = {
+      "mason.nvim",
+      "none-ls.nvim",
+    },
+    opts = {
+      ensure_installed = { "alex", "proselint", "codespell" },
+      handlers = {},
+    },
+    cmd = { "NullLsInstall", "NullLsUninstall" },
+    event = { "BufReadPre", "BufNewFile" },
   },
   {
     "williamboman/mason.nvim",
@@ -43,7 +70,7 @@ require("lazy").setup({
       end)
     end,
     lazy = true,
-    event = "BufRead",
+    event = { "BufReadPre", "BufNewFile" },
     cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
   },
   {
@@ -79,11 +106,22 @@ require("lazy").setup({
   {
     "mfussenegger/nvim-dap",
     dependencies = "nvim-dap-ui",
+    config = require("plugins/nvim-dap").setup,
     lazy = true,
   },
   {
     "rcarriga/nvim-dap-ui",
     opts = {},
+    lazy = true,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    dependencies = { "mason.nvim" },
+    opts = {
+      ensure_installed = { "codelldb" },
+      handlers = {},
+    },
+    cmd = { "DapInstall", "DapUninstall" },
     lazy = true,
   },
   -- Formatting/Linting -- CURRENTLY UNUSED IN FAVOR OF NONE-LS
@@ -110,14 +148,14 @@ require("lazy").setup({
       "TSInstallSync",
       "TSInstallFromGrammar",
     },
-    event = "BufRead",
+    event = { "BufReadPre", "BufNewFile" },
   },
   -- Editing
   {
     "numToStr/Comment.nvim",
     opts = {},
     keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
-    event = "BufRead",
+    event = { "BufRead", "BufNewFile" },
   },
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
@@ -167,7 +205,7 @@ require("lazy").setup({
     opts = {
       current_line_blame = true,
     },
-    event = "BufRead",
+    event = { "BufRead", "BufNewFile" },
     cmd = "Gitsigns",
   },
   {
@@ -203,7 +241,7 @@ require("lazy").setup({
   {
     "SmiteshP/nvim-navic",
     opts = { lsp = { auto_attach = true } },
-    event = "BufRead",
+    event = { "BufReadPre", "BufNewFile" },
   },
   {
     "akinsho/bufferline.nvim",
@@ -213,22 +251,22 @@ require("lazy").setup({
       vim.opt.termguicolors = true
       require("bufferline").setup()
     end,
-    event = "BufRead",
+    event = { "BufRead", "BufNewFile" },
   },
   {
     "RRethy/vim-illuminate",
-    event = "BufRead",
+    event = { "BufRead", "BufNewFile" },
   },
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {},
-    event = "BufRead",
+    event = { "BufReadPre", "BufNewFile" },
   },
   {
     "HiPhish/rainbow-delimiters.nvim",
     lazy = true,
-    event = "BufRead",
+    event = { "BufReadPre", "BufNewFile" },
   },
   {
     "folke/zen-mode.nvim",
