@@ -21,6 +21,12 @@ require("lazy").setup({
     cmd = { "LspInfo", "LspInstall", "LspUninstall" },
   },
   {
+    "nvimtools/none-ls.nvim",
+    dependencies = { "mason.nvim" },
+    config = require("plugins.none-ls").setup,
+    event = { "BufReadPre", "BufNewFile" },
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "mason.nvim" },
     opts = {},
@@ -80,17 +86,17 @@ require("lazy").setup({
     opts = {},
     lazy = true,
   },
-  -- Formatting/Linting
-  {
-    "mhartington/formatter.nvim",
-    config = require("plugins.formatter").setup,
-    cmd = { "Format", "FormatWrite"}
-  },
-  {
-    "mfussenegger/nvim-lint",
-    config = require("plugins.nvim-lint").setup,
-    event = { "BufRead" },
-  },
+  -- Formatting/Linting -- CURRENTLY UNUSED IN FAVOR OF NONE-LS
+  -- {
+  --   "mhartington/formatter.nvim",
+  --   config = require("plugins.formatter").setup,
+  --   cmd = { "Format", "FormatWrite"}
+  -- },
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   config = require("plugins.nvim-lint").setup,
+  --   event = { "BufRead" },
+  -- },
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",

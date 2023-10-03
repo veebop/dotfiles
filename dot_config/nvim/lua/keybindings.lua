@@ -74,8 +74,7 @@ require("which-key").register({
       a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
       d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
       w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-      -- I may want to change this to something later, when I decide on a plugin to format with
-      f = { "<cmd>lua vim.lsp.buf.format<cr>", "Format" },
+      f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
       i = { "<cmd>LspInfo<cr>", "Info" },
       I = { "<cmd>Mason<cr>", "Mason Info" },
       j = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic", },

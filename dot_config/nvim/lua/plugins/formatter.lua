@@ -1,3 +1,4 @@
+-- CURRENTLY UNUSED IN FAVOR OF NONE-LS
 local M = {}
 
 M.setup = function()
