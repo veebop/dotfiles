@@ -3,7 +3,7 @@ local M = {}
 M.setup = function()
   require('lualine').setup({
     options = {
-      disabled_filetypes = { statusline = { "alpha" } },
+      disabled_filetypes = { "alpha" },
     },
     sections = {
       lualine_c = {
@@ -21,6 +21,14 @@ M.setup = function()
           'filetype',
         }
       }
+    },
+    winbar = {
+      lualine_a = { "filename" },
+      lualine_b = { "navic" },
+      lualine_c = { "searchcount", "selectioncount" },
+    },
+    inactive_winbar = {
+      lualine_a = { "filename" }
     }
   })
 end

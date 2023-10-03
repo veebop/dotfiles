@@ -19,7 +19,7 @@ require("which-key").register({
   ["<leader>"] = {
     [';'] = { "<cmd>Alpha<CR>", "Alpha" },
     ['/'] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
-    c = { "<cmd>BufferKill<CR>", "Close Buffer" },
+    c = { "<cmd>bd<CR>", "Close Buffer" },
     f = { "<cmd>Telescope git_files<CR>", "Search project files" },
     h = { "<cmd>nohlsearch<CR>", "No Highlight" },
     e = { "<cmd>NvimTreeToggle<CR>", "File Explorer" },

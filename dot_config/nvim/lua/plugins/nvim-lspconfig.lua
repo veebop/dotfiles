@@ -1,6 +1,7 @@
 local M = {}
 
 M.setup = function()
+  require("neodev").setup()
   local lspconfig = require('lspconfig')
   local lsp_defaults = lspconfig.util.default_config
 
@@ -16,7 +17,15 @@ M.setup = function()
   lspconfig.cmake.setup {}
   lspconfig.jdtls.setup {}
   lspconfig.jsonls.setup {}
-  lspconfig.lua_ls.setup {}
+  lspconfig.lua_ls.setup {
+    settings = {
+      Lua = {
+        workspace = {
+          checkThirdParty = false,
+        }
+      }
+    }
+  }
   lspconfig.pyright.setup {}
   -- Rust is configured via rust-tools
   lspconfig.tsserver.setup {}

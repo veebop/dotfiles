@@ -48,3 +48,10 @@ vim.opt.foldlevel = 99
 
 -- Spellchecking
 vim.opt.spelllang = "en_us"
+
+-- Change diagnostic symbols
+local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end

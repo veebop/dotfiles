@@ -26,7 +26,7 @@ require("lazy").setup({
     opts = {},
     lazy = true,
     cmd = { "LspInstall", "LspUninstall" },
-    event = "User FileOpened",
+    event = "BufRead",
   },
   {
     "williamboman/mason.nvim",
@@ -37,7 +37,7 @@ require("lazy").setup({
       end)
     end,
     lazy = true,
-    event = "User FileOpened",
+    event = "BufRead",
     cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
   },
   {
@@ -84,12 +84,12 @@ require("lazy").setup({
   {
     "mhartington/formatter.nvim",
     config = require("plugins.formatter").setup,
-    event = { "User FileOpened" },
+    cmd = { "Format", "FormatWrite"}
   },
   {
     "mfussenegger/nvim-lint",
     config = require("plugins.nvim-lint").setup,
-    event = { "User FileOpened" },
+    event = { "BufRead" },
   },
   -- Treesitter
   {
@@ -104,14 +104,14 @@ require("lazy").setup({
       "TSInstallSync",
       "TSInstallFromGrammar",
     },
-    event = "User FileOpened",
+    event = "BufRead",
   },
   -- Editing
   {
     "numToStr/Comment.nvim",
     opts = {},
     keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
-    event = "User FileOpened",
+    event = "BufRead",
   },
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
@@ -161,7 +161,7 @@ require("lazy").setup({
     opts = {
       current_line_blame = true,
     },
-    event = "User FileOpened",
+    event = "BufRead",
     cmd = "Gitsigns",
   },
   {
@@ -177,7 +177,7 @@ require("lazy").setup({
   {
     "LunarVim/bigfile.nvim",
     opts = {},
-    event = { "FileReadPre", "BufReadPre", "User FileOpened" },
+    event = { "FileReadPre", "BufReadPre", "BufRead" },
   },
   -- Aesthetics
   {
@@ -198,7 +198,7 @@ require("lazy").setup({
   {
     "SmiteshP/nvim-navic",
     opts = { lsp = { auto_attach = true } },
-    event = "User FileOpened",
+    event = "BufRead",
   },
   {
     "akinsho/bufferline.nvim",
@@ -208,17 +208,17 @@ require("lazy").setup({
       vim.opt.termguicolors = true
       require("bufferline").setup()
     end,
-    event = "User FileOpened",
+    event = "BufRead",
   },
   {
     "RRethy/vim-illuminate",
-    event = "User FileOpened",
+    event = "BufRead",
   },
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     config = require("plugins.indent-blankline").setup,
-    event = "User FileOpened",
+    event = "BufRead",
   },
   {
     "HiPhish/rainbow-delimiters.nvim",
