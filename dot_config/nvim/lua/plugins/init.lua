@@ -177,7 +177,6 @@ require("lazy").setup({
   },
   {
     "folke/neodev.nvim",
-    setup = true,
     lazy = true,
   },
   {
