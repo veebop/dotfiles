@@ -236,7 +236,7 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = require("plugins.lualine").setup,
-    event = "VimEnter",
+    event = { "BufReadPre", "BufRead", "BufNewFile" },
   },
   {
     "SmiteshP/nvim-navic",
