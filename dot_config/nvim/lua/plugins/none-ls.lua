@@ -5,7 +5,6 @@ function M.setup()
   local nls = require("null-ls")
   nls.setup({
     sources = {
-      nls.builtins.code_actions.gitsigns,
       nls.builtins.formatting.rustfmt,
       nls.builtins.formatting.zigfmt,
     }
