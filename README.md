@@ -36,7 +36,7 @@ work environment:
     - pyenv
     - fastfetch
     - zsh-completions
-    - winetrickes
+    - winetricks
     - chezmoi
     - lazygit
     - fira-code
