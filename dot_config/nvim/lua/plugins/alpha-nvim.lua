@@ -3,6 +3,9 @@ local M = {}
 function M.setup()
   local alpha = require('alpha')
   local dashboard = require('alpha.themes.dashboard')
+  local header = dashboard.section.header
+  local buttons = dashboard.section.buttons
+  local footer = dashboard.section.footer
   local small_header = {
     "⣿⣿⠉⠁    ⡿⣉⠛ ⢨⣿⣿⡏   ⡟⣛⣿⣻⣿⠟⢉⣤⣺⢻⣻⡏ ⡿⠻⢻⣿⢿⠻⡟⢳⢶⣄      ⢠⠿⢭⡛⠁⡆     ⢘⡻⣟⡏   ⢀⡞⣛⡟⠟⠉ ⠟⣿⡿⠁ ⠙⠿⣻⠁       ⠿⣟⣻⠁",
     "⣿⣡⣘     ⡻⡿⠙ ⢸⣿⣿⡅   ⠛⠚⠛⠋⢀⡴⣿⡟⠋⠛⠛⠃ ⣟⣆⣨⠓⠛⠛⠓⠻⣿⡟⡅     ⣾⡖⣿⠂⣸⣧     ⢰⣿⣽⡇  ⣠⣿⣝⣿⠉   ⣀⠸⣼  ⣾⣿⣿        ⠺⣷⣿",
@@ -46,8 +49,8 @@ function M.setup()
     "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
     "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
   }
-  dashboard.section.header.type = 'text'
-  dashboard.section.header.val = function()
+  header.type = 'text'
+  header.val = function()
     local alpha_wins = vim.tbl_filter(function(win)
       local buf = vim.api.nvim_win_get_buf(win)
       return vim.api.nvim_buf_get_option(buf, "filetype") == "alpha"
@@ -58,12 +61,12 @@ function M.setup()
     end
     return large_header
   end
-  dashboard.section.header.opts = {
+  header.opts = {
     position = "center",
     hl = "Error",
   }
   -- stylua: ignore
-  dashboard.section.buttons.val = {
+  buttons.val = {
     dashboard.button('f', '󰥨  Find file', ':Telescope find_files <CR>'),
     dashboard.button('p', '  Recent Projects', ':Telescope projects <CR>'),
     dashboard.button('n', '  New file', ':ene <BAR> startinsert <CR>'),
@@ -71,16 +74,15 @@ function M.setup()
     dashboard.button('r', '  Recent files', ':Telescope oldfiles <CR>'),
     dashboard.button('q', '  Quit', ':qa<CR>'),
   }
-  for _, button in ipairs(dashboard.section.buttons.val) do
+  for _, button in ipairs(buttons.val) do
     button.opts.hl = 'AlphaButtons'
     button.opts.hl_shortcut = 'function'
   end
-  dashboard.section.footer.opts = {
+  footer.opts = {
     hl = "String",
     position = "center",
   }
   dashboard.section.type = "group"
-  dashboard.opts.layout[1].val = 7
   -- close Lazy and re-open when the dashboard is ready
   if vim.o.filetype == 'lazy' then
     vim.cmd.close()
@@ -118,7 +120,7 @@ function M.setup()
         pad_string(string.format("%s Neovim Version %d.%d.%d", platform(), v.major, v.minor, v.patch), max_width,
           "center", 1),
       }
-      dashboard.section.footer.val = tbl
+      footer.val = tbl
       pcall(vim.cmd.AlphaRedraw)
     end,
   })
