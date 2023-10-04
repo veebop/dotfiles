@@ -247,9 +247,7 @@ require("lazy").setup({
     "akinsho/bufferline.nvim",
     branch = "main",
     dependencies = "nvim-tree/nvim-web-devicons",
-    opts = {
-      options = { separator_style = { "thick", "thin" } },
-    },
+    opts = {},
     event = { "BufRead", "BufNewFile" },
   },
   {
@@ -300,5 +298,5 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
     event = { "BufRead Cargo.toml" },
-  }
+  },
 })

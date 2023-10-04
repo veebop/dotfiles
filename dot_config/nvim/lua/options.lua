@@ -39,8 +39,7 @@ vim.opt.scrolloff = 8             -- minimal number of screen lines to keep abov
 vim.opt.sidescrolloff = 8         -- minimal number of screen lines to keep left and right of the cursor.
 vim.opt.showcmd = false
 vim.opt.ruler = false
-vim.opt.laststatus = 0
-
+vim.opt.laststatus = 0 -- Will be enabled by lualine
 -- Code folding via treesitter
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
