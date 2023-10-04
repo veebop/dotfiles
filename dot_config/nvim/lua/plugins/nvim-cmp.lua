@@ -5,7 +5,7 @@ local function has_words_before()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
-M.setup = function()
+function M.setup()
   local cmp = require("cmp")
   local luasnip = require("luasnip")
   cmp.setup({
@@ -81,4 +81,5 @@ M.setup = function()
     })
   })
 end
+
 return M

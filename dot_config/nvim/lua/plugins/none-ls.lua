@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function()
+function M.setup()
   require("mason-null-ls")
   local nls = require("null-ls")
   nls.setup({

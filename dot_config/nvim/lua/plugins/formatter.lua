@@ -1,7 +1,7 @@
 -- CURRENTLY UNUSED IN FAVOR OF NONE-LS
 local M = {}
 
-M.setup = function()
+function M.setup()
   -- Utilities for creating configurations
   local util = require "formatter.util"
 

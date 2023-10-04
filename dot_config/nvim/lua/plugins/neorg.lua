@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function()
+function M.setup()
   require("neorg").setup {
     load = {
       ["core.defaults"] = {},  -- Loads default behaviour

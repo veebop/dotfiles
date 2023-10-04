@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function()
+function M.setup()
   local rt = require("rust-tools")
 
   rt.setup({
@@ -13,4 +13,5 @@ M.setup = function()
     },
   })
 end
+
 return M

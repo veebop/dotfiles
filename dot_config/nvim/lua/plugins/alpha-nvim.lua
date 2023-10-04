@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function()
+function M.setup()
   local alpha = require('alpha')
   local dashboard = require('alpha.themes.dashboard')
   local small_header = {
