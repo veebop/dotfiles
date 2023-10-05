@@ -176,12 +176,14 @@ require("lazy").setup({
     config = function()
       require("leap").add_default_mappings()
     end,
+    event = "VeryLazy",
   },
   -- Utilities
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -210,7 +212,7 @@ require("lazy").setup({
   },
   {
     "ahmedkhalf/project.nvim",
-    event = "VimEnter",
+    event = "VeryLazy",
     config = function()
       require("project_nvim").setup()
       require("telescope").load_extension('projects')
