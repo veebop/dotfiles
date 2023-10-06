@@ -18,7 +18,7 @@ brew tap homebrew/cask-fonts
 brew tap homebrew/cask-version
 brew tap jesseduffield/lazygit
 brew tap gcenx/wine
-brew install zoxide fzf eza sk ripgrep mpv chafa yt-dlp neovim starship git cmake node pyenv fastfetch zsh-completions winetricks chezmoi jesseduffield/lazygit/lazygit
+brew install zoxide fzf eza sk ripgrep fd mpv chafa yt-dlp neovim starship git cmake node pyenv fastfetch zsh-completions winetricks chezmoi jesseduffield/lazygit/lazygit
 brew install --cask wezterm-nightly firefox amethyst textmate vlc mac-mouse-fix font-fira-code font-fira-code-nerd-font font-mononoki font-mononoki-nerd-font qbittorrent raycast stats dozer gcenx/wine/wine-crossover
 cargo install --git https://github.com/SyedFasiuddin/theme-toggle-nvim
 chmod go-w "$HOMEBREW_PREFIX/share"
@@ -30,10 +30,20 @@ echo "Almost done! Please wait for chezmoi to finish. Restart the terminal (or u
 {{else if eq .chezmoi.os "linux" -}}
 {{  if eq .chezmoi.osRelease.id "opensuse-tumbleweed" -}}
 #!/bin/sh
-# TODO: put setup script here
-echo "TODO: put required programs and stuff for config here"
+echo "This script must be watched"
+read -e -p "Press y to continue. Anything else will quit this script. THIS SCRIPT WILL NOT RUN AGAIN IF YOU CHOOSE NO. " choice
+[[ "$choice" == [Yy]* ]] && echo "Continuing..." || exit 0
+# Install rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source ~/.profile
+# Install programs
+sudo zypper in zsh # So we get prompted for zsh-completions
+sudo zypper in zoxide fzf eza ripgrep fd mpv chafa yt-dlp neovim starship git cmake make nodejs-default pyenv fastfetch wine lazygit wezterm MozillaFirefox kate fira-code-fonts vlc qbittorrent
+cargo install skim fd-find
+# And that should be it!
+echo "Almost done! Please wait for chezmoi to finish. Restart the terminal (or use WezTerm) to apply the configuration. :)"
 {{  else -}}
 #!/bin/sh
-echo "This distro is not currently supported"
+echo "This OS is not currently supported"
 {{  end }}
 {{ end }}
