@@ -1,8 +1,3 @@
-# Setup zsh-completions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -11,8 +6,11 @@ export ZSH="${HOME}/.oh-my-zsh"
 
 # Which plugins would you like to load?
 # Add wisely, as too many plugins slow down shell startup.
+{{ if eq .chezmoi.os "darwin" -}}
 plugins=(zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting aliases git rust zoxide python pyenv macos sudo fzf)
-
+{{ else if eq .chezmoi.os "linux" -}}
+plugins=(zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting aliases git rust zoxide python pyenv sudo fzf)
+{{ end -}}
 # Disable auto updates, chezmoi handles this (?)
 zstyle ':omz:update' mode disabled
 
@@ -44,6 +42,10 @@ alias yt-1080="yt-dlp -f 'bestvideo[height<=1080][ext=mp4]+bestaudio/best[height
 # OS-specific configuration
 {{ if eq .chezmoi.os "darwin" -}}
 # MACOS
+# Setup zsh-completions for homebrew
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
 
 {{  if eq .chezmoi.arch "arm64" -}}
 # ARM ONLY
@@ -67,8 +69,8 @@ export MACKUP_LOCATION="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Macku
 # MACOS END
 {{ end }}
 
-# Set default editor to lvim instead of vim
-export EDITOR=lvim
+# Set default editor to nvim instead of vim
+export EDITOR=nvim
 
 # Set XDG base directories
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -84,4 +86,3 @@ eval "$(starship init zsh)"
 
 # Pretty screen when opening terminal 
 fastfetch
-
