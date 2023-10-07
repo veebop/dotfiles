@@ -28,6 +28,7 @@ function M.setup()
   }
   lspconfig.pyright.setup {}
   -- Rust is configured via rust-tools
+  lspconfig.sourcekit.setup {}
   lspconfig.tsserver.setup {}
   lspconfig.yamlls.setup {}
   lspconfig.zls.setup {}
