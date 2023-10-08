@@ -109,6 +109,7 @@ config.keys = {
   { key = 'm',     mods = 'SUPER|SHIFT',      action = act.RotatePanes 'CounterClockwise' },
   ----- OTHER KEYBINDINGS -----
   { key = 'p',     mods = 'SUPER|SHIFT',      action = act.ActivateCommandPalette, },
+  { key = 'u',     mods = 'SUPER|SHIFT',      action = act.CharSelect },
   { key = ' ',     mods = 'SUPER|SHIFT',      action = act.QuickSelect, },
   { key = 'f',     mods = 'SUPER|SHIFT',      action = act.ActivateCopyMode, },
   { key = 'u',     mods = 'SUPER',            action = act.EmitEvent 'toggle-opacity', },
