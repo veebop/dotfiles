@@ -20,7 +20,8 @@ require("which-key").register({
     [';'] = { "<cmd>Alpha<CR>", "Alpha" },
     ['/'] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
     c = { "<cmd>bd<CR>", "Close Buffer" },
-    f = { "<cmd>Telescope git_files<CR>", "Search project files" },
+    f = { "<cmd>Telescope find_files<CR>", "Find files" },
+    p = { "<cmd>Telescope git_files<CR>", "Search project files" },
     h = { "<cmd>nohlsearch<CR>", "No Highlight" },
     e = { "<cmd>NvimTreeToggle<CR>", "File Explorer" },
     z = { "<cmd>ZenMode<CR>", "Zen Mode" },
@@ -100,10 +101,7 @@ require("which-key").register({
       k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
       C = { "<cmd>Telescope commands<cr>", "Commands" },
       l = { "<cmd>Telescope resume<cr>", "Resume last search" },
-      p = {
-        "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
-        "Colorscheme with Preview",
-      },
+      p = { "<cmd>Telescope git_files<cr>", "Search project files", },
       T = { "<cmd>Telescope<cr>", "Telescope" }
     },
     n = {
@@ -121,7 +119,7 @@ require("which-key").register({
       c = { "<cmd>RustOpenCargo<Cr>", "Open Cargo" },
       p = { "<cmd>RustParentModule<Cr>", "Parent Module" },
       d = { "<cmd>RustDebuggables<Cr>", "Debuggables" },
-      v = { "<cmd>RustViewCrateGraph<Cr>", "View Crate Graph" },
+      v = { "<cmd>RustViewCrateGraph<Cr>", "View Create Graph" },
       R = {
         "<cmd>lua require('rust-tools/workspace_refresh')._reload_workspace_from_cargo_toml()<Cr>",
         "Reload Workspace",
