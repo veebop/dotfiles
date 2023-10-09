@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
           a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", "Add workspace folder" },
           r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove workspace folder" },
           l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List workspace folders" },
-          s = { "<cmd>Telescope lsp_dynamic_workspace_symbols()<cr>", "Workspace Symbols", },
+          s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols", },
         },
         f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
         h = { "<cmd>lua vim.lsp.buf.signature_help()", "Show signature help" },
