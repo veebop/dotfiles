@@ -12,6 +12,58 @@ vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
 vim.keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", { noremap = true, silent = true })
 vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", { noremap = true, silent = true })
 
+-- LSP Keymappings
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  end,
+  require("which-key").register({
+    K = { "Hover Info" },
+    g = {
+      d = { "Go to definition" },
+      D = { "Go to declaration" },
+      i = { "List implementations" },
+      r = { "List references" },
+    },
+    ["<leader>"] = {
+      l = {
+        name = "LSP",
+        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+        d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
+        w = {
+          name = "Workspace",
+          d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
+          a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", "Add workspace folder" },
+          r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove workspace folder" },
+          l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List workspace folders" },
+          s = { "<cmd>Telescope lsp_dynamic_workspace_symbols()<cr>", "Workspace Symbols", },
+        },
+        f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
+        h = { "<cmd>lua vim.lsp.buf.signature_help()", "Show signature help" },
+        i = { "<cmd>LspInfo<cr>", "Info" },
+        I = { "<cmd>NullLsInfo<cr>", "Null-LS info" },
+        j = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic", },
+        k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic", },
+        l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+        q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
+        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+        s = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature help" },
+        S = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+        t = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Go to type definition" },
+        e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
+      },
+    }
+  })
+})
+
 -- (Basically) How fast which_key opens
 vim.o.timeoutlen = 500
 
@@ -69,23 +121,6 @@ require("which-key").register({
       c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
       C = { "<cmd>Telescope git_bcommits<cr>", "Checkout commit(for current file)", },
       d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Git Diff", },
-    },
-    l = {
-      name = "LSP",
-      a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-      d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
-      w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-      f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
-      i = { "<cmd>LspInfo<cr>", "Info" },
-      I = { "<cmd>Mason<cr>", "Mason Info" },
-      j = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic", },
-      k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic", },
-      l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-      q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-      r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-      s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-      S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols", },
-      e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
     },
     s = {
       name = "Search",
