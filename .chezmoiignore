@@ -7,3 +7,8 @@ README.md
 .oh-my-zsh/cache/grep-alias
 
 .config/lvim/lazy-lock.json
+
+{{- if ne .chezmoi.os "darwin" -}}
+# MacOS only configurations
+.config/karabiner/
+{{- end -}}
