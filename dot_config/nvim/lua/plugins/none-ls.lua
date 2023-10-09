@@ -6,6 +6,7 @@ function M.setup()
   nls.setup({
     sources = {
       nls.builtins.formatting.rustfmt,
+      nls.builtins.formatting.swift_format,
       nls.builtins.formatting.zigfmt,
     }
   })
