@@ -26,9 +26,11 @@ disabled = false
 [time]
 disabled = true
 
-
 [aws]
-symbol = "󰸏  "
+symbol = "󰸏 "
+
+[azure]
+symbol = "󰠅 "
 
 [buf]
 symbol = " "
@@ -36,8 +38,14 @@ symbol = " "
 [c]
 symbol = " "
 
+[cmake]
+symbol = "󰔷 "
+
 [conda]
-symbol = " "
+symbol = "󱔎 "
+
+[crystal]
+symbol = " "
 
 [dart]
 symbol = " "
@@ -48,11 +56,17 @@ read_only = " 󰌾"
 [docker_context]
 symbol = " "
 
+[dotnet]
+symbol = "󰪮 "
+
 [elixir]
-symbol = " "
+symbol = " "
 
 [elm]
 symbol = " "
+
+[erlang]
+symbol = " "
 
 [fossil_branch]
 symbol = " "
@@ -65,6 +79,9 @@ symbol = " "
 
 [guix_shell]
 symbol = " "
+
+[gradle]
+symbol = " "
 
 [haskell]
 symbol = " "
@@ -83,6 +100,12 @@ symbol = " "
 
 [julia]
 symbol = " "
+
+[kotlin]
+symbol = "󱈙 "
+
+[kubernetes]
+symbol = "󱃾 "
 
 [lua]
 symbol = " "
@@ -141,19 +164,31 @@ Solus = " "
 SUSE = " "
 Ubuntu = " "
 Unknown = " "
-Windows = "󰍲 "
+Windows = "󰨡 "
 
 [package]
 symbol = "󰏗 "
 
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
 [pijul_channel]
 symbol = "󱗆 "
+
+[purescript]
+symbol = " "
 
 [python]
 symbol = " "
 
 [rlang]
 symbol = "󰟔 "
+
+[raku]
+symbol = " "
 
 [ruby]
 symbol = " "
@@ -169,3 +204,12 @@ symbol = "🅢 "
 
 [swift]
 symbol = " "
+
+[terraform]
+symbol = "󱁢 "
+
+[vlang]
+symbol = " "
+
+[zig]
+symbol = " "
