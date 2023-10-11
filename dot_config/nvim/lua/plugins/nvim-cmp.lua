@@ -56,10 +56,12 @@ function M.setup()
     }),
 
     sources = cmp.config.sources({
-      { name = 'nvim_lsp', priority = 1000 },
-      { name = 'luasnip',  priority = 750 }, -- For luasnip users.
-      { name = 'buffer',   priority = 500 },
-      { name = 'buffer',   priority = 250 },
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' }, -- For luasnip users.
+      { name = 'crates' },
+    }, {
+      { name = 'buffer' },
+      { name = 'path' },
     })
   })
 
