@@ -56,12 +56,11 @@ function M.setup()
     }),
 
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'luasnip' }, -- For luasnip users.
-      { name = 'crates' },
-    }, {
-      { name = 'buffer' },
-      { name = 'path' },
+      { name = 'nvim_lsp', priority = 1000 },
+      { name = 'luasnip',  priority = 750 }, -- For luasnip users.
+      { name = 'crates',   priority = 650 },
+      { name = 'buffer',   priority = 500 },
+      { name = 'path',     priority = 250 },
     })
   })
 
@@ -77,9 +76,8 @@ function M.setup()
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
+      { name = 'path',    priority = 1000 },
+      { name = 'cmdline', priority = 500 },
     })
   })
 end
