@@ -115,6 +115,10 @@ require("lazy").setup({
     lazy = true,
   },
   {
+    "nvim-telescope/telescope-dap.nvim",
+    lazy = true,
+  },
+  {
     "jay-babu/mason-nvim-dap.nvim",
     dependencies = { "mason.nvim" },
     opts = {
@@ -189,6 +193,7 @@ require("lazy").setup({
       require('telescope').load_extension('fzf')
     end,
     event = "VeryLazy",
+    lazy = true,
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
