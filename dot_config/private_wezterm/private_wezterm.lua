@@ -91,6 +91,7 @@ config.keys = {
   -- Create and destroy panes
   { key = 'v',     mods = 'SUPER|SHIFT',      action = act.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
   { key = 'c',     mods = 'SUPER|SHIFT',      action = act.SplitVertical { domain = 'CurrentPaneDomain' }, },
+  { key = 'a',     mods = 'SUPER|SHIFT',      action = act.SplitPane { direction = 'Down', size = { Cells = 20 }, }, },
   { key = 'x',     mods = 'SUPER|SHIFT',      action = act.CloseCurrentPane { confirm = true }, },
   -- Move between panes
   { key = 'h',     mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Left', },
