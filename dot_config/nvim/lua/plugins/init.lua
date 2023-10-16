@@ -128,17 +128,6 @@ require("lazy").setup({
     cmd = { "DapInstall", "DapUninstall" },
     lazy = true,
   },
-  -- Formatting/Linting -- CURRENTLY UNUSED IN FAVOR OF NONE-LS
-  -- {
-  --   "mhartington/formatter.nvim",
-  --   config = require("plugins.formatter").setup,
-  --   cmd = { "Format", "FormatWrite"}
-  -- },
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   config = require("plugins.nvim-lint").setup,
-  --   event = { "BufRead" },
-  -- },
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
