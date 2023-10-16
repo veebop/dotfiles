@@ -22,9 +22,9 @@ local function get_appearance()
 end
 local function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'kanagawa high contrast'
+    return 'kanagawa higher contrast'
   else
-    return 'kanagawa high contrast'
+    return 'kanagawa higher contrast'
   end
 end
 config.color_scheme = scheme_for_appearance(get_appearance())
