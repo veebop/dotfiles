@@ -154,7 +154,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
           s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols", },
         },
         f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
-        h = { "<cmd>lua vim.lsp.buf.signature_help()", "Show signature help" },
+        h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Show signature help" },
         i = { "<cmd>LspInfo<cr>", "Info" },
         I = { "<cmd>NullLsInfo<cr>", "Null-LS info" },
         j = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic", },
