@@ -1,11 +1,18 @@
-" Enables numbered lines by default
+" Enables hybrid line numbers
 set nu
+set rnu
+
+" Enable ruler
+set ruler
 
 " Enables less annoying backspacing
 set backspace=indent,eol,start
 
 " Enables syntax highlighting by default
 syntax on
+
+" Enable filetype plugin
+filetype plugin on
 
 " Enables filetype-specific settings
 filetype plugin indent on
