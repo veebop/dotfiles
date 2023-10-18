@@ -3,9 +3,7 @@
 README.md
 **/README.md
 
-.oh-my-zsh/cache/.zsh-update
-.oh-my-zsh/cache/completions
-.oh-my-zsh/cache/grep-alias
+.oh-my-zsh/cache/
 
 .config/lvim/lazy-lock.json
 
