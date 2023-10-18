@@ -1,6 +1,7 @@
 **/.DS_Store
 
 README.md
+**/README.md
 
 .oh-my-zsh/cache/.zsh-update
 .oh-my-zsh/cache/completions
