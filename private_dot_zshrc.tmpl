@@ -19,6 +19,12 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 source $ZSH/oh-my-zsh.sh
 
+# zsh-autocomplete fuzzy completion
+zstyle ':completion:*' completer _expand _complete _complete:-loose _complete:-fuzzy _ignored
+zstyle ':autocomplete:*' min-input 1
+# zsh-autocomplete tab through completions
+bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+
 # ----- ALIASES -----
 # Aliases for eza
 alias ls="eza --icons"
