@@ -12,7 +12,10 @@ If you already have the required programs installed, then you can skip this proc
 The script will not ask to run again, no matter what you answer.
 
 ### OpenSUSE Tumbleweed
-The installation script is currently unimplemented.
+This script is not thoroughly tested, but I haven't run into many errors using it.
+The installation script will ask if you want to continue with the automatic installation.
+If you already have the required programs installed, then you can skip this process.
+The script will not ask to run again, no matter what you answer.
 
 ### Manual Installation/Anything else
 - Automatic installation is not supported, although the config should copy over and work,
