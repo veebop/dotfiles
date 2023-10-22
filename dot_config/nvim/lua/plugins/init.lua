@@ -231,7 +231,18 @@ require("lazy").setup({
   -- Aesthetics
   {
     "rebelot/kanagawa.nvim",
-    opts = { transparent = true },
+    opts = {
+      transparent = true,
+      overrides = function(colors)
+        local illuminateColor = "#46465b"
+        return {
+          -- Vim-illuminate integration
+          IlluminatedWordRead = { bg = illuminateColor, underline = false },
+          IlluminatedWordText = { bg = illuminateColor, underline = false },
+          IlluminatedWordWrite = { bg = illuminateColor, underline = false },
+        }
+      end
+    },
   },
   {
     "goolord/alpha-nvim",
@@ -258,6 +269,20 @@ require("lazy").setup({
   },
   {
     "RRethy/vim-illuminate",
+    config = function()
+      require('illuminate').configure({
+        filetypes_denylist = {
+          'dirbuf',
+          'dirvish',
+          'fugitive',
+          'alpha',
+          'NvimTree',
+          'lazy',
+          'NvimTree',
+          'TelescopePrompt',
+        },
+      })
+    end,
     event = { "BufRead", "BufNewFile" },
   },
   {
