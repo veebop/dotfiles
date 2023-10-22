@@ -1,7 +1,7 @@
 {{if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 echo "This script must be watched"
-read -e -p "Press y to continue. Anything else will quit this script. THIS SCRIPT WILL NOT RUN AGAIN IF YOU CHOOSE NO. " choice
+read -e -p "Enter y to continue. Anything else will quit this script. THIS SCRIPT WILL NOT RUN AGAIN IF YOU CHOOSE NO. " choice
 [[ "$choice" == [Yy]* ]] && echo "Continuing..." || exit 0
 # Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -26,12 +26,12 @@ chmod -R go-w "$HOMEBREW_PREFIX/share/zsh"
 # Install LunarVim
 LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
 # And we're done?
-echo "Almost done! Please wait for chezmoi to finish. Restart the terminal (or use WezTerm) to apply the configuration. :)"
+echo "Almost done! Please wait for chezmoi to finish. Restart your terminal (or use WezTerm) to apply the configuration. :)"
 {{else if eq .chezmoi.os "linux" -}}
 {{  if eq .chezmoi.osRelease.id "opensuse-tumbleweed" -}}
 #!/bin/sh
 echo "This script must be watched"
-read -e -p "Press y to continue. Anything else will quit this script. THIS SCRIPT WILL NOT RUN AGAIN IF YOU CHOOSE NO. " choice
+read -e -p "Enter y to continue. Anything else will quit this script. THIS SCRIPT WILL NOT RUN AGAIN IF YOU CHOOSE NO. " choice
 [[ "$choice" == [Yy]* ]] && echo "Continuing..." || exit 0
 # Install rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -41,9 +41,11 @@ sudo zypper in zsh # So we get prompted for zsh-completions
 sudo zypper in zoxide fzf eza ripgrep fd mpv chafa yt-dlp neovim starship git cmake make nodejs-default pyenv fastfetch wine lazygit wezterm MozillaFirefox kate fira-code-fonts vlc qbittorrent tree-sitter
 cargo install skim fd-find
 # And that should be it!
-echo "Almost done! Please wait for chezmoi to finish. Restart the terminal (or use WezTerm) to apply the configuration. :)"
+echo "Almost done! Please wait for chezmoi to finish. Restart your terminal (or use WezTerm) to apply the configuration. :)"
 {{  else -}}
 #!/bin/sh
-echo "This OS is not currently supported"
+echo "This OS doesn't currently support automatic installation."
+echo "Oh My ZSH and OMZ plugins will still be installed."
+echo "Please wait for chezmoi to finish, and then restart your terminal to apply the configuration. :)"
 {{  end }}
 {{ end }}
