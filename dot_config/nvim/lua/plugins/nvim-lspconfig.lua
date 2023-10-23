@@ -28,7 +28,10 @@ function M.setup()
   }
   lspconfig.pyright.setup {}
   -- Rust is configured via rust-tools
-  lspconfig.sourcekit.setup {}
+  lspconfig.sourcekit.setup {
+    -- I don't want sourcekit to do lsp for c/cpp files
+    filetypes = { "swift", "objective-c", "objective-cpp" },
+  }
   lspconfig.tsserver.setup {}
   lspconfig.yamlls.setup {}
   lspconfig.zls.setup {}
