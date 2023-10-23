@@ -90,6 +90,9 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # Add ~/.local/bin to PATH
 export PATH=$HOME/.local/bin:$PATH
 
+# Cmake export compile commands by default
+export CMAKE_EXPORT_COMPILE_COMMANDS=1
+
 # Setup for starship - like spaceship, but more involved
 eval "$(starship init zsh)"
 
