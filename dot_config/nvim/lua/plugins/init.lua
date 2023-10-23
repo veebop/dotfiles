@@ -257,7 +257,12 @@ require("lazy").setup({
   },
   {
     "SmiteshP/nvim-navic",
-    opts = { lsp = { auto_attach = true } },
+    opts = {
+      lsp = {
+        auto_attach = true,
+        preference = { "clangd", "sourcekit" },
+      }
+    },
     event = { "BufReadPre", "BufNewFile" },
   },
   {
