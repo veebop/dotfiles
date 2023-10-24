@@ -74,6 +74,10 @@ require("lazy").setup({
     cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
   },
   {
+    "weilbith/nvim-code-action-menu",
+    cmd = "CodeActionMenu",
+  },
+  {
     "j-hui/fidget.nvim",
     branch = "legacy",
     opts = {},
