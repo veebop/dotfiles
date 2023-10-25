@@ -55,8 +55,7 @@ require("lazy").setup({
       "none-ls.nvim",
     },
     opts = {
-      ensure_installed = { "alex", "proselint", "codespell", "clang-format" },
-      handlers = {},
+      ensure_installed = { "alex", "proselint", "codespell", "clang-format", "write-good" },
     },
     cmd = { "NullLsInstall", "NullLsUninstall" },
     event = { "BufReadPre", "BufNewFile" },
