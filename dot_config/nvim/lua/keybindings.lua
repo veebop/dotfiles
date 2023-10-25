@@ -187,6 +187,18 @@ function M.norg_keybindings(bufnr)
       m = { "Mode" },
       n = { "Notes" },
       t = { "Tasks" },
+      d = {
+        name = "Toggle linters/diagnostics",
+        d = {
+          "<cmd>lua require('null-ls').toggle('alex');\z
+            require('null-ls').toggle('proselint');\z
+            require('null-ls').toggle('write_good')<cr>",
+          "Toggle all"
+        },
+        a = { "<cmd>lua require('null-ls').toggle('alex')<cr>", "Toggle Alex" },
+        p = { "<cmd>lua require('null-ls').toggle('proselint')<cr>", "Toggle proselint" },
+        w = { "<cmd>lua require('null-ls').toggle('write_good')<cr>", "Toggle write-good" },
+      }
     }
   }, { buffer = bufnr, mode = "n" })
 end
