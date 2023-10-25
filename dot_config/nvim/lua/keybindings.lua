@@ -103,7 +103,6 @@ require("which-key").register({
 -- Set up LSP Keybindings
 function M.lsp_keybindings(bufnr)
   require("which-key").register({
-    a = { "<cmd>CodeActionMenu", "Code Actions" },
     g = {
       d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to definition" },
       D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to declaration" },
@@ -112,6 +111,7 @@ function M.lsp_keybindings(bufnr)
     },
     K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Info" },
     ["<leader>"] = {
+      a = { "<cmd>CodeActionMenu<cr>", "Code Actions" },
       l = {
         name = "LSP",
         a = { "<cmd>CodeActionMenu<cr>", "Code Action" },
@@ -175,6 +175,19 @@ function M.crate_keybindings(bufnr)
       f = { "<cmd>lua require'crates'.show_features_popup()<cr>", "Show features" },
       d = { "<cmd>lua require'crates'.show_dependencies_popup()<cr>", "Show dependencies" },
     },
+  }, { buffer = bufnr, mode = "n" })
+end
+
+-- Norg keybinds
+function M.norg_keybindings(bufnr)
+  require("which-key").register({
+    ["<localleader>"] = {
+      i = { "Insert" },
+      l = { "List" },
+      m = { "Mode" },
+      n = { "Notes" },
+      t = { "Tasks" },
+    }
   }, { buffer = bufnr, mode = "n" })
 end
 
