@@ -68,7 +68,7 @@ function M.setup()
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-      { name = 'buffer' }
+      { name = 'buffer', priority = 1000 }
     }
   })
 
