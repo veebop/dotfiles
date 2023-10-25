@@ -330,8 +330,8 @@ require("lazy").setup({
   -- Rust
   {
     "simrat39/rust-tools.nvim",
-    config = require("plugins.rust-tools").setup,
-    event = { "BufRead *.rs" },
+    opts = {},
+    ft = { "rust" },
   },
   {
     "saecki/crates.nvim",

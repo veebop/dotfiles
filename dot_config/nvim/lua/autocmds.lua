@@ -28,3 +28,35 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
   end,
 })
+
+----- BUFFER SPECIFIC KEYBINDINGS -----
+local kb = require("keybindings")
+
+-- Lsp keybindings
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("LspBinds", {}),
+  desc = "Keybinds for LSP",
+  callback = function(args)
+    kb.lsp_keybindings(args.buf)
+  end,
+})
+
+-- Rust keybindings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "rust" },
+  group = vim.api.nvim_create_augroup("RustBinds", {}),
+  desc = "Keybindings for rust files",
+  callback = function(args)
+    kb.rust_keybindings(args.buf)
+  end,
+})
+
+-- Cargo.toml keybindings
+vim.api.nvim_create_autocmd("BufRead", {
+  pattern = { "Cargo.toml" },
+  group = vim.api.nvim_create_augroup("CrateBinds", {}),
+  desc = "Keybindings for Cargo.toml",
+  callback = function(args)
+    kb.crate_keybindings(args.buf)
+  end,
+})
