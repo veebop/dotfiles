@@ -59,23 +59,17 @@ function M.setup()
     },
   }
 
-  local nvim_tree = {
-    winbar = {
-      lualine_a = { "string.format('File Explorer')" }
-    },
-    filetypes = { 'NvimTree' },
-  }
   require('lualine').setup({
     options = {
       disabled_filetypes = {
         'alpha',
+        'NvimTree',
         -- These are handled by extensions
         winbar = {
           'mason',
           'lazy',
         },
         statusline = {
-          'NvimTree',
           'dap-repl',
           'dapui_console',
           'dapui_watches',
@@ -146,7 +140,7 @@ function M.setup()
       lualine_z = {},
     },
 
-    extensions = { 'lazy', 'mason', nvim_tree, nvim_dap_ui, nvim_dap_ui_repl }
+    extensions = { 'lazy', 'mason', nvim_dap_ui, nvim_dap_ui_repl }
   })
 end
 
