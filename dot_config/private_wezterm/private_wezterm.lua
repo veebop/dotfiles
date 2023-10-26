@@ -42,6 +42,8 @@ config.font = wez.font_with_fallback {
   },
   'Apple Color Emoji' }
 config.font_size = 11
+config.underline_position = "250%"
+config.underline_thickness = "500%"
 
 ----- TAB BAR -----
 config.use_fancy_tab_bar = false
