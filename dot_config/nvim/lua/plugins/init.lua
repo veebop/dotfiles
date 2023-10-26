@@ -272,6 +272,11 @@ require("lazy").setup({
     "akinsho/bufferline.nvim",
     branch = "main",
     dependencies = "nvim-tree/nvim-web-devicons",
+    config = require("plugins.bufferline").setup,
+    event = { "BufRead", "BufNewFile" },
+  },
+  {
+    "tiagovla/scope.nvim",
     opts = {},
     event = { "BufRead", "BufNewFile" },
   },
