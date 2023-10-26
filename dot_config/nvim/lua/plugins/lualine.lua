@@ -98,7 +98,7 @@ function M.setup()
           'filename',
           file_status = true,
           newfile_status = true,
-          path = 1,
+          path = 3,
         }
       },
       lualine_x = {
