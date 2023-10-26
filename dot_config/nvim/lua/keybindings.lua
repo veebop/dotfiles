@@ -36,6 +36,7 @@ require("which-key").register({
       j = { "<cmd>BufferLinePick<cr>", "Jump" },
       l = { "<cmd>BufferLineCloseRight<cr>", "Close all to the right", },
       n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
+      p = { "<cmd>BufferLineTogglePin<cr>", "Toggle Pin" },
       D = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by directory", },
       L = { "<cmd>BufferLineSortByExtension<cr>", "Sort by language", },
     },
