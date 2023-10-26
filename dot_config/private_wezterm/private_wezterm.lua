@@ -42,7 +42,7 @@ config.font = wez.font_with_fallback {
   },
   'Apple Color Emoji' }
 config.font_size = 11
-config.underline_position = "250%"
+config.underline_position = "300%"
 config.underline_thickness = "500%"
 
 ----- TAB BAR -----
@@ -55,6 +55,7 @@ config.inactive_pane_hsb = {
 }
 
 ----- WINDOW -----
+---@diagnostic disable-next-line: unused-local
 wez.on('toggle-opacity', function(window, pane)
   local overrides = window:get_config_overrides() or {}
   if not overrides.window_background_opacity then
@@ -136,7 +137,9 @@ wez.on('update-right-status', function(window, pane)
       -- Running on a newer version of wezterm and we have
       -- a URL object here, making this simple!
 
+      ---@diagnostic disable-next-line: undefined-field
       cwd = cwd_uri.file_path
+      ---@diagnostic disable-next-line: undefined-field
       hostname = wezterm.hostname() or cwd_uri.host
     else
       -- an older version of wezterm, 20230712-072601-f4abf8fd or earlier,
@@ -186,8 +189,7 @@ wez.on('update-right-status', function(window, pane)
   local num_cells = 0
 
   -- Translate a cell into elements
-  function push(text, is_last)
-    local cell_no = num_cells + 1
+  local function push(text, is_last)
     table.insert(elements, { Foreground = { Color = text_fg } })
     table.insert(elements, { Background = { Color = text_bg } })
     table.insert(elements, { Text = ' ' .. text .. ' ' })
