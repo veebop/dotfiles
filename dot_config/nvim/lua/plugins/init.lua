@@ -335,7 +335,10 @@ require("lazy").setup({
   {
     "saecki/crates.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = { src = { cmp = { enabled = true, }, }, },
+    opts = {
+      src = { cmp = { enabled = true, }, },
+      null_ls = { enabled = true, name = "Crates" },
+    },
     event = { "BufRead Cargo.toml" },
   },
 })
