@@ -87,6 +87,11 @@ require("which-key").register({
       n = { "<cmd> Neorg workspace notes<cr>", "Open notes" },
       t = { "<cmd>Neorg journal today<cr>", "Today's journal" },
     },
+    r = {
+      name = "Run Code Snippet",
+      r = { "<cmd>SnipRun<cr>", "Run Snippet" },
+      i = { "<cmd>SnipInfo", "SnipRun Info" },
+    },
     s = {
       name = "Search",
       b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -103,6 +108,12 @@ require("which-key").register({
       M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
       R = { "<cmd>Telescope registers<cr>", "Registers" },
       T = { "<cmd>Telescope<cr>", "Telescope" },
+    },
+    L = {
+      name = "LaTeX",
+      L = { "<cmd>lua require('nabla').popup()<cr>", "Preview Popup" },
+      e = { "<cmd>lua require('nabla').enable_virt()<cr>", "Enable for buffer" },
+      d = { "<cmd>lua require('nabla').disable_virt()<cr>", "Disable for buffer" },
     },
   }
 })
@@ -190,11 +201,13 @@ end
 function M.norg_keybindings(bufnr)
   require("which-key").register({
     ["<localleader>"] = {
-      i = { "Insert" },
-      l = { "List" },
-      m = { "Mode" },
-      n = { "Notes" },
-      t = { "Tasks" },
+      i = { "+Insert" },
+      l = { "+List" },
+      m = { "+Mode" },
+      n = { "+Notes" },
+      t = { "+Tasks" },
+      r = { "<cmd>Neorg exec cursor<cr>", "Run code block" },
+      R = { "<cmd>Neorg exec current-file<cr>", "Run all code blocks" },
       d = {
         name = "Toggle linters/diagnostics",
         d = {

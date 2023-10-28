@@ -146,6 +146,7 @@ require("lazy").setup({
       "TSInstallFromGrammar",
     },
     event = { "BufReadPre", "BufNewFile" },
+    lazy = true,
   },
   -- Editing
   {
@@ -236,7 +237,7 @@ require("lazy").setup({
     "rebelot/kanagawa.nvim",
     opts = {
       transparent = true,
-      overrides = function(colors)
+      overrides = function()
         local illuminateColor = "#46465b"
         return {
           -- Vim-illuminate integration
@@ -322,15 +323,37 @@ require("lazy").setup({
     },
     cmd = "ZenMode"
   },
+  ----- NOTE TAKING
   -- Neorg
   {
     "nvim-neorg/neorg",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim", "laher/neorg-exec" },
     build = ":Neorg sync-parsers",
     config = require("plugins.neorg").setup,
     ft = "norg",
     cmd = "Neorg",
   },
+  -- Run code snippets inside notes!
+  {
+    "michaelb/sniprun",
+    branch = "master",
+    build = "sh install.sh",
+    opts = {},
+    cmd = {
+      "SnipRun",
+      "SnipInfo",
+      "SnipReset",
+      "SnipReplMemoryClean",
+      "SnipClose",
+      "SnipLive"
+    },
+  },
+  -- Simple LaTeX rendering in the terminal
+  {
+    "jbyuki/nabla.nvim",
+    lazy = true
+  },
+  ----- LANGUAGE SPECIFIC -----
   -- Rust
   {
     "simrat39/rust-tools.nvim",

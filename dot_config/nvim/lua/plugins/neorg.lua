@@ -19,6 +19,7 @@ function M.setup()
         },
       },
       ["core.summary"] = {},
+      ["external.exec"] = {},
     },
   }
 end
