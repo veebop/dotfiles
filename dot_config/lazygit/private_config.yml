@@ -1,9 +1,7 @@
 gui:
   nerdFontsVersion: "3"
 os:
-  edit: 'lvim -- {{filename}}'
-  editAtLine: 'lvim +{{line}} -- {{filename}}'
-  editAtLineAndWait: 'lvim +{{line}} -- {{filename}}'
+  editPreset: "nvim-remote"
 git:
   paging:
     colorArg: always
