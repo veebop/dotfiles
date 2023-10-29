@@ -1,5 +1,7 @@
 gui:
   nerdFontsVersion: "3"
+  authorColors:
+    'Eve Jensen': '#6d3dde'
 os:
   editPreset: "nvim-remote"
 git:
