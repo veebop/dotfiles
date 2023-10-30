@@ -23,8 +23,8 @@ brew install --cask wezterm firefox amethyst textmate vlc mac-mouse-fix font-fir
 cargo install --git https://github.com/SyedFasiuddin/theme-toggle-nvim
 chmod go-w "$HOMEBREW_PREFIX/share"
 chmod -R go-w "$HOMEBREW_PREFIX/share/zsh"
-# Install LunarVim
-LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+# Install antidote (zsh plugin manager)
+git clone --depth=1 https://github.com/mattmc3/antidote.git $HOME/.antidote
 # And we're done?
 echo "Almost done! Please wait for chezmoi to finish. Restart your terminal (or use WezTerm) to apply the configuration. :)"
 {{else if eq .chezmoi.os "linux" -}}
@@ -40,6 +40,8 @@ source ~/.profile
 sudo zypper in zsh # So we get prompted for zsh-completions
 sudo zypper in zoxide fzf eza ripgrep fd mpv chafa yt-dlp neovim starship git cmake make nodejs-default pyenv fastfetch wine lazygit wezterm MozillaFirefox kate fira-code-fonts vlc qbittorrent tree-sitter
 cargo install skim fd-find
+# Install antidote (zsh plugin manager)
+git clone --depth=1 https://github.com/mattmc3/antidote.git $HOME/.antidote
 # And that should be it!
 echo "Almost done! Please wait for chezmoi to finish. Restart your terminal (or use WezTerm) to apply the configuration. :)"
 {{  else -}}

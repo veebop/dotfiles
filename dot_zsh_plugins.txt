@@ -1,0 +1,37 @@
+# Additional completion definitions for Zsh.
+zsh-users/zsh-completions
+
+# Helpful zsh utilities
+belak/zsh-utils path:editor
+belak/zsh-utils path:history
+belak/zsh-utils path:prompt
+belak/zsh-utils path:utility
+
+# Go up directories easier
+peterhurford/up.zsh
+
+# Set the terminal tab title according to current directory or running process
+trystan2k/zsh-tab-title
+
+# Git aliases
+$HOME/.zsh_custom/plugins/git
+
+# 🤖 Real-time type-ahead completion for Zsh. Asynchronous find-as-you-type autocompletion.
+marlonrichert/zsh-autocomplete
+
+# Compinit plugins should be near the end .zsh_plugins.txt so that $fpath has been
+# fully populated.
+belak/zsh-utils path:completion
+
+# Replace zsh's default completion selection menu with fzf! 
+Aloxaf/fzf-tab
+
+# Feature-rich syntax highlighting for ZSH
+zdharma-continuum/fast-syntax-highlighting kind:defer
+
+## These popular core plugins should be loaded at the end
+# Fish-like autosuggestions for zsh
+zsh-users/zsh-autosuggestions kind:defer
+
+# 🐠 ZSH port of Fish history search (up arrow)
+zsh-users/zsh-history-substring-search kind:defer
