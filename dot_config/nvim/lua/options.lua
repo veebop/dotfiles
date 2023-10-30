@@ -37,6 +37,7 @@ vim.opt.sidescrolloff = 8         -- minimal number of screen lines to keep left
 vim.opt.laststatus = 0            -- Will be enabled by lualine
 vim.opt.showcmd = false
 vim.opt.ruler = false
+vim.opt.colorcolumn = { 80, 100 }
 -- Code folding via treesitter
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
