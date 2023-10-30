@@ -112,8 +112,9 @@ require("which-key").register({
     L = {
       name = "LaTeX",
       L = { "<cmd>lua require('nabla').popup()<cr>", "Preview Popup" },
-      e = { "<cmd>lua require('nabla').enable_virt()<cr>", "Enable for buffer" },
       d = { "<cmd>lua require('nabla').disable_virt()<cr>", "Disable for buffer" },
+      e = { "<cmd>lua require('nabla').enable_virt()<cr>", "Enable for buffer" },
+      l = { "<cmd>lua require('nabla').toggle_virt()<cr>", "Disable for buffer" },
     },
   }
 })
