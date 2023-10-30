@@ -156,7 +156,7 @@ function M.lsp_keybindings(bufnr)
           s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols", },
         },
         I = { "<cmd>NullLsInfo<cr>", "Null-LS info" },
-        K = { "<cmd>lua vim.diagnostics.open_float()<cr>", "Show diagnostics float" },
+        K = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Show diagnostics float" },
         S = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature help" },
       },
     },
