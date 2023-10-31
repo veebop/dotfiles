@@ -356,9 +356,9 @@ require("lazy").setup({
   ----- LANGUAGE SPECIFIC -----
   -- Rust
   {
-    "simrat39/rust-tools.nvim",
-    opts = {},
-    ft = { "rust" },
+    'mrcjkb/rustaceanvim',
+    version = '^3',
+    ft = { 'rust' },
   },
   {
     "saecki/crates.nvim",
