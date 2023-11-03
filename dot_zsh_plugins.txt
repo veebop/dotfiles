@@ -1,10 +1,9 @@
 # Additional completion definitions for Zsh.
 zsh-users/zsh-completions
 
-# Helpful zsh utilities
-belak/zsh-utils path:editor
+# Nice history defaults
 belak/zsh-utils path:history
-belak/zsh-utils path:prompt
+# Small QOL utilities
 belak/zsh-utils path:utility
 
 # Go up directories easier
@@ -19,11 +18,10 @@ $HOME/.zsh_custom/plugins/git
 # 🤖 Real-time type-ahead completion for Zsh. Asynchronous find-as-you-type autocompletion.
 marlonrichert/zsh-autocomplete
 
-# Compinit plugins should be near the end .zsh_plugins.txt so that $fpath has been
-# fully populated.
+# Compinit plugins should be near the end .zsh_plugins.txt so that $fpath has been fully populated.
 belak/zsh-utils path:completion
 
-# Replace zsh's default completion selection menu with fzf! 
+# Replace zsh's default completion selection menu with fzf!
 Aloxaf/fzf-tab
 
 # Feature-rich syntax highlighting for ZSH

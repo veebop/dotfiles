@@ -1,6 +1,13 @@
-##### ANTIGEN #####
+##### ANTIDOTE #####
+# These should be set before plugins are loaded
 # Add ~/.zsh_custom/completions to fpath
 export FPATH=$HOME/.zsh_custom/completions:$FPATH
+# Set XDG base directories
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+# Load antidote
 source $HOME/.antidote/antidote.zsh
 antidote load
 
@@ -85,15 +92,6 @@ export MACKUP_LOCATION="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Macku
 ##### EXPORTS #####
 # Set default editor to nvim instead of vim
 export EDITOR=nvim
-
-# Set XDG base directories
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-
-# Set history file
-export HISTFILE="$HOME/.zsh_history"
 
 # Add ~/.local/bin to PATH
 export PATH=$HOME/.local/bin:$PATH
