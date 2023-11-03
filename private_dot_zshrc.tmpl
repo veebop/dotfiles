@@ -30,8 +30,11 @@ zstyle ':autocomplete:*' min-input 1
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
+{{ if eq .chezmoi.os "darwin" -}}
+# This is only automatically installed via brew on MacOS
 # Wezterm shell integration
 source "/Applications/WezTerm.app/Contents/Resources/wezterm.sh"
+{{ end }}
 
 # iTerm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
