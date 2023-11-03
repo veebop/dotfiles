@@ -27,8 +27,8 @@ eval "$(pyenv init -)"
 zstyle ':completion:*' completer _expand _complete _complete:-loose _complete:-fuzzy _ignored
 zstyle ':autocomplete:*' min-input 1
 # zsh-autocomplete tab through completions
-# bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
-
+bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 # Wezterm shell integration
 source "/Applications/WezTerm.app/Contents/Resources/wezterm.sh"
