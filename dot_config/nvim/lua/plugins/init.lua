@@ -232,6 +232,13 @@ require("lazy").setup({
     opts = {},
     event = { "FileReadPre", "BufReadPre", "BufRead" },
   },
+  {
+    "Exafunction/codeium.vim",
+    config = function()
+      vim.keymap.set('i', '<M-tab>', function() return vim.fn['codeium#Accept']() end, { expr = true })
+    end,
+    event = "BufEnter",
+  },
   -- Aesthetics
   {
     "rebelot/kanagawa.nvim",
