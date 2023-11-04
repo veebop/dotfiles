@@ -35,6 +35,8 @@ vim.opt.wrap = false              -- display lines as one long line
 vim.opt.scrolloff = 8             -- minimal number of screen lines to keep above and below the cursor.
 vim.opt.sidescrolloff = 8         -- minimal number of screen lines to keep left and right of the cursor.
 vim.opt.laststatus = 0            -- Will be enabled by lualine
+vim.opt.list = true               -- Show whitespace characters
+vim.opt.listchars = { tab = '󰌒 ', trail = '', eol = '󰌑' }
 vim.opt.showcmd = false
 vim.opt.ruler = false
 
