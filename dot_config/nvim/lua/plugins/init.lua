@@ -233,10 +233,12 @@ require("lazy").setup({
     event = { "FileReadPre", "BufReadPre", "BufRead" },
   },
   {
-    "Exafunction/codeium.vim",
-    config = function()
-      vim.keymap.set('i', '<M-tab>', function() return vim.fn['codeium#Accept']() end, { expr = true })
-    end,
+    "Exafunction/codeium.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    opts = {},
     event = "BufEnter",
   },
   -- Aesthetics
