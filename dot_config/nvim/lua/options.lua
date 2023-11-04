@@ -37,7 +37,14 @@ vim.opt.sidescrolloff = 8         -- minimal number of screen lines to keep left
 vim.opt.laststatus = 0            -- Will be enabled by lualine
 vim.opt.showcmd = false
 vim.opt.ruler = false
-vim.opt.colorcolumn = { 80, 100 }
+
+-- I want to have a 'soft' cutoff at line 80, and a 'hard' cutoff at line 120
+local ccs = { 81 }
+for i = 121, 320 do
+  table.insert(ccs, i)
+end
+vim.opt.colorcolumn = ccs
+
 -- Code folding via treesitter
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
