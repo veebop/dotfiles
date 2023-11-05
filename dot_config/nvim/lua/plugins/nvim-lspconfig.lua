@@ -13,7 +13,12 @@ function M.setup()
 
   -- Language Servers
   lspconfig.bashls.setup {}
-  lspconfig.clangd.setup {}
+  -- Temp (?) fix for the 'multiple offset-encodings' warning for clangd
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.offsetEncoding = 'utf-16'
+  lspconfig.clangd.setup {
+    capabilities = capabilities,
+  }
   lspconfig.cmake.setup {}
   lspconfig.jdtls.setup {}
   lspconfig.jsonls.setup {}

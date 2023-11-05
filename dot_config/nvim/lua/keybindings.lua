@@ -197,6 +197,15 @@ function M.crate_keybindings(bufnr)
   }, { buffer = bufnr, mode = "n" })
 end
 
+-- C/C++ keybindings
+function M.clangd_keybindings(bufnr)
+  require("which-key").register({
+    ["<localleader>"] = {
+      s = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch to source/header" },
+    },
+  }, { buffer = bufnr, mode = "n" })
+end
+
 -- Norg keybinds
 function M.norg_keybindings(bufnr)
   require("which-key").register({

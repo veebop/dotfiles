@@ -94,6 +94,16 @@ vim.api.nvim_create_autocmd("BufRead", {
   end,
 })
 
+-- Clangd (C + C++) keybindings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "cpp" },
+  group = vim.api.nvim_create_augroup("ClangdBinds", {}),
+  desc = "Keybindings for C/C++",
+  callback = function(args)
+    kb.clangd_keybindings(args.buf)
+  end,
+})
+
 -- Norg keybindings
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "norg" },
