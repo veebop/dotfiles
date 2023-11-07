@@ -239,7 +239,7 @@ require("lazy").setup({
       "hrsh7th/nvim-cmp",
     },
     opts = {},
-    event = "BufEnter",
+    event = "BufReadPre",
   },
   -- Aesthetics
   {
@@ -256,6 +256,8 @@ require("lazy").setup({
         }
       end
     },
+    priority = 1000,
+    lazy = false,
   },
   {
     "goolord/alpha-nvim",
