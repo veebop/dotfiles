@@ -1,4 +1,5 @@
 local M = {}
+local wk = require("which-key")
 
 -- Make navigating between splits more ergonomic
 vim.keymap.set('n', '<C-h>', '<C-w>h')
@@ -23,11 +24,8 @@ vim.keymap.set("x", "<A-k>", ":move '<-2<cr>gv-gv", { noremap = true, silent = t
 vim.keymap.set("v", "<leader>p", "\"_dP", { silent = true })
 vim.keymap.set("v", "<leader>d", "\"_d", { silent = true })
 
-
 -- (Basically) How fast which_key opens
-vim.o.timeoutlen = 500
-
-local wk = require("which-key")
+vim.o.timeoutlen = 750
 
 ----- KEYBINDINGS -----
 wk.register({
@@ -40,8 +38,11 @@ wk.register({
     j = { "<cmd>bnext<cr>", "Next Buffer" },
     k = { "<cmd>bprev<cr>", "Previous Buffer" },
     p = { "<cmd>Telescope git_files<cr>", "Search project files" },
-    w = { "<cmd>set eventignore+=BufWritePre | w | set eventignore-=BufWritePre<cr>", "Write without formatting" },
+    w = { "<cmd>write<cr>", "Write" },
+    q = { "<cmd>quitall<cr>", "Quit all" },
     z = { "<cmd>ZenMode<cr>", "Zen Mode" },
+    Q = { "<cmd>quitall!<cr>", "Quit all without saving" },
+    W = { "<cmd>set eventignore+=BufWritePre | w | set eventignore-=BufWritePre<cr>", "Write without formatting" },
     b = {
       name = "Buffers",
       b = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
@@ -103,8 +104,7 @@ wk.register({
     },
     s = {
       name = "Search",
-      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-      c = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current buffer" },
+      b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current buffer" },
       f = { "<cmd>Telescope find_files<cr>", "Find File" },
       g = { "<cmd>Telescope live_grep<cr>", "Text" },
       h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
@@ -112,11 +112,12 @@ wk.register({
       l = { "<cmd>Telescope resume<cr>", "Resume last search" },
       p = { "<cmd>Telescope git_files<cr>", "Search project files", },
       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+      t = { "<cmd>Telescope<cr>", "Telescope" },
       C = { "<cmd>Telescope commands<cr>", "Commands" },
       H = { "<cmd>Telescope highlights<cr>", "Find highlight groups" },
       M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+      P = { "<cmd>Telescope projects<cr>", "Projects" },
       R = { "<cmd>Telescope registers<cr>", "Registers" },
-      T = { "<cmd>Telescope<cr>", "Telescope" },
     },
     L = {
       name = "LaTeX",
