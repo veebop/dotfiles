@@ -19,10 +19,18 @@ vim.keymap.set("v", "<A-k>", ":m .-2<cr>==", { noremap = true, silent = true })
 vim.keymap.set("x", "<A-j>", ":move '>+1<cr>gv-gv", { noremap = true, silent = true })
 vim.keymap.set("x", "<A-k>", ":move '<-2<cr>gv-gv", { noremap = true, silent = true })
 
+-- Put and delete without saving text
+vim.keymap.set("v", "<leader>p", "\"_dP", { silent = true })
+vim.keymap.set("v", "<leader>d", "\"_d", { silent = true })
+
+
 -- (Basically) How fast which_key opens
 vim.o.timeoutlen = 500
 
-require("which-key").register({
+local wk = require("which-key")
+
+----- KEYBINDINGS -----
+wk.register({
   ["<leader>"] = {
     [';'] = { "<cmd>Alpha<cr>", "Alpha" },
     c = { "<cmd>bd<cr>", "Close Buffer" },
@@ -78,6 +86,7 @@ require("which-key").register({
       s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
       u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk", },
       C = { "<cmd>Telescope git_bcommits<cr>", "Checkout commit(for current file)", },
+      L = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle line blame", },
       R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
     },
     n = {
@@ -97,12 +106,12 @@ require("which-key").register({
       b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
       c = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current buffer" },
       f = { "<cmd>Telescope find_files<cr>", "Find File" },
+      g = { "<cmd>Telescope live_grep<cr>", "Text" },
       h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
       k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
       l = { "<cmd>Telescope resume<cr>", "Resume last search" },
       p = { "<cmd>Telescope git_files<cr>", "Search project files", },
       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-      t = { "<cmd>Telescope live_grep<cr>", "Text" },
       C = { "<cmd>Telescope commands<cr>", "Commands" },
       H = { "<cmd>Telescope highlights<cr>", "Find highlight groups" },
       M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -119,10 +128,18 @@ require("which-key").register({
   }
 })
 
+----- VISUAL MODE BINDINGS ------
+wk.register({
+  ["<leader>"] = {
+    d = { "Delete without yanking" },
+    p = { "Paste over without yanking" },
+  },
+}, { mode = "v" })
+
 ----- BUFFER SPECIFIC BINDINGS -----
 -- Set up LSP Keybindings
 function M.lsp_keybindings(bufnr)
-  require("which-key").register({
+  wk.register({
     g = {
       d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to definition" },
       D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to declaration" },
@@ -165,7 +182,7 @@ end
 
 -- Set up rust specific keybindings
 function M.rust_keybindings(bufnr)
-  require("which-key").register({
+  wk.register({
     K = { "<cmd>lua require('rust-tools').hover_actions.hover_actions", "Rust Hover" },
     ["<localleader>"] = {
       name = "Rust",
@@ -186,7 +203,7 @@ end
 
 -- Cargo.toml keybindings
 function M.crate_keybindings(bufnr)
-  require("which-key").register({
+  wk.register({
     ["<localleader>"] = {
       r = { "<cmd>lua require'crates'.open_repository()<cr>", "Open repository" },
       p = { "<cmd>lua require'crates'.show_popup()<cr>", "Show popup" },
@@ -199,7 +216,7 @@ end
 
 -- C/C++ keybindings
 function M.clangd_keybindings(bufnr)
-  require("which-key").register({
+  wk.register({
     ["<localleader>"] = {
       s = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch to source/header" },
     },
@@ -208,7 +225,7 @@ end
 
 -- Norg keybinds
 function M.norg_keybindings(bufnr)
-  require("which-key").register({
+  wk.register({
     ["<localleader>"] = {
       i = { "+Insert" },
       l = { "+List" },
