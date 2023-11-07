@@ -23,7 +23,7 @@ vim.opt.title = true              -- set the title of window to the value of the
 vim.opt.undodir = os.getenv("HOME") .. "/.cache/nvim/undo"
 vim.opt.undofile = true           -- enable persistent undo
 vim.opt.updatetime = 100          -- faster completion
-vim.opt.writebackup = false       -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+vim.opt.writebackup = false       -- if a file is being edited by another program it is not allowed to be edited
 vim.opt.expandtab = true          -- convert tabs to spaces
 vim.opt.shiftwidth = 2            -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 2               -- insert 2 spaces for a tab
@@ -41,11 +41,7 @@ vim.opt.showcmd = false
 vim.opt.ruler = false
 
 -- I want to have a 'soft' cutoff at line 80, and a 'hard' cutoff at line 120
-local ccs = { 81 }
-for i = 121, 320 do
-  table.insert(ccs, i)
-end
-vim.opt.colorcolumn = ccs
+vim.opt.colorcolumn = { 80, 120, 121 }
 
 -- Code folding via treesitter
 vim.opt.foldmethod = "expr"
