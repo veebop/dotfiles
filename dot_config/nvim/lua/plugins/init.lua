@@ -105,6 +105,15 @@ require("lazy").setup({
     end,
     event = "InsertEnter",
   },
+  {
+    "Exafunction/codeium.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    opts = {},
+    event = "BufReadPre",
+  },
   -- Debugging
   {
     "mfussenegger/nvim-dap",
@@ -201,18 +210,18 @@ require("lazy").setup({
     event = "VeryLazy",
   },
   {
-    "nvim-tree/nvim-tree.lua",
-    config = require("plugins.nvim-tree").setup,
-    cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle" },
-    event = "User DirOpened",
-  },
-  {
     "lewis6991/gitsigns.nvim",
     opts = {
       current_line_blame = true,
     },
     event = { "BufRead", "BufNewFile" },
     cmd = "Gitsigns",
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = require("plugins.nvim-tree").setup,
+    cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle" },
+    event = "User DirOpened",
   },
   {
     "ahmedkhalf/project.nvim",
@@ -231,15 +240,6 @@ require("lazy").setup({
     "LunarVim/bigfile.nvim",
     opts = {},
     event = { "FileReadPre", "BufReadPre", "BufRead" },
-  },
-  {
-    "Exafunction/codeium.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    opts = {},
-    event = "BufReadPre",
   },
   -- Aesthetics
   {
