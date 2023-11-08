@@ -26,7 +26,7 @@ function M.setup()
     settings = {
       Lua = {
         workspace = {
-          checkThirdParty = false,
+          checkThirdParty = "Disable",
         }
       }
     }
