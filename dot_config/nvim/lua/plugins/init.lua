@@ -243,26 +243,42 @@ require("lazy").setup({
   },
   -- Aesthetics
   {
-    "rebelot/kanagawa.nvim",
+    'ribru17/bamboo.nvim',
+    lazy = false,
+    priority = 1000,
     opts = {
       transparent = true,
-      overrides = function()
-        local illuminateColor = "#46465b"
-        return {
-          -- Vim-illuminate integration
-          IlluminatedWordRead = { bg = illuminateColor, underline = false },
-          IlluminatedWordText = { bg = illuminateColor, underline = false },
-          IlluminatedWordWrite = { bg = illuminateColor, underline = false },
-        }
-      end
+    },
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    opts = {
+      transparent = true,
     },
     priority = 1000,
     lazy = false,
   },
   {
+    "f-person/auto-dark-mode.nvim",
+    dependencies = { "bamboo.nvim", "nightfox.nvim" },
+    config = {
+      update_interval = 1000,
+      set_dark_mode = function()
+        vim.api.nvim_set_option("background", "dark")
+        vim.cmd('colorscheme bamboo')
+      end,
+      set_light_mode = function()
+        vim.api.nvim_set_option("background", "light")
+        vim.cmd('colorscheme dayfox')
+      end,
+    },
+    lazy = false,
+  },
+  {
     "goolord/alpha-nvim",
+    dependencies = { "auto-dark-mode.nvim" },
     config = require('plugins.alpha-nvim').setup,
-    event = "VimEnter",
+    lazy = false,
   },
   {
     "nvim-lualine/lualine.nvim",

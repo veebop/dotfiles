@@ -22,9 +22,9 @@ local function get_appearance()
 end
 local function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'kanagawa higher contrast'
+    return 'Bamboo'
   else
-    return 'kanagawa higher contrast'
+    return 'dayfox'
   end
 end
 config.color_scheme = scheme_for_appearance(get_appearance())
@@ -181,7 +181,7 @@ wez.on('update-right-status', function(window, pane)
   local text_bg = current_scheme.tab_bar.active_tab.bg_color
 
   -- Foreground color
-  local text_fg = current_scheme.foreground
+  local text_fg = current_scheme.tab_bar.active_tab.fg_color or current_scheme.foreground
 
   -- The elements to be formatted
   local elements = {}
