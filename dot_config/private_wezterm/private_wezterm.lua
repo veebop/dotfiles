@@ -22,7 +22,7 @@ local function get_appearance()
 end
 local function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'Bamboo'
+    return 'Bamboo V'
   else
     return 'dayfox'
   end
