@@ -52,6 +52,7 @@ vim.opt.foldlevel = 99
 
 -- Spellchecking
 vim.opt.spelllang = "en_us"
+vim.opt.spell = true
 
 -- Change diagnostic symbols
 local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
