@@ -8,3 +8,7 @@
 ehthumbs.db
 Thumbs.db
 
+# Clangd LSP files
+.cache/
+compile_commands.json
+
