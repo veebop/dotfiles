@@ -67,6 +67,9 @@ alias hiroi="kikuri --speed 5"
 alias yt-vid="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'" # Best quality video available
 alias yt-aud="yt-dlp -x -f 'bestaudio[ext=m4a]' --embed-thumbnail" # Downloads audio only, in m4a, and embeds the video thumbnail as cover art
 alias yt-1080="yt-dlp -f 'bestvideo[height<=1080][ext=mp4]+bestaudio/best[height<=1080][ext=m4a]'"
+# alias to recursively remove .DS_Store files
+alias rmdsstore="find . -name ".DS_Store" -delete"
+
 
 ##### OS-SPECIFIC CONFIGURATION #####
 {{ if eq .chezmoi.os "darwin" -}}
