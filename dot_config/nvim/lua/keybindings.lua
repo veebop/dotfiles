@@ -24,6 +24,9 @@ vim.keymap.set("x", "<A-k>", ":move '<-2<cr>gv-gv", { noremap = true, silent = t
 vim.keymap.set("v", "<leader>p", "\"_dP", { silent = true })
 vim.keymap.set("v", "<leader>d", "\"_d", { silent = true })
 
+-- Auto indent the whole file
+vim.keymap.set("n", "<leader>=", "gg=G<C-o>", { noremap = true, silent = true })
+
 -- (Basically) How fast which_key opens
 vim.o.timeoutlen = 750
 
@@ -31,6 +34,7 @@ vim.o.timeoutlen = 750
 wk.register({
   ["<leader>"] = {
     [';'] = { "<cmd>Alpha<cr>", "Alpha" },
+    ['='] = { "Auto indent file" },
     c = { "<cmd>bd<cr>", "Close Buffer" },
     e = { "<cmd>NvimTreeToggle<cr>", "File Explorer" },
     f = { "<cmd>Telescope find_files<cr>", "Find files" },
@@ -239,8 +243,8 @@ function M.norg_keybindings(bufnr)
         name = "Toggle linters/diagnostics",
         d = {
           "<cmd>lua require('null-ls').toggle('alex');\z
-            require('null-ls').toggle('proselint');\z
-            require('null-ls').toggle('write_good')<cr>",
+          require('null-ls').toggle('proselint');\z
+          require('null-ls').toggle('write_good')<cr>",
           "Toggle all"
         },
         a = { "<cmd>lua require('null-ls').toggle('alex')<cr>", "Toggle Alex" },
