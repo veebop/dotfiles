@@ -211,9 +211,7 @@ require("lazy").setup({
   },
   {
     "lewis6991/gitsigns.nvim",
-    opts = {
-      current_line_blame = true,
-    },
+    opts = {},
     event = { "BufRead", "BufNewFile" },
     cmd = "Gitsigns",
   },
