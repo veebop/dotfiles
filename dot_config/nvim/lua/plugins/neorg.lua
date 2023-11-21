@@ -13,7 +13,7 @@ function M.setup()
       ["core.dirman"] = { -- Manages Neorg workspaces
         config = {
           workspaces = {
-            notes = "~/Documents/Neorg/notes",
+            notes = "~/Documents/Norg/notes",
           },
           default_workspace = "notes",
         },
