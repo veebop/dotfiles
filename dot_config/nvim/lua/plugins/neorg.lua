@@ -18,6 +18,7 @@ function M.setup()
           default_workspace = "notes",
         },
       },
+      ["core.export"] = {},
       ["core.summary"] = {},
       ["external.exec"] = {},
     },
