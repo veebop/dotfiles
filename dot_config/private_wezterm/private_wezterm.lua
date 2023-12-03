@@ -118,6 +118,8 @@ config.keys = {
   { key = 'f',     mods = 'SUPER|SHIFT',      action = act.ActivateCopyMode, },
   { key = 'u',     mods = 'SUPER',            action = act.EmitEvent 'toggle-opacity', },
   { key = 'Enter', mods = 'SUPER',            action = act.ToggleFullScreen, },
+  ------ UNBIND KEYS -----
+  { key = 'Enter', mods = 'META',             action = act.DisableDefaultAssignment, },
 }
 
 ----- RIGHT STATUS BAR -----
