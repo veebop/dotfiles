@@ -128,7 +128,7 @@ wk.register({
       L = { "<cmd>lua require('nabla').popup()<cr>", "Preview Popup" },
       d = { "<cmd>lua require('nabla').disable_virt()<cr>", "Disable for buffer" },
       e = { "<cmd>lua require('nabla').enable_virt()<cr>", "Enable for buffer" },
-      l = { "<cmd>lua require('nabla').toggle_virt()<cr>", "Disable for buffer" },
+      l = { "<cmd>lua require('nabla').toggle_virt()<cr>", "Toggle for buffer" },
     },
   }
 })
@@ -237,7 +237,9 @@ function M.norg_keybindings(bufnr)
       m = { "+Mode" },
       n = { "+Notes" },
       t = { "+Tasks" },
+      c = { "<cmd>Neorg toggle-concealer<cr>", "Toggle concealer" },
       r = { "<cmd>Neorg exec cursor<cr>", "Run code block" },
+      I = { "<cmd>Neorg inject-metadata<cr>", "Inject metadata" },
       R = { "<cmd>Neorg exec current-file<cr>", "Run all code blocks" },
       d = {
         name = "Toggle linters/diagnostics",
