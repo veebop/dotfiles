@@ -1,3 +1,5 @@
 github.com:
     user: VeeBop
     git_protocol: https
+    users:
+        VeeBop:
