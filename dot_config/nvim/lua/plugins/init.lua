@@ -363,14 +363,26 @@ require("lazy").setup({
     "michaelb/sniprun",
     branch = "master",
     build = "sh install.sh",
-    opts = {},
+    opts = {
+      display = { "Terminal" },
+      display_options = {
+        terminal_scrollback = vim.o.scrollback,
+        terminal_line_number = false,
+        terminal_signcolumn = false,
+        terminal_position = "vertical",
+        terminal_width = 45,
+        terminal_height = 20,
+      },
+    },
+    event = { "VeryLazy" },
+    -- TODO: The "cmd" lazy load triggers are currently unused. Need to change <Plug>SnipRunOperator to lazy load.
     cmd = {
       "SnipRun",
       "SnipInfo",
       "SnipReset",
       "SnipReplMemoryClean",
       "SnipClose",
-      "SnipLive"
+      "SnipLive",
     },
   },
   -- Simple LaTeX rendering in the terminal

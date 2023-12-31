@@ -103,8 +103,11 @@ wk.register({
     },
     r = {
       name = "Run Code Snippet",
-      r = { "<cmd>SnipRun<cr>", "Run Snippet" },
-      i = { "<cmd>SnipInfo", "SnipRun Info" },
+      c = { "<cmd>SnipClose<cr>", "Close SnipRun output" },
+      i = { "<cmd>SnipInfo<cr>", "SnipRun info" },
+      l = { "<cmd>SnipRun<cr>", "Run current line" },
+      r = { "<plug>SnipRunOperator", "Run snippet" },
+      R = { "<cmd>SnipReset<cr>", "Reset SnipRun" },
     },
     s = {
       name = "Search",
@@ -138,8 +141,11 @@ wk.register({
   ["<leader>"] = {
     d = { "Delete without yanking" },
     p = { "Paste over without yanking" },
+    r = { "Run selected code" },
   },
 }, { mode = "v" })
+-- Doesn't work directly with which-key, in any way I can figure out
+vim.keymap.set("v", "<leader>r", ":'<,'>SnipRun<cr>", { noremap = true, silent = true })
 
 ----- BUFFER SPECIFIC BINDINGS -----
 -- Set up LSP Keybindings
