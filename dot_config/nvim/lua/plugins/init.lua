@@ -37,6 +37,7 @@ require("lazy").setup({
         "jsonls",
         "jdtls",
         "lua_ls",
+        "marksman",
         "pyright",
         "rust_analyzer",
         "tsserver",

@@ -31,6 +31,7 @@ function M.setup()
       }
     }
   }
+  lspconfig.marksman.setup {}
   lspconfig.pyright.setup {}
   -- Rust is configured via rust-tools
   lspconfig.sourcekit.setup {
