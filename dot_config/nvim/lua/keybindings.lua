@@ -94,6 +94,13 @@ wk.register({
       L = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle line blame", },
       R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset buffer" },
     },
+    m = {
+      name = "Markdown",
+      c = { "<cmd>Telekasten show_calendar<cr>", "Show calendar" },
+      f = { "<cmd>Telekasten find_notes<cr>", "Find notes" },
+      n = { "<cmd>Telekasten new_note<cr>", "New note" },
+      p = { "<cmd>Telekasten panel<cr>", "Open telekasten panel" },
+    },
     n = {
       name = "Neorg",
       i = { "<cmd>Neorg index<cr>", "Open index" },
@@ -117,6 +124,7 @@ wk.register({
       h = { "<cmd>Telescope help_tags<cr>", "Help" },
       k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
       l = { "<cmd>Telescope resume<cr>", "Resume last search" },
+      m = { "<cmd>Telescope media_files<cr>", "Media files" },
       p = { "<cmd>Telescope git_files<cr>", "Project files", },
       r = { "<cmd>Telescope oldfiles<cr>", "Recent files" },
       t = { "<cmd>Telescope<cr>", "Telescope" },
@@ -247,6 +255,33 @@ function M.norg_keybindings(bufnr)
       r = { "<cmd>Neorg exec cursor<cr>", "Run code block" },
       I = { "<cmd>Neorg inject-metadata<cr>", "Inject metadata" },
       R = { "<cmd>Neorg exec current-file<cr>", "Run all code blocks" },
+    }
+  }, { buffer = bufnr, mode = "n" })
+end
+
+-- Markdown keybinds
+function M.markdown_keybindings(bufnr)
+  wk.register({
+    ["<localleader>"] = {
+      p = { "<cmd>Telekasten panel<cr>", "Open telekasten panel" },
+      t = {
+        name = "Telekasten",
+        f = { "<cmd>Telekasten find_notes<cr>", "Find notes" },
+        t = { "<cmd>Telekasten show_tags<cr>", "Show tags" },
+        s = { "<cmd>Telekasten search_notes<cr>", "Search notes" },
+        l = { "<cmd>Telekasten insert_link<cr>", "Insert link" },
+        K = { "<cmd>Telekasten follow_link<cr>", "Follow link" },
+        n = { "<cmd>Telekasten new_note<cr>", "New note" },
+        y = { "<cmd>Telekasten yank_notelink<cr>", "Yank noteline" },
+        c = { "<cmd>Telekasten show_calendar<cr>", "Show calendar" },
+        i = { "<cmd>Telekasten paste_img_and_link<cr>", "Paste image and link" },
+        T = { "<cmd>Telekasten toggle_todo<cr>", "Toggle todo" },
+        b = { "<cmd>Telekasten show_backlinks<cr>", "Show backlinks" },
+        p = { "<cmd>Telekasten preview_img<cr>", "Preview image" },
+        m = { "<cmd>Telekasten browse_media<cr>", "Browse media" },
+        r = { "<cmd>Telekasten rename_note<cr>", "Rename note" },
+        v = { "<cmd>Telekasten switch_vault<cr>", "Switch vault" },
+      },
     }
   }, { buffer = bufnr, mode = "n" })
 end

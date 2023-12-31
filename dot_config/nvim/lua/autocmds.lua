@@ -122,6 +122,7 @@ vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("MarkdownBinds", {}),
   desc = "Keybind hints for markdown files",
   callback = function(args)
+    kb.markdown_keybindings(args.buf)
     kb.prose_keybindings(args.buf, true)
   end,
 })

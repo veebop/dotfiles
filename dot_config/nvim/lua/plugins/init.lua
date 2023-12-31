@@ -194,6 +194,7 @@ require("lazy").setup({
     config = function()
       require('telescope').setup {}
       require('telescope').load_extension('fzf')
+      require('telescope').load_extension('media_files')
     end,
     event = "VeryLazy",
     lazy = true,
@@ -202,6 +203,11 @@ require("lazy").setup({
     "nvim-telescope/telescope-fzf-native.nvim",
     build =
     "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    lazy = true,
+  },
+  {
+    "nvim-telescope/telescope-media-files.nvim",
+    dependencies = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim', },
     lazy = true,
   },
   {
@@ -359,6 +365,14 @@ require("lazy").setup({
     ft = "norg",
     cmd = "Neorg",
   },
+  -- Markdown zettelkasten
+  {
+    'renerocksai/telekasten.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+    opts = { home = vim.fn.expand("~/Documents/Markdown/Notes") },
+    ft = "markdown",
+    cmd = "Telekasten",
+  },
   -- Run code snippets inside notes!
   {
     "michaelb/sniprun",
@@ -385,6 +399,13 @@ require("lazy").setup({
       "SnipClose",
       "SnipLive",
     },
+  },
+  -- Preview markdown
+  {
+    "iamcco/markdown-preview.nvim",
+    build = function() vim.fn["mkdp#util#install"]() end,
+    ft = { "markdown" },
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
   },
   -- Simple LaTeX rendering in the terminal
   {
