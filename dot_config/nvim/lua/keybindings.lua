@@ -199,23 +199,11 @@ function M.lsp_keybindings(bufnr)
   }, { buffer = bufnr, mode = "n" })
 end
 
--- Set up rust specific keybindings
-function M.rust_keybindings(bufnr)
+-- C/C++ keybindings
+function M.clangd_keybindings(bufnr)
   wk.register({
-    K = { "<cmd>lua require('rust-tools').hover_actions.hover_actions", "Rust Hover" },
     ["<localleader>"] = {
-      name = "Rust",
-      a = { "<cmd>RustLsp hover action<cr>", "Code action group" },
-      c = { "<cmd>RustLsp openCargo<cr>", "Open cargo.toml" },
-      f = { "<cmd>RustLsp flyCheck<cr>", "Fly check/clippy" },
-      h = { "<cmd>RustLsp hover range<cr>", "Code action group" },
-      j = { "<cmd>RustLsp moveItem down<cr>", "Move item up" },
-      k = { "<cmd>RustLsp moveItem up<cr>", "Move item down" },
-      m = { "<cmd>RustLsp expandMacro<cr>", "Expand macro" },
-      p = { "<cmd>RustLsp parentModule<cr>", "Parent module" },
-      r = { "<cmd>RustLsp runnables<cr>", "Runnables" },
-      s = { "<cmd>RustLsp syntaxTree<cr>", "View syntax tree" },
-      v = { "<cmd>RustLsp crateGraph<cr>", "Create graph" },
+      s = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch to source/header" },
     },
   }, { buffer = bufnr, mode = "n" })
 end
@@ -233,29 +221,24 @@ function M.crate_keybindings(bufnr)
   }, { buffer = bufnr, mode = "n" })
 end
 
--- C/C++ keybindings
-function M.clangd_keybindings(bufnr)
+-- Rust keybindings
+function M.rust_keybindings(bufnr)
   wk.register({
+    K = { "<cmd>lua require('rust-tools').hover_actions.hover_actions", "Rust Hover" },
     ["<localleader>"] = {
-      s = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch to source/header" },
+      name = "Rust",
+      a = { "<cmd>RustLsp hover action<cr>", "Code action group" },
+      c = { "<cmd>RustLsp openCargo<cr>", "Open cargo.toml" },
+      f = { "<cmd>RustLsp flyCheck<cr>", "Fly check/clippy" },
+      h = { "<cmd>RustLsp hover range<cr>", "Code action group" },
+      j = { "<cmd>RustLsp moveItem down<cr>", "Move item up" },
+      k = { "<cmd>RustLsp moveItem up<cr>", "Move item down" },
+      m = { "<cmd>RustLsp expandMacro<cr>", "Expand macro" },
+      p = { "<cmd>RustLsp parentModule<cr>", "Parent module" },
+      r = { "<cmd>RustLsp runnables<cr>", "Runnables" },
+      s = { "<cmd>RustLsp syntaxTree<cr>", "View syntax tree" },
+      v = { "<cmd>RustLsp crateGraph<cr>", "Create graph" },
     },
-  }, { buffer = bufnr, mode = "n" })
-end
-
--- Norg keybinds
-function M.norg_keybindings(bufnr)
-  wk.register({
-    ["<localleader>"] = {
-      i = { "+Insert" },
-      l = { "+List" },
-      m = { "+Mode" },
-      n = { "+Notes" },
-      t = { "+Tasks" },
-      c = { "<cmd>Neorg toggle-concealer<cr>", "Toggle concealer" },
-      r = { "<cmd>Neorg exec cursor<cr>", "Run code block" },
-      I = { "<cmd>Neorg inject-metadata<cr>", "Inject metadata" },
-      R = { "<cmd>Neorg exec current-file<cr>", "Run all code blocks" },
-    }
   }, { buffer = bufnr, mode = "n" })
 end
 
@@ -282,6 +265,23 @@ function M.markdown_keybindings(bufnr)
         r = { "<cmd>Telekasten rename_note<cr>", "Rename note" },
         v = { "<cmd>Telekasten switch_vault<cr>", "Switch vault" },
       },
+    }
+  }, { buffer = bufnr, mode = "n" })
+end
+
+-- Norg keybinds
+function M.norg_keybindings(bufnr)
+  wk.register({
+    ["<localleader>"] = {
+      i = { "+Insert" },
+      l = { "+List" },
+      m = { "+Mode" },
+      n = { "+Notes" },
+      t = { "+Tasks" },
+      c = { "<cmd>Neorg toggle-concealer<cr>", "Toggle concealer" },
+      r = { "<cmd>Neorg exec cursor<cr>", "Run code block" },
+      I = { "<cmd>Neorg inject-metadata<cr>", "Inject metadata" },
+      R = { "<cmd>Neorg exec current-file<cr>", "Run all code blocks" },
     }
   }, { buffer = bufnr, mode = "n" })
 end
