@@ -247,20 +247,35 @@ function M.norg_keybindings(bufnr)
       r = { "<cmd>Neorg exec cursor<cr>", "Run code block" },
       I = { "<cmd>Neorg inject-metadata<cr>", "Inject metadata" },
       R = { "<cmd>Neorg exec current-file<cr>", "Run all code blocks" },
+    }
+  }, { buffer = bufnr, mode = "n" })
+end
+
+-- Enable/disable prose checkers
+function M.prose_keybindings(bufnr, disable_by_default)
+  wk.register({
+    ["<localleader>"] = {
       d = {
-        name = "Toggle linters/diagnostics",
+        name = "Toggle prose checking",
         d = {
           "<cmd>lua require('null-ls').toggle('alex');\z
           require('null-ls').toggle('proselint');\z
           require('null-ls').toggle('write_good')<cr>",
           "Toggle all"
         },
-        a = { "<cmd>lua require('null-ls').toggle('alex')<cr>", "Toggle Alex" },
+        a = { "<cmd>lua require('null-ls').toggle('alex')<cr>", "Toggle alex" },
         p = { "<cmd>lua require('null-ls').toggle('proselint')<cr>", "Toggle proselint" },
         w = { "<cmd>lua require('null-ls').toggle('write_good')<cr>", "Toggle write-good" },
       }
     }
   }, { buffer = bufnr, mode = "n" })
+
+  disable_by_default = disable_by_default or false
+  if disable_by_default then
+    require('null-ls').disable('alex');
+    require('null-ls').disable('proselint');
+    require('null-ls').disable('write_good')
+  end
 end
 
 return M

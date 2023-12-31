@@ -63,6 +63,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
 })
 
 ----- BUFFER SPECIFIC KEYBINDINGS -----
+-- TODO: Move most of these to ftplugin files instead.
 local kb = require("keybindings")
 
 -- Lsp keybindings
@@ -111,5 +112,16 @@ vim.api.nvim_create_autocmd("FileType", {
   desc = "Keybind hints for norg files",
   callback = function(args)
     kb.norg_keybindings(args.buf)
+    kb.prose_keybindings(args.buf, true)
+  end,
+})
+
+-- Markdown keybindings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown" },
+  group = vim.api.nvim_create_augroup("MarkdownBinds", {}),
+  desc = "Keybind hints for markdown files",
+  callback = function(args)
+    kb.prose_keybindings(args.buf, true)
   end,
 })
