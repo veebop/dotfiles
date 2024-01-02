@@ -88,7 +88,7 @@ alias x86brew='eval "$(/usr/local/homebrew/bin/brew shellenv)"'
 {{  end }}
 
 # Set JAVA_HOME
-export JAVA_HOME="$HOMEBREW_PREFIX/Cellar/openjdk/20.0.1/libexec/openjdk.jdk/Contents/Home"
+export JAVA_HOME="$(brew --prefix openjdk)/libexec/openjdk.jdk/Contents/Home/"
 
 # Add a easier way to access my mackup backups on Mac
 export MACKUP_LOCATION="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Mackup"
