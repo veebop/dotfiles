@@ -3,10 +3,6 @@
 README.md
 **/README.md
 
-.oh-my-zsh/cache/
-
-.config/lvim/lazy-lock.json
-
 {{- if ne .chezmoi.os "darwin" -}}
 # MacOS only configurations
 .config/karabiner/
