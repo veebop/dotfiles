@@ -1,6 +1,6 @@
 local M = {}
 
--- string padding (I stole this code hehe https://github.com/sho-87/dotfiles/blob/master/nvim/lua/utils.lua
+-- string padding (I stole this code hehe https://github.com/sho-87/dotfiles/blob/master/nvim/lua/utils.lua)
 function M.pad_string(str, len, align, num_nerd_font)
   -- Lua doesn't handle nerd font characters well, so we have to manually remove extra counted characters
   local str_len = #str - ((num_nerd_font or 0) * 2)
