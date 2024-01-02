@@ -23,9 +23,8 @@ The installation script will ask if you want to continue with the automatic inst
 If you already have the required programs installed, then you can skip this process.
 The script will not ask to run again[¹](#note1).
 
-### Other OS/Manual Installation
-- Install Chezmoi in your preferred way
-- Here some programs I regularly use:
+## Programs:
+Here some programs I regularly use:
 - Any OS
     - [chafa](https://hpjansson.org/chafa/)
     - [chezmoi](https://chezmoi.io/)
