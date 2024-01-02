@@ -31,8 +31,8 @@ bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 {{ if eq .chezmoi.os "darwin" -}}
-# This is only automatically installed via brew on MacOS
 # Wezterm shell integration
+# This is only automatically installed via brew on MacOS
 source "/Applications/WezTerm.app/Contents/Resources/wezterm.sh"
 {{ end }}
 
@@ -52,7 +52,7 @@ alias lsa="eza -a --icons=auto"
 alias e="eza -lha --icons=auto"
 # Quicker LazyGit command
 alias lg="lazygit"
-# Skim (sk) with ripgrep
+# Skim with ripgrep
 alias skrg="sk --ansi -i -c 'rg --color=always --line-number \"{}\"'"
 alias skrgu="sk --ansi -i -c 'rg --color=always --line-number -u \"{}\"'"
 alias skrguu="sk --ansi -i -c 'rg --color=always --line-number -uu \"{}\"'"
@@ -67,7 +67,7 @@ alias hiroi="kikuri --speed 5"
 alias yt-vid="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'" # Best quality video available
 alias yt-aud="yt-dlp -x -f 'bestaudio[ext=m4a]' --embed-thumbnail" # Downloads audio only, in m4a, and embeds the video thumbnail as cover art
 alias yt-1080="yt-dlp -f 'bestvideo[height<=1080][ext=mp4]+bestaudio/best[height<=1080][ext=m4a]'"
-# alias to recursively remove .DS_Store files
+# Alias to recursively remove .DS_Store files
 alias rmdsstore="find . -name ".DS_Store" -delete"
 
 
@@ -90,12 +90,12 @@ alias x86brew='eval "$(/usr/local/homebrew/bin/brew shellenv)"'
 # Set JAVA_HOME
 export JAVA_HOME="$(brew --prefix openjdk)/libexec/openjdk.jdk/Contents/Home/"
 
-# Add a easier way to access my mackup backups on Mac
+# Mackup location
 export MACKUP_LOCATION="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Mackup"
 # MACOS END
 {{ end }}
 
-##### EXPORTS #####
+##### EXPORT #####
 # Set default editor to nvim instead of vim
 export EDITOR=nvim
 
@@ -109,8 +109,8 @@ export PATH=$HOME/.config/emacs/bin:$PATH
 export CMAKE_EXPORT_COMPILE_COMMANDS=1
 
 ##### pretty :) #####
-# Setup for starship
+# Setup starship
 eval "$(starship init zsh)"
 
-# Pretty screen when opening terminal 
+# Pretty screen when opening terminal
 fastfetch
