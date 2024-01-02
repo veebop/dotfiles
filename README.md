@@ -1,8 +1,13 @@
 # My dotfiles, managed using [chezmoi](https://chezmoi.io/)
 
+Feel free to use this as inspiration! I wouldn't recommend using it as is since
+it will change often and possibly drastically.
+
+*Please ignore the stupid jokes I have laying around in here :)*
+
 ## Installation
 - Install [chezmoi](https://chezmoi.io/) and [git](https://git-scm.com/) using your preferred method.
-- Copy or clone[¹](#note1) this git repository to ~/.local/share/chezmoi.
+- Copy or clone this git repository to ~/.local/share/chezmoi.
 - Run `chezmoi apply`. If you are on a supported OS, a script will run
 that will install programs I like to use. If you are on a unsupported OS,
 take a look at [Manual Installation](#other-osmanual-installation)
@@ -10,18 +15,17 @@ take a look at [Manual Installation](#other-osmanual-installation)
 ### MacOS
 The installation script will ask if you want to continue with the automatic installation.
 If you already have the required programs installed, then you can skip this process.
-The script will not ask to run again[²](#note2).
+The script will not ask to run again[¹](#note1).
 
 ### OpenSUSE Tumbleweed
 This script is not thoroughly tested, but I haven't run into many errors using it.
 The installation script will ask if you want to continue with the automatic installation.
 If you already have the required programs installed, then you can skip this process.
-The script will not ask to run again[²](#note2).
+The script will not ask to run again[¹](#note1).
 
 ### Other OS/Manual Installation
 - Install Chezmoi in your preferred way
-- Here are the programs I need for a comfortable work environment. *(For reference,
-I primarily use MacOS. Most of these items are tailored for that.)*:
+- Here some programs I regularly use:
 - Any OS
     - [chafa](https://hpjansson.org/chafa/)
     - [chezmoi](https://chezmoi.io/)
@@ -51,30 +55,23 @@ I primarily use MacOS. Most of these items are tailored for that.)*:
     - [yt-dlp](https://github.com/yt-dlp/yt-dlp)
     - [zoxide](https://github.com/ajeetdsouza/zoxide)
     - [zsh-completions](https://github.com/zsh-users/zsh-completions)
-    - ([blender](https://www.blender.org/)?)
-    - ([gimp](https://www.gimp.org/)?)
-    - ([inkscape](https://inkscape.org/)?)
-    - ([krita](https://krita.org/)?)
-    - ([reaper](https://www.reaper.fm/)?)
 - MacOS
     - [amethyst](https://ianyh.com/amethyst/)
     - [dozer](https://github.com/Mortennn/Dozer)
     - [mac-mouse-fix](https://mousefix.org/)
     - [raycast](https://www.raycast.com/)
     - [stats](https://github.com/exelban/stats)
-    - ([textmate](https://macromates.com/)?)
 - Linux (May depend on distro)
     - [gnome](https://www.gnome.org/)
     - [pop-shell](https://github.com/pop-os/shell)
     - [sddm](https://github.com/sddm/sddm)
-    - ([kate](https://kate-editor.org/)?)
+
+*(For reference, I primarily use MacOS. Most of these programs are tailored for that.)*
 
 ---
 
 ### Notes
-*<a name="note1">¹</a> I haven't quite figured a good way to clone this private repository from the command line.
-Maybe generating a ssh key before installing, but that seems obnoxious*
 
-*<a name="note2">²</a> If you are determined to run the script anyways, you can copy the relevant part from
+*<a name="note1">¹</a> If you are determined to run the script anyways, you can copy the relevant parts from
 [run_once_before_install_programs.sh.tmpl](./.chezmoiscripts/run_once_before_install_programs.sh.tmpl) and run
 that manually.*
