@@ -45,6 +45,7 @@ wk.register({
     w = { "<cmd>write<cr>", "Write" },
     q = { "<cmd>quitall<cr>", "Quit all" },
     z = { "<cmd>ZenMode<cr>", "Zen mode" },
+    C = { "<cmd>bd!<cr>", "Force close buffer" },
     Q = { "<cmd>quitall!<cr>", "Quit all without saving" },
     W = { "<cmd>set eventignore+=BufWritePre | w | set eventignore-=BufWritePre<cr>", "Write without formatting" },
     b = {
