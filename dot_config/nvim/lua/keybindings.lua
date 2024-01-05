@@ -247,6 +247,7 @@ function M.markdown_keybindings(bufnr)
   wk.register({
     ["<localleader>"] = {
       p = { "<cmd>Telekasten panel<cr>", "Open telekasten panel" },
+      P = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle preview" },
       t = {
         name = "Telekasten",
         f = { "<cmd>Telekasten find_notes<cr>", "Find notes" },

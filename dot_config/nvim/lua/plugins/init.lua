@@ -368,10 +368,17 @@ require("lazy").setup({
   -- Markdown zettelkasten
   {
     'renerocksai/telekasten.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim' },
+    dependencies = { 'nvim-telescope/telescope.nvim', 'renerocksai/calendar-vim' },
     opts = { home = vim.fn.expand("~/Documents/Markdown/Notes") },
     ft = "markdown",
     cmd = "Telekasten",
+  },
+  -- Markdown Preview
+  {
+    "iamcco/markdown-preview.nvim",
+    build = function() vim.fn["mkdp#util#install"]() end,
+    ft = { "markdown" },
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
   },
   -- Run code snippets inside notes!
   {
