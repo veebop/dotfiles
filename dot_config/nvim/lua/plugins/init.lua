@@ -419,6 +419,13 @@ require("lazy").setup({
     "jbyuki/nabla.nvim",
     lazy = true
   },
+  -- Calendar
+  {
+    'renerocksai/calendar-vim',
+    init = function()
+      vim.g.calendar_no_mappings = 1
+    end,
+  },
   ----- LANGUAGE SPECIFIC -----
   -- Rust
   {
