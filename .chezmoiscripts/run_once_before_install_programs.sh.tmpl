@@ -43,7 +43,26 @@ cargo install skim fd-find
 git clone --depth=1 https://github.com/mattmc3/antidote.git $HOME/.antidote
 # And that should be it!
 echo "Almost done! Please wait for chezmoi to finish. Restart your terminal (or use WezTerm) to apply the configuration. :)"
-{{  else -}}
+{{  else if eq .chezmoi.osRelease.id "fedora-asahi-remix" -}}
+#!/bin/sh
+echo "This script must be watched"
+read -e -p "Enter y to continue. Anything else will quit this script. THIS SCRIPT WILL NOT RUN AGAIN IF YOU CHOOSE NO. " choice
+[[ "$choice" == [Yy]* ]] && echo "Continuing..." || exit 0
+# Install rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source ~/.profile
+# Install other programs
+sudo dnf install zsh
+sudo dnf install zoxide fzf eza ripgrep fd-find mpv chafa yt-dlp neovim git cmake make nodejs fastfetch wine fira-code-fonts vlc qbittorrent libtree-sitter tmux flatpak gcc llvm clang clang-tools-extra
+# Cargo
+cargo install starship fd-find skim
+# Pyenv
+curl https://pyenv.run | bash
+# Antidote
+git clone --depth=1 https://github.com/mattmc3/antidote.git $HOME/.antidote
+# Currently don't have for fedora (arm): floorp, wezterm, lazygit
+echo "Almost done! Please wait for chezmoi to finish. Restart your terminal (or use WezTerm) to apply the configuration. :)"
+{{ else -}}
 #!/bin/sh
 echo "This OS doesn't currently support automatic installation of programs."
 echo "Please wait for chezmoi to finish, and then restart your terminal to apply the configuration. :)"
