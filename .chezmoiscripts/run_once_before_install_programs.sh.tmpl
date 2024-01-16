@@ -45,7 +45,7 @@ git clone --depth=1 https://github.com/mattmc3/antidote.git $HOME/.antidote
 echo "Almost done! Please wait for chezmoi to finish. Restart your terminal (or use WezTerm) to apply the configuration. :)"
 {{  else if eq .chezmoi.osRelease.id "fedora-asahi-remix" -}}
 #!/bin/sh
-echo "This script must be watched"
+echo "This script must be watched. THIS SCRIPT HAS NOT BEEN THOROUGHLY TESTED! USE AT YOUR OWN RISK."
 read -e -p "Enter y to continue. Anything else will quit this script. THIS SCRIPT WILL NOT RUN AGAIN IF YOU CHOOSE NO. " choice
 [[ "$choice" == [Yy]* ]] && echo "Continuing..." || exit 0
 # Install rustup
