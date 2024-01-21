@@ -24,7 +24,7 @@ local function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
     return 'Bamboo V'
   else
-    return 'dayfox'
+    return 'Dayfox V'
   end
 end
 config.color_scheme = scheme_for_appearance(get_appearance())
