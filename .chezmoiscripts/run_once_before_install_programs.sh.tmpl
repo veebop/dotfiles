@@ -39,8 +39,8 @@ source ~/.profile
 sudo zypper in zsh # So we get prompted for zsh-completions
 sudo zypper in zoxide fzf eza ripgrep fd mpv chafa yt-dlp neovim starship git clang gcc cmake make nodejs-default pyenv fastfetch lazygit fira-code-fonts tree-sitter tmux
 # Desktop software
-read -e -p "Do you want to install desktop software? (y/N)" choice
-[[ "$choice" == [Yy]* ]] && echo "Continuing..." || sudo zypper in wine wezterm MozillaFirefox kate vlc qbittorrent
+read -e -p "Do you want to install desktop software? (y/N) " choice
+[[ "$choice" == [Yy]* ]] && sudo zypper in wine wezterm MozillaFirefox kate vlc qbittorrent || echo "Continuing..." 
 cargo install skim fd-find
 # Install antidote (zsh plugin manager)
 git clone --depth=1 https://github.com/mattmc3/antidote.git $HOME/.antidote
