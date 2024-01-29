@@ -96,11 +96,9 @@ function M.setup()
         }
       },
       lualine_x = {
-        {
-          'encoding',
-          { 'fileformat', icons_enabled = false, },
-          'filetype',
-        }
+        'encoding',
+        { 'fileformat', icons_enabled = false, },
+        'filetype',
       },
       lualine_y = { 'progress' },
       lualine_z = { 'location' },
