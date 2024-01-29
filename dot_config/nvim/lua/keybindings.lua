@@ -92,6 +92,7 @@ wk.register({
       s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage hunk" },
       u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo stage hunk", },
       C = { "<cmd>Telescope git_bcommits<cr>", "Checkout commit for current file", },
+      D = { "<cmd>Gitsigns toggle_word_diff<cr>", "Toggle word diff" },
       L = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle line blame", },
       R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset buffer" },
     },
