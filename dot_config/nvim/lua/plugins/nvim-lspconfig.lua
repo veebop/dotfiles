@@ -22,6 +22,7 @@ function M.setup()
   lspconfig.cmake.setup {}
   lspconfig.jdtls.setup {}
   lspconfig.jsonls.setup {}
+  lspconfig.texlab.setup {}
   lspconfig.lua_ls.setup {
     settings = {
       Lua = {

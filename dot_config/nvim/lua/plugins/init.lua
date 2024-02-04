@@ -36,6 +36,7 @@ require("lazy").setup({
         "cmake",
         "jsonls",
         "jdtls",
+        "texlab",
         "lua_ls",
         "marksman",
         "pyright",
