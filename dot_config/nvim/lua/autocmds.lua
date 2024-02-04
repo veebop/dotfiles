@@ -38,6 +38,16 @@ vim.api.nvim_create_autocmd("BufRead", {
   end,
 })
 
+-- Change color columns for git commit
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "gitcommit" },
+  group = vim.api.nvim_create_augroup("GitCommitCC", {}),
+  desc = "Change color columns for git commit",
+  callback = function()
+    vim.opt_local.colorcolumn = { 50 }
+  end,
+})
+
 -- Automatic relative numbers toggle
 local numtoggle = vim.api.nvim_create_augroup("numbertoggle", {})
 
