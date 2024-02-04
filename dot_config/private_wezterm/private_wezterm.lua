@@ -37,10 +37,16 @@ end
 ----- FONT -----
 config.font = wez.font_with_fallback {
   {
+    family = 'FiraCode Nerd Font',
+    harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+  },
+  {
     family = 'Fira Code',
     harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
   },
-  'Apple Color Emoji' }
+  'Apple Color Emoji',
+  'Symbols Nerd Font',
+}
 config.font_size = 11
 config.underline_position = "300%"
 config.underline_thickness = "500%"
