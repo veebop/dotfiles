@@ -195,7 +195,6 @@ function M.lsp_keybindings(bufnr)
         },
         I = { "<cmd>NullLsInfo<cr>", "Null-LS info" },
         K = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Show diagnostics float" },
-        S = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature help" },
       },
     },
   }, { buffer = bufnr, mode = "n" })
