@@ -11,3 +11,12 @@ sort_dir_first = true
 linemode = "size"
 show_hidden = false
 show_symlink = true
+
+[opener]
+play = [
+  # For some god-forsaken reason I can't use the iina-cli, so I'll use "open" instead
+  { exec = 'open -a iina "$@"', orphan = true, for = "macos", desc = "IINA" },
+  { exec = 'mpv "$@"', orphan = true, for = "unix" },
+  { exec = 'mpv "%1"', orphan = true, for = "windows" },
+  { exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
+]
