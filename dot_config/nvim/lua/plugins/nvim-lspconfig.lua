@@ -39,6 +39,7 @@ function M.setup()
     -- I don't want sourcekit to do lsp for c/cpp files
     filetypes = { "swift", "objective-c", "objective-cpp" },
   }
+  lspconfig.taplo.setup {}
   lspconfig.tsserver.setup {}
   lspconfig.yamlls.setup {}
   lspconfig.zls.setup {}
