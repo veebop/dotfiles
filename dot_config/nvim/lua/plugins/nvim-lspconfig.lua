@@ -22,7 +22,7 @@ function M.setup()
   lspconfig.cmake.setup {}
   lspconfig.jdtls.setup {}
   lspconfig.jsonls.setup {}
-  lspconfig.texlab.setup {}
+  lspconfig.ltex.setup {}
   lspconfig.lua_ls.setup {
     settings = {
       Lua = {
@@ -39,6 +39,7 @@ function M.setup()
     -- I don't want sourcekit to do lsp for c/cpp files
     filetypes = { "swift", "objective-c", "objective-cpp" },
   }
+  lspconfig.texlab.setup {}
   lspconfig.taplo.setup {}
   lspconfig.tsserver.setup {}
   lspconfig.yamlls.setup {}
