@@ -57,8 +57,8 @@ function M.setup()
 
     sources = cmp.config.sources({
       { name = 'nvim_lsp', priority = 1000 },
-      { name = 'codeium',  priority = 950 },
-      { name = 'luasnip',  priority = 750 },
+      { name = 'luasnip',  priority = 950 },
+      { name = 'codeium',  priority = 750 },
       { name = 'buffer',   priority = 500 },
       { name = 'path',     priority = 250 },
     })
