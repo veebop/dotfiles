@@ -27,4 +27,13 @@ function M.is_directory(path)
   return stat and stat.type == "directory" or false
 end
 
+-- Get a table of words from the Neovim custom dictionary
+function M.get_dictionary_words()
+  local words = {}
+  for word in io.open(vim.fn.stdpath("config") .. "/spell/en.utf-8.add", "r"):lines() do
+    table.insert(words, word)
+  end
+  return words
+end
+
 return M

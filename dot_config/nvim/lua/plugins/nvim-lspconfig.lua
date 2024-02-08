@@ -22,7 +22,15 @@ function M.setup()
   lspconfig.cmake.setup {}
   lspconfig.jdtls.setup {}
   lspconfig.jsonls.setup {}
-  lspconfig.ltex.setup {}
+  lspconfig.ltex.setup {
+    settings = {
+      ltex = {
+        dictionary = {
+          ['en-US'] = require("utils").get_dictionary_words()
+        }
+      }
+    }
+  }
   lspconfig.lua_ls.setup {
     settings = {
       Lua = {
