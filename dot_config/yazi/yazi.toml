@@ -13,6 +13,13 @@ show_hidden = false
 show_symlink = true
 
 [opener]
+open = [
+  { exec = 'xdg-open "$@"', desc = "Open", for = "linux" },
+  { exec = 'open "$@"', desc = "Open", for = "macos" },
+  { exec = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
+  { exec = 'open -a "Hex Fiend" -- "$@"', orphan = true, desc = "Hex Fiend", for = "macos" },
+  { exec = '''hexyl "$1"; echo "Press enter to exit"; read''', block = true, desc = "Hexyl", for = "unix" },
+]
 play = [
   # For some god-forsaken reason I can't use the iina-cli, so I'll use "open" instead
   { exec = 'open -a iina "$@"', orphan = true, for = "macos", desc = "IINA" },
