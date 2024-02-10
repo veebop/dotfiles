@@ -143,6 +143,13 @@ wk.register({
       e = { "<cmd>lua require('nabla').enable_virt()<cr>", "Enable for buffer" },
       l = { "<cmd>lua require('nabla').toggle_virt()<cr>", "Toggle for buffer" },
     },
+    P = {
+      name = "Copilot Chat",
+      e = { "<cmd>CopilotChatExplain<cr>", "Explain yanked code" },
+      r = { "<cmd>CopilotChatReview<cr>", "Review yanked code" },
+      t = { "<cmd>CopilotChatTests<cr>", "Explain and write tests for yanked code" },
+      R = { "<cmd>CopilotChatRefactor<cr>", "Refactor yanked code" },
+    }
   }
 })
 
