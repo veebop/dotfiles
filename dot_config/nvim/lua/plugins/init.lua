@@ -116,7 +116,7 @@ require("lazy").setup({
       "hrsh7th/nvim-cmp",
     },
     opts = {},
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
   },
   -- Debugging
   {
