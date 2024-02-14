@@ -254,7 +254,7 @@ require("lazy").setup({
       }
     },
     build = function()
-      vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
+      vim.cmd("UpdateRemotePlugins")
     end,
     cmd = { "CopilotChatExplain", "CopilotChatReview", "CopilotChatTests", "CopilotChatRefactor" }
   },
