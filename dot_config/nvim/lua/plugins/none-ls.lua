@@ -11,6 +11,7 @@ function M.setup()
       nls.builtins.diagnostics.proselint.with({ filetypes = { "markdown", "text", "norg" } }),
       nls.builtins.diagnostics.write_good.with({ filetypes = { "markdown", "text", "norg" } }),
       nls.builtins.formatting.clang_format,
+      nls.builtins.formatting.yapf,
       -- You have to install these outside of mason-null-ls
       -- They usually come with the toolchain
       nls.builtins.formatting.rustfmt,
