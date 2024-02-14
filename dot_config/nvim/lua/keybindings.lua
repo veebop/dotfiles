@@ -32,6 +32,8 @@ vim.o.timeoutlen = 750
 
 ----- KEYBINDINGS -----
 wk.register({
+  ['<tab>'] = { "<cmd>bnext<cr>", "Next buffer" },
+  ['<s-tab>'] = { "<cmd>bprev<cr>", "Previous buffer" },
   ["<leader>"] = {
     [';'] = { "<cmd>Alpha<cr>", "Alpha" },
     ['='] = { "Auto indent file" },
@@ -39,8 +41,8 @@ wk.register({
     e = { "<cmd>NvimTreeToggle<cr>", "File explorer" },
     f = { "<cmd>Telescope find_files<cr>", "Find files" },
     h = { "<cmd>nohlsearch<cr>", "No highlight" },
-    j = { "<cmd>bnext<cr>", "Next buffer" },
-    k = { "<cmd>bprev<cr>", "Previous buffer" },
+    j = { "<cmd>tnext<cr>", "Next tab" },
+    k = { "<cmd>tprev<cr>", "Previous tab" },
     p = { "<cmd>Telescope git_files<cr>", "Search project files" },
     w = { "<cmd>write<cr>", "Write" },
     q = { "<cmd>quitall<cr>", "Quit all" },
