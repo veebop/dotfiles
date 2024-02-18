@@ -435,6 +435,14 @@ require("lazy").setup({
     ft = { "markdown" },
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
   },
+  -- LaTeX tools (highlighting, preview, etc.)
+  {
+    "lervag/vimtex",
+    init = function()
+      vim.g.vimtex_view_method = "sioyek"
+    end,
+    lazy = false,
+  },
   -- Simple LaTeX rendering in the terminal
   {
     "jbyuki/nabla.nvim",
@@ -446,6 +454,7 @@ require("lazy").setup({
     init = function()
       vim.g.calendar_no_mappings = 1
     end,
+    lazy = true,
   },
   ----- LANGUAGE SPECIFIC -----
   -- Rust
