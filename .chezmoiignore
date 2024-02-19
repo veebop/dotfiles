@@ -6,4 +6,7 @@ README.md
 {{- if ne .chezmoi.os "darwin" -}}
 # MacOS only configurations
 .config/karabiner/
+{{else if .chezmoi.os "linux" -}}
+# Linux only configurations
+.config/hypr/
 {{- end -}}
