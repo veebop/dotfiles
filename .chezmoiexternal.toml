@@ -3,4 +3,11 @@ type = "archive"
 url = "https://github.com/tmux-plugins/tpm/archive/master.tar.gz"
 exact = true
 stripComponents = 1
-refreshPeriod = "168h"
+refreshPeriod = "672h"
+
+[".config/yazi/plugins/exifaudio.yazi"]
+type = "archive"
+url = "https://github.com/Sonico98/exifaudio.yazi/archive/master.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "672h"

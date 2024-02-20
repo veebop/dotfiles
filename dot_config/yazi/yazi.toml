@@ -27,3 +27,8 @@ play = [
   { exec = 'mpv "%1"', orphan = true, for = "windows" },
   { exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
 ]
+
+[plugin]
+prepend_previewers = [
+  { mime = "audio/*", exec = "exifaudio" }, # exifaudio.yazi
+]
