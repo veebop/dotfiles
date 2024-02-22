@@ -241,6 +241,11 @@ require("lazy").setup({
     cmd = "Telescope projects",
   },
   {
+    "uga-rosa/ccc.nvim",
+    event = { "BufRead", "BufNewFile" },
+    opt = {},
+  },
+  {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {
       show_help = "yes",
