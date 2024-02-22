@@ -16,6 +16,7 @@
 
 [core]
   excludesfile = ~/.config/git/ignore
+  editor = nvim
 
 [merge]
   conflictstyle = diff3
