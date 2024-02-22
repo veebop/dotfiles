@@ -3,7 +3,7 @@ gui:
   authorColors:
     'Eve Jensen': '#6d3dde'
 os:
-  editPreset: "nvim-remote"
+  editPreset: "nvim"
 git:
   paging:
     colorArg: always
