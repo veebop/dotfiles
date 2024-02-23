@@ -56,6 +56,8 @@ function M.setup()
     }),
 
     sources = cmp.config.sources({
+      { name = 'neorg',    priority = 1050, filetype = "norg" },
+      { name = 'vimtex',   priority = 1050, filetype = { "tex", "bib" } },
       { name = 'nvim_lsp', priority = 1000 },
       { name = 'luasnip',  priority = 950 },
       { name = 'codeium',  priority = 750 },
@@ -64,17 +66,7 @@ function M.setup()
     })
   })
 
-  cmp.setup.filetype('norg', {
-    sources = cmp.config.sources({
-      { name = 'neorg',    priority = 1000 },
-      { name = 'nvim_lsp', priority = 950 },
-      { name = 'luasnip',  priority = 750 },
-      { name = 'buffer',   priority = 500 },
-      { name = 'path',     priority = 250 },
-    })
-  })
-
-  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+  -- Search sources
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
@@ -82,7 +74,7 @@ function M.setup()
     }
   })
 
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  -- Cmdline sources
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
