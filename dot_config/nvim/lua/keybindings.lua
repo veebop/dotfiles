@@ -39,7 +39,7 @@ wk.register({
     ['='] = { "Auto indent file" },
     c = { "<cmd>bd<cr>", "Close buffer" },
     e = { "<cmd>NvimTreeToggle<cr>", "File explorer" },
-    f = { "<cmd>Telescope find_files<cr>", "Find files" },
+    f = { "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", "Find files" },
     h = { "<cmd>nohlsearch<cr>", "No highlight" },
     j = { "<cmd>tnext<cr>", "Next tab" },
     k = { "<cmd>tprev<cr>", "Previous tab" },
@@ -123,7 +123,7 @@ wk.register({
     s = {
       name = "Search",
       b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current buffer text" },
-      f = { "<cmd>Telescope find_files<cr>", "File" },
+      f = { "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", "File" },
       g = { "<cmd>Telescope live_grep<cr>", "Text" },
       h = { "<cmd>Telescope help_tags<cr>", "Help" },
       k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
