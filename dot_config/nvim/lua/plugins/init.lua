@@ -95,6 +95,7 @@ require("lazy").setup({
       { "hrsh7th/cmp-buffer",       lazy = true },
       { "hrsh7th/cmp-path",         lazy = true },
       { "hrsh7th/cmp-cmdline",      lazy = true },
+      { "micangl/cmp-vimtex",       lazy = true },
       { "saadparwaiz1/cmp_luasnip", lazy = true },
     },
     event = { "InsertEnter", "CmdlineEnter" },
@@ -233,17 +234,22 @@ require("lazy").setup({
   },
   {
     "ahmedkhalf/project.nvim",
-    event = "VeryLazy",
     config = function()
       require("project_nvim").setup()
       require("telescope").load_extension('projects')
     end,
+    event = "VeryLazy",
     cmd = "Telescope projects",
   },
   {
+    "andrewferrier/wrapping.nvim",
+    opts = {},
+    event = { "FileReadPre", "BufReadPre", "BufRead" },
+  },
+  {
     "uga-rosa/ccc.nvim",
-    event = { "BufRead", "BufNewFile" },
     opt = {},
+    event = { "BufRead", "BufNewFile" },
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
