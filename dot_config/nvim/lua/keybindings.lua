@@ -176,10 +176,10 @@ function M.lsp_keybindings(bufnr)
     },
     K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover info" },
     ["<leader>"] = {
-      a = { "<cmd>CodeActionMenu<cr>", "Code actions" },
+      a = { function() require("actions-preview").code_actions() end, "Code actions" },
       l = {
         name = "LSP",
-        a = { "<cmd>CodeActionMenu<cr>", "Code action" },
+        a = { function() require("actions-preview").code_actions() end, "Code action" },
         d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer diagnostics" },
         e = { "<cmd>Telescope quickfix<cr>", "Telescope quickfix" },
         f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
