@@ -23,13 +23,9 @@ function M.setup()
   lspconfig.jdtls.setup {}
   lspconfig.jsonls.setup {}
   lspconfig.ltex.setup {
-    settings = {
-      ltex = {
-        dictionary = {
-          ['en-US'] = require("utils").get_dictionary_words()
-        }
-      }
-    }
+    on_attach = function(client, bufnr)
+      require("ltex-utils").on_attach(bufnr)
+    end,
   }
   lspconfig.lua_ls.setup {
     settings = {

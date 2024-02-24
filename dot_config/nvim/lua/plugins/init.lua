@@ -454,6 +454,18 @@ require("lazy").setup({
     end,
     lazy = false,
   },
+  {
+    "jhofscheier/ltex-utils.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "nvim-telescope/telescope.nvim",
+      "nvim-telescope/telescope-fzf-native.nvim",
+    },
+    opts = {
+      use_vim_dict = true,
+    },
+    lazy = true,
+  },
   -- Simple LaTeX rendering in the terminal
   {
     "jbyuki/nabla.nvim",
