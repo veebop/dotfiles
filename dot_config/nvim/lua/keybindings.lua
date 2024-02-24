@@ -81,6 +81,7 @@ wk.register({
     f = {
       name = "Find",
       b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current buffer text" },
+      c = { "<cmd>Telescope commands<cr>", "Commands" },
       f = { "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", "File" },
       g = { "<cmd>Telescope live_grep<cr>", "Text" },
       h = { "<cmd>Telescope help_tags<cr>", "Help" },
@@ -90,7 +91,6 @@ wk.register({
       p = { "<cmd>Telescope git_files<cr>", "Project files", },
       r = { "<cmd>Telescope oldfiles<cr>", "Recent files" },
       t = { "<cmd>Telescope<cr>", "Telescope" },
-      C = { "<cmd>Telescope commands<cr>", "Commands" },
       H = { "<cmd>Telescope highlights<cr>", "Highlight groups" },
       M = { "<cmd>Telescope man_pages<cr>", "Man pages" },
       P = { "<cmd>Telescope projects<cr>", "Projects" },
@@ -113,6 +113,14 @@ wk.register({
       D = { "<cmd>Gitsigns toggle_word_diff<cr>", "Toggle word diff" },
       L = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle line blame", },
       R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset buffer" },
+      f = {
+        name = "Find",
+        b = { "<cmd>Telescope git_bcommits<cr>", "Commits for buffer" },
+        c = { "<cmd>Telescope git_commits<cr>", "Commits" },
+        f = { "<cmd>Telescope git_status<cr>", "Changed files" },
+        s = { "<cmd>Telescope git_stash<cr>", "Stash" },
+        B = { "<cmd>Telescope git_branches<cr>", "Branches" },
+      }
     },
     m = {
       name = "Markdown",
