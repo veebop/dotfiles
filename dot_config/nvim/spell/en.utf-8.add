@@ -10,6 +10,7 @@ Zsh
 chezmoi
 clangd
 cpp
+cr
 encodings
 lsp
 lua
