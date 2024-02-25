@@ -455,7 +455,8 @@ require("lazy").setup({
     lazy = false,
   },
   {
-    "jhofscheier/ltex-utils.nvim",
+    "YodaEmbedding/ltex-utils.nvim",
+    branch = "fix/TelescopePreviewerLoaded",
     dependencies = {
       "neovim/nvim-lspconfig",
       "nvim-telescope/telescope.nvim",
