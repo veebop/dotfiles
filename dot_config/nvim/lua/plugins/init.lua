@@ -81,6 +81,11 @@ require("lazy").setup({
     lazy = true,
   },
   {
+    "smjonas/inc-rename.nvim",
+    opts = {},
+    event = "LspAttach",
+  },
+  {
     "j-hui/fidget.nvim",
     branch = "legacy",
     opts = {},

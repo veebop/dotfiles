@@ -27,6 +27,11 @@ vim.keymap.set("v", "<leader>d", "\"_d", { silent = true })
 -- Auto indent the whole file
 vim.keymap.set("n", "<leader>=", "gg=G<C-o>", { noremap = true, silent = true })
 
+-- Keymap for inc-rename.nvim, doesn't work natively with which_key
+vim.keymap.set("n", "<leader>lr", function()
+  return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true })
+
 -- (Basically) How fast which_key opens
 vim.o.timeoutlen = 750
 
@@ -197,7 +202,7 @@ function M.lsp_keybindings(bufnr)
         k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev diagnostic", },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens action" },
         q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+        r = { "Rename" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document symbols" },
         t = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Go to type definition" },
         w = {
