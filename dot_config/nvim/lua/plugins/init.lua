@@ -44,6 +44,7 @@ require("lazy").setup({
         "taplo",
         "texlab",
         "tsserver",
+        "vale_ls",
         "yamlls",
         "zls",
       },
@@ -458,19 +459,6 @@ require("lazy").setup({
       vim.g.vimtex_view_method = "sioyek"
     end,
     lazy = false,
-  },
-  {
-    "YodaEmbedding/ltex-utils.nvim",
-    branch = "fix/TelescopePreviewerLoaded",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-      "nvim-telescope/telescope.nvim",
-      "nvim-telescope/telescope-fzf-native.nvim",
-    },
-    opts = {
-      use_vim_dict = true,
-    },
-    lazy = true,
   },
   -- Simple LaTeX rendering in the terminal
   {

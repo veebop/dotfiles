@@ -23,9 +23,13 @@ function M.setup()
   lspconfig.jdtls.setup {}
   lspconfig.jsonls.setup {}
   lspconfig.ltex.setup {
-    on_attach = function(client, bufnr)
-      require("ltex-utils").on_attach(bufnr)
-    end,
+    settings = {
+      ltex = {
+        disabledRules = {
+          ["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
+        },
+      },
+    },
   }
   lspconfig.lua_ls.setup {
     settings = {
@@ -46,6 +50,12 @@ function M.setup()
   lspconfig.texlab.setup {}
   lspconfig.taplo.setup {}
   lspconfig.tsserver.setup {}
+  lspconfig.vale_ls.setup {
+    init_options = {
+      configPath = vim.fn.expand("~/.config/vale/.vale.ini"),
+    },
+    filetypes = { "markdown", "text", "tex", },
+  }
   lspconfig.yamlls.setup {}
   lspconfig.zls.setup {}
 end
