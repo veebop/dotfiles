@@ -233,6 +233,12 @@ require("lazy").setup({
     cmd = "Gitsigns",
   },
   {
+    "sindrets/diffview.nvim",
+    opts = {},
+    event = { "BufRead", "BufNewFile" },
+    cmd = "Diffview",
+  },
+  {
     "nvim-tree/nvim-tree.lua",
     config = require("plugins.nvim-tree").setup,
     cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle" },
