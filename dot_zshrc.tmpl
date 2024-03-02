@@ -13,12 +13,16 @@ antidote load
 
 ##### MANUAL INTEGRATIONS #####
 # Initialize zoxide
-eval "$(zoxide init zsh)"
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
+fi
 
 # Initialize pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if command -v pyenv &>/dev/null; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
 
 # Initialize frum, ruby version manager
 if command -v frum &>/dev/null; then
@@ -38,7 +42,9 @@ bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 {{ if eq .chezmoi.os "darwin" -}}
 # Wezterm shell integration
 # This is only automatically installed via brew on MacOS
-source "/Applications/WezTerm.app/Contents/Resources/wezterm.sh"
+if [ -f /Applications/Wezterm.app/Contents/Resources/wezterm.sh ]; then
+  source "/Applications/WezTerm.app/Contents/Resources/wezterm.sh"
+fi
 {{ end }}
 
 # iTerm2 shell integration
@@ -52,12 +58,14 @@ bindkey '\C-x\C-e' edit-command-line
 
 ##### ALIASES/SHORTCUTS #####
 # Aliases for eza
-alias ls="eza --icons=auto"
-alias lsa="eza -a --icons=auto"
-alias e="eza -lha --git --git-repos --icons=auto"
-alias et="eza --icons=auto --tree"
-alias etl="eza -lh --git --git-repos --icons=auto --tree"
-alias eta="eza -lha --git --git-repos --icons=auto --tree"
+if command -v eza &>/dev/null; then
+  alias ls="eza --icons=auto"
+  alias lsa="eza -a --icons=auto"
+  alias e="eza -lha --git --git-repos --icons=auto"
+  alias et="eza --icons=auto --tree"
+  alias etl="eza -lh --git --git-repos --icons=auto --tree"
+  alias eta="eza -lha --git --git-repos --icons=auto --tree"
+fi
 # Quicker LazyGit command
 alias lg="lazygit"
 # Quicker Chezmoi command
@@ -72,8 +80,6 @@ alias skrguu="sk --ansi -i -c 'rg --color=always --line-number -uu \"{}\"'"
 alias skrguuu="sk --ansi -i -c 'rg --color=always --line-number -uuu \"{}\"'"
 # Alias to get to Neorg notes faster
 alias norg="nvim +'Neorg workspace notes' +'cd ~/Documents/Norg'"
-# Markdown notes
-alias md="nvim +'cd ~/Documents/Markdown/' +'NvimTreeOpen'"
 # this is fucking stupid
 alias itllbeok="mpv https://www.youtube.com/watch\?v\=uH2Ns9Tewpo -vo tct --profile=sw-fast"
 alias kikuri="chafa ~/.config/kikuri.gif --size \$COLUMNSx\$LINES"
@@ -134,7 +140,9 @@ export CMAKE_EXPORT_COMPILE_COMMANDS=1
 
 ##### pretty :) #####
 # Setup starship
-eval "$(starship init zsh)"
+if command -v starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
 
 # Pretty screen when opening terminal
 fastfetch
