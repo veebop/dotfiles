@@ -12,6 +12,14 @@ source $HOME/.antidote/antidote.zsh
 antidote load
 
 ##### MANUAL INTEGRATIONS #####
+# Initialize homebrew
+if type brew &>/dev/null; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  # Setup zsh-completions for homebrew
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
+
 # Initialize zoxide
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init zsh)"
@@ -71,8 +79,10 @@ alias lg="lazygit"
 # Quicker Chezmoi command
 alias ch="chezmoi"
 # Make with more jobs
-alias makej="make -j$(nproc --ignore=2)"
-alias makep="make -j$(nproc)"
+if command -v nproc &>/dev/null; then
+  alias makej="make -j$(nproc --ignore=2)"
+  alias makep="make -j$(nproc)"
+fi
 # Skim with ripgrep
 alias skrg="sk --ansi -i -c 'rg --color=always --line-number \"{}\"'"
 alias skrgu="sk --ansi -i -c 'rg --color=always --line-number -u \"{}\"'"
@@ -104,11 +114,6 @@ function ya() {
 ##### OS-SPECIFIC CONFIGURATION #####
 {{ if eq .chezmoi.os "darwin" -}}
 # MACOS
-# Setup zsh-completions for homebrew
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-fi
-
 {{  if eq .chezmoi.arch "arm64" -}}
 # ARM ONLY
 # Switch between ARM brew and x86 brew
@@ -134,6 +139,10 @@ export PATH=$HOME/.local/bin:$PATH
 
 # Add Doom Emacs to path
 export PATH=$HOME/.config/emacs/bin:$PATH
+
+# Go stuff
+export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:$PATH"
 
 # Cmake export compile commands by default
 export CMAKE_EXPORT_COMPILE_COMMANDS=1
