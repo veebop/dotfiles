@@ -260,7 +260,11 @@ require("lazy").setup({
   },
   {
     "uga-rosa/ccc.nvim",
-    opt = {},
+    opts = {
+      highlighter = {
+        auto_enable = true,
+      },
+    },
     event = { "BufRead", "BufNewFile" },
   },
   {
@@ -302,7 +306,9 @@ require("lazy").setup({
   {
     "EdenEast/nightfox.nvim",
     opts = {
-      transparent = true,
+      options = {
+        transparent = true,
+      },
     },
     priority = 1000,
     lazy = false,
