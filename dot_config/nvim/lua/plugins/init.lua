@@ -254,11 +254,6 @@ require("lazy").setup({
     cmd = "Telescope projects",
   },
   {
-    "andrewferrier/wrapping.nvim",
-    opts = {},
-    event = { "FileReadPre", "BufReadPre", "BufRead" },
-  },
-  {
     "uga-rosa/ccc.nvim",
     opts = {
       highlighter = {
