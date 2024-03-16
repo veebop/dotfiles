@@ -122,7 +122,6 @@ vim.api.nvim_create_autocmd("FileType", {
   desc = "Keybind hints for norg files",
   callback = function(args)
     kb.norg_keybindings(args.buf)
-    kb.prose_keybindings(args.buf, true)
   end,
 })
 
@@ -133,6 +132,5 @@ vim.api.nvim_create_autocmd("FileType", {
   desc = "Keybind hints for markdown files",
   callback = function(args)
     kb.markdown_keybindings(args.buf)
-    kb.prose_keybindings(args.buf, true)
   end,
 })

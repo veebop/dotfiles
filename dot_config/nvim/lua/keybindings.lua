@@ -213,6 +213,16 @@ function M.lsp_keybindings(bufnr)
           l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List workspace folders" },
           s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace symbols", },
         },
+        D = {
+          function()
+            if vim.diagnostic.is_disabled(bufnr) then
+              vim.diagnostic.enable(bufnr)
+            else
+              vim.diagnostic.disable(bufnr)
+            end
+          end,
+          "Toggle diagnositics",
+        },
         I = { "<cmd>NullLsInfo<cr>", "Null-LS info" },
         K = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Show diagnostics float" },
       },
@@ -306,33 +316,6 @@ function M.norg_keybindings(bufnr)
       R = { "<cmd>Neorg exec current-file<cr>", "Run all code blocks" },
     }
   }, { buffer = bufnr, mode = "n" })
-end
-
--- Enable/disable prose checkers
-function M.prose_keybindings(bufnr, disable_by_default)
-  wk.register({
-    ["<localleader>"] = {
-      d = {
-        name = "Toggle prose checking",
-        d = {
-          "<cmd>lua require('null-ls').toggle('alex');\z
-          require('null-ls').toggle('proselint');\z
-          require('null-ls').toggle('write_good')<cr>",
-          "Toggle all"
-        },
-        a = { "<cmd>lua require('null-ls').toggle('alex')<cr>", "Toggle alex" },
-        p = { "<cmd>lua require('null-ls').toggle('proselint')<cr>", "Toggle proselint" },
-        w = { "<cmd>lua require('null-ls').toggle('write_good')<cr>", "Toggle write-good" },
-      }
-    }
-  }, { buffer = bufnr, mode = "n" })
-
-  disable_by_default = disable_by_default or false
-  if disable_by_default then
-    require('null-ls').disable('alex');
-    require('null-ls').disable('proselint');
-    require('null-ls').disable('write_good')
-  end
 end
 
 return M
