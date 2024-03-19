@@ -484,7 +484,6 @@ require("lazy").setup({
   -- Rust
   {
     'mrcjkb/rustaceanvim',
-    version = '^3',
     ft = { 'rust' },
   },
   {
