@@ -41,7 +41,7 @@ function M.setup()
     }
   }
   lspconfig.marksman.setup {}
-  lspconfig.pyright.setup {}
+  lspconfig.pylsp.setup {}
   -- Rust is configured via rust-tools
   lspconfig.sourcekit.setup {
     -- I don't want sourcekit to do lsp for c/cpp files

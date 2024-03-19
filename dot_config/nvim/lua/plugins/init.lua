@@ -39,7 +39,7 @@ require("lazy").setup({
         "ltex",
         "lua_ls",
         "marksman",
-        "pyright",
+        "pylsp",
         "rust_analyzer",
         "taplo",
         "texlab",
