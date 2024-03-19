@@ -56,7 +56,6 @@ function M.setup()
     }),
 
     sources = cmp.config.sources({
-      { name = 'neorg',    priority = 1050, filetype = "norg" },
       { name = 'vimtex',   priority = 1050, filetype = { "tex", "bib" } },
       { name = 'nvim_lsp', priority = 1000 },
       { name = 'luasnip',  priority = 950 },

@@ -134,13 +134,6 @@ wk.register({
       n = { "<cmd>Telekasten new_note<cr>", "New note" },
       p = { "<cmd>Telekasten panel<cr>", "Open telekasten panel" },
     },
-    n = {
-      name = "Neorg",
-      i = { "<cmd>Neorg index<cr>", "Open index" },
-      j = { "<cmd>Neorg journal<cr>", "Journal" },
-      n = { "<cmd> Neorg workspace notes<cr>", "Open notes" },
-      t = { "<cmd>Neorg journal today<cr>", "Today's journal" },
-    },
     r = {
       name = "Run Code Snippet",
       c = { "<cmd>SnipClose<cr>", "Close SnipRun output" },
@@ -297,23 +290,6 @@ function M.markdown_keybindings(bufnr)
         r = { "<cmd>Telekasten rename_note<cr>", "Rename note" },
         v = { "<cmd>Telekasten switch_vault<cr>", "Switch vault" },
       },
-    }
-  }, { buffer = bufnr, mode = "n" })
-end
-
--- Norg keybinds
-function M.norg_keybindings(bufnr)
-  wk.register({
-    ["<localleader>"] = {
-      i = { "+Insert" },
-      l = { "+List" },
-      m = { "+Mode" },
-      n = { "+Notes" },
-      t = { "+Tasks" },
-      c = { "<cmd>Neorg toggle-concealer<cr>", "Toggle concealer" },
-      r = { "<cmd>Neorg exec cursor<cr>", "Run code block" },
-      I = { "<cmd>Neorg inject-metadata<cr>", "Inject metadata" },
-      R = { "<cmd>Neorg exec current-file<cr>", "Run all code blocks" },
     }
   }, { buffer = bufnr, mode = "n" })
 end

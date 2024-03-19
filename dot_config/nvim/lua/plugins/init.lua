@@ -401,15 +401,6 @@ require("lazy").setup({
     cmd = "ZenMode"
   },
   ----- NOTE TAKING
-  -- Neorg
-  {
-    "nvim-neorg/neorg",
-    dependencies = { "nvim-lua/plenary.nvim", "laher/neorg-exec" },
-    build = ":Neorg sync-parsers",
-    config = require("plugins.neorg").setup,
-    ft = "norg",
-    cmd = "Neorg",
-  },
   -- Markdown zettelkasten
   {
     'renerocksai/telekasten.nvim',

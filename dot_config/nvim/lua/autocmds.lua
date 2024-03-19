@@ -115,16 +115,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Norg keybindings
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "norg" },
-  group = vim.api.nvim_create_augroup("NorgBinds", {}),
-  desc = "Keybind hints for norg files",
-  callback = function(args)
-    kb.norg_keybindings(args.buf)
-  end,
-})
-
 -- Markdown keybindings
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown" },
