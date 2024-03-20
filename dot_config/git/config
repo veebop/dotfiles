@@ -19,6 +19,7 @@
   editor = nvim
 
 [merge]
+  tool = nvimdiff
   conflictstyle = diff3
 
 [diff]
