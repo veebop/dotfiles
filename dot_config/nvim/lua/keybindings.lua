@@ -125,6 +125,15 @@ wk.register({
         f = { "<cmd>Telescope git_status<cr>", "Changed files" },
         s = { "<cmd>Telescope git_stash<cr>", "Stash" },
         B = { "<cmd>Telescope git_branches<cr>", "Branches" },
+      },
+      m = {
+        name = "Merge Conflicts",
+        ["0"] = { "<plug>(git-conflict-none)", "Choose neither" },
+        b = { "<plug>(git-conflict-both)", "Choose both" },
+        j = { "<plug>(git-conflict-next-conflict)", "Go to next conflict" },
+        k = { "<plug>(git-conflict-prev-conflict)", "Go to previous conflict" },
+        o = { "<plug>(git-conflict-ours)", "Choose ours (local)" },
+        t = { "<plug>(git-conflict-theirs)", "Choose ours (remote)" },
       }
     },
     m = {

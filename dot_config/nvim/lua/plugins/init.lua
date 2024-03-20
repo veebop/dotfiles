@@ -233,10 +233,18 @@ require("lazy").setup({
     cmd = "Gitsigns",
   },
   {
-    "sindrets/diffview.nvim",
+    "akinsho/git-conflict.nvim",
     opts = {},
-    event = { "BufRead", "BufNewFile" },
-    cmd = "Diffview",
+    event = { "BufReadPre" },
+    cmd = {
+      "GitConflictChooseOurs",
+      "GitConflictChooseTheirs",
+      "GitConflictChooseBoth",
+      "GitConflictChooseNone",
+      "GitConflictNextConflict",
+      "GitConflictPrevConflict",
+      "GitConflictListQf",
+    },
   },
   {
     "nvim-tree/nvim-tree.lua",

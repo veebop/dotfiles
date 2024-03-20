@@ -22,9 +22,12 @@
   tool = nvimdiff
   conflictstyle = diff3
 
+[mergetool "vimdiff"]
+  layout = LOCAL,MERGED,REMOTE + (LOCAL,BASE,REMOTE)/MERGED
+
 [diff]
   tool = nvimdiff
   colorMoved = default
 
 [commit]
-	verbose = true
+  verbose = true
