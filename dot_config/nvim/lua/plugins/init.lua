@@ -128,12 +128,12 @@ require("lazy").setup({
   -- Debugging
   {
     "mfussenegger/nvim-dap",
-    dependencies = "nvim-dap-ui",
     config = require("plugins/nvim-dap").setup,
     lazy = true,
   },
   {
     "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     opts = {},
     lazy = true,
   },
