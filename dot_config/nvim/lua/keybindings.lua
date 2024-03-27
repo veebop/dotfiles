@@ -100,6 +100,7 @@ wk.register({
       M = { "<cmd>Telescope man_pages<cr>", "Man pages" },
       P = { "<cmd>Telescope projects<cr>", "Projects" },
       R = { "<cmd>Telescope registers<cr>", "Registers" },
+      T = { "<cmd>TodoTelescope<cr>", "Todo comments" },
     },
     g = {
       name = "Git",
@@ -150,6 +151,16 @@ wk.register({
       l = { "<cmd>SnipRun<cr>", "Run current line" },
       r = { "<plug>SnipRunOperator", "Run snippet" },
       R = { "<cmd>SnipReset<cr>", "Reset SnipRun" },
+    },
+    t = {
+      name = "Trouble",
+      d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document diagnostics" },
+      q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
+      r = { "<cmd>TroubleToggle lsp_references<cr>", "LSP references" },
+      t = { "<cmd>TodoTrouble<cr>", "Todo comments" },
+      w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace diagnostics" },
+      D = { "<cmd>TroubleToggle lsp_definitions<cr>", "LSP definitions" },
+      T = { "<cmd>TroubleToggle lsp_type_definitions<cr>", "LSP type definitions" },
     },
     L = {
       name = "LaTeX",
@@ -206,7 +217,6 @@ function M.lsp_keybindings(bufnr)
         q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
         r = { "Rename" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document symbols" },
-        t = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Go to type definition" },
         w = {
           name = "Workspace",
           d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
@@ -227,6 +237,7 @@ function M.lsp_keybindings(bufnr)
         },
         I = { "<cmd>NullLsInfo<cr>", "Null-LS info" },
         K = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Show diagnostics float" },
+        T = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Go to type definition" },
       },
     },
   }, { buffer = bufnr, mode = "n" })
