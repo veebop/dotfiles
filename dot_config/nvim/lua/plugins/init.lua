@@ -92,6 +92,12 @@ require("lazy").setup({
     opts = {},
     event = "LspAttach",
   },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {},
+    event = "LspAttach",
+  },
   -- Completions
   {
     "hrsh7th/nvim-cmp",
@@ -178,6 +184,12 @@ require("lazy").setup({
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
     lazy = true -- Loaded by Comment.nvim pre_hook
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+    event = { "BufRead", "BufNewFile" },
   },
   {
     "windwp/nvim-autopairs",
