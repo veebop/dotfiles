@@ -199,6 +199,10 @@ require("lazy").setup({
     opts = {},
     event = "InsertEnter",
   },
+  {
+    "tpope/vim-sleuth",
+    events = { "BufReadPre", "BufNewFile" },
+  },
   -- Navigation
   {
     "ggandor/leap.nvim",
