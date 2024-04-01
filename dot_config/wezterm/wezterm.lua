@@ -119,6 +119,10 @@ config.keys = {
   { key = 'n',     mods = 'SUPER|SHIFT',      action = act.RotatePanes 'Clockwise' },
   { key = 'm',     mods = 'SUPER|SHIFT',      action = act.RotatePanes 'CounterClockwise' },
   ----- OTHER KEYBINDINGS -----
+  -- Tabs
+  { key = '[',     mods = 'SUPER|SHIFT|CTRL', action = act.MoveTabRelative(-1) },
+  { key = ']',     mods = 'SUPER|SHIFT|CTRL', action = act.MoveTabRelative(1) },
+  -- Misc
   { key = 'p',     mods = 'SUPER|SHIFT',      action = act.ActivateCommandPalette, },
   { key = 'u',     mods = 'SUPER|SHIFT',      action = act.CharSelect },
   { key = ' ',     mods = 'SUPER|SHIFT',      action = act.QuickSelect, },
