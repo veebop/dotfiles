@@ -95,7 +95,7 @@ require("lazy").setup({
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {},
-    event = "LspAttach",
+    cmd = { "Trouble", "TroubleToggle", "TroubleClose", "TroubleRefresh", "TodoTrouble" },
   },
   -- Completions
   {
@@ -188,6 +188,7 @@ require("lazy").setup({
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
+    cmd = { "TodoLocList", "TodoTrouble", "TodoQuickFix", "TodoTelescope" },
     event = { "BufRead", "BufNewFile" },
   },
   {

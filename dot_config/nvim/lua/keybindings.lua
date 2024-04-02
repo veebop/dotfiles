@@ -154,6 +154,7 @@ wk.register({
     },
     t = {
       name = "Trouble",
+      c = { "<cmd>TroubleClose<cr>", "Close trouble window" },
       d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document diagnostics" },
       q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
       r = { "<cmd>TroubleToggle lsp_references<cr>", "LSP references" },
