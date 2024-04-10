@@ -74,10 +74,14 @@ if command -v eza &>/dev/null; then
   alias etl="eza -lh --git --git-repos --icons=auto --tree"
   alias eta="eza -lha --git --git-repos --icons=auto --tree"
 fi
+# Quicker NeoVim Command
+alias nv="nvim"
 # Quicker LazyGit command
 alias lg="lazygit"
 # Quicker Chezmoi command
 alias ch="chezmoi"
+# Quicker Himalaya command
+alias hi="himalaya"
 # Make with more jobs
 if command -v nproc &>/dev/null; then
   alias makej="make -j$(nproc --ignore=2)"
