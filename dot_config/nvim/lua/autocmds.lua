@@ -124,3 +124,13 @@ vim.api.nvim_create_autocmd("FileType", {
     kb.markdown_keybindings(args.buf)
   end,
 })
+
+-- TeX keybindings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "tex" },
+  group = vim.api.nvim_create_augroup("TexBinds", {}),
+  desc = "Keybindings for TeX",
+  callback = function(args)
+    kb.tex_keybindings(args.buf)
+  end,
+})

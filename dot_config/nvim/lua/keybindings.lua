@@ -163,13 +163,6 @@ wk.register({
       D = { "<cmd>TroubleToggle lsp_definitions<cr>", "LSP definitions" },
       T = { "<cmd>TroubleToggle lsp_type_definitions<cr>", "LSP type definitions" },
     },
-    L = {
-      name = "LaTeX",
-      L = { "<cmd>lua require('nabla').popup()<cr>", "Preview popup" },
-      d = { "<cmd>lua require('nabla').disable_virt()<cr>", "Disable for buffer" },
-      e = { "<cmd>lua require('nabla').enable_virt()<cr>", "Enable for buffer" },
-      l = { "<cmd>lua require('nabla').toggle_virt()<cr>", "Toggle for buffer" },
-    },
     P = {
       name = "Copilot Chat",
       e = { "<cmd>CopilotChatExplain<cr>", "Explain yanked code" },
@@ -312,6 +305,18 @@ function M.markdown_keybindings(bufnr)
         v = { "<cmd>Telekasten switch_vault<cr>", "Switch vault" },
       },
     }
+  }, { buffer = bufnr, mode = "n" })
+end
+
+-- TeX keybinds
+function M.tex_keybindings(bufnr)
+  wk.register({
+    ["<localleader>"] = {
+      p = { "<cmd>lua require('nabla').popup()<cr>", "Preview LaTeX popup" },
+      d = { "<cmd>lua require('nabla').disable_virt()<cr>", "Disable LaTeX preview for buffer" },
+      e = { "<cmd>lua require('nabla').enable_virt()<cr>", "Enable LaTeX preview for buffer" },
+      t = { "<cmd>lua require('nabla').toggle_virt()<cr>", "Toggle LaTeX preview for buffer" },
+    },
   }, { buffer = bufnr, mode = "n" })
 end
 
