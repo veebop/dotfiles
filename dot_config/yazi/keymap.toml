@@ -8,29 +8,29 @@ prepend_keymap = [
   { on = [
     "g",
     "c",
-  ], exec = "cd ~/.local/share/chezmoi/", desc = "Go to chezmoi directory" },
+  ], run = "cd ~/.local/share/chezmoi/", desc = "Go to chezmoi directory" },
   { on = [
     "g",
     "C",
-  ], exec = "cd ~/.config/", desc = "Go to config directory" },
+  ], run = "cd ~/.config/", desc = "Go to config directory" },
   { on = [
     "g",
     "D",
-  ], exec = "cd ~/Documents/", desc = "Go to documents directory" },
+  ], run = "cd ~/Documents/", desc = "Go to documents directory" },
   { on = [
     "g",
     "m",
-  ], exec = "cd ~/Music/", desc = "Go to music directory" },
+  ], run = "cd ~/Music/", desc = "Go to music directory" },
   { on = [
     "g",
     "M",
-  ], exec = "cd ~/Movies/", desc = "Go to movies directory" },
+  ], run = "cd ~/Movies/", desc = "Go to movies directory" },
   { on = [
     "g",
     "n",
-  ], exec = "cd ~/Documents/Markdown/", desc = "Go to notes directory" },
+  ], run = "cd ~/Documents/Markdown/", desc = "Go to notes directory" },
   { on = [
     "g",
     "p",
-  ], exec = "cd ~/Developer/", desc = "Go to developer directory" },
+  ], run = "cd ~/Developer/", desc = "Go to developer directory" },
 ]
