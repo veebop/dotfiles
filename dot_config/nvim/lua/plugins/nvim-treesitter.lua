@@ -21,9 +21,10 @@ function M.setup()
       -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
       disable = function(lang, buf)
         -- Disable languages
-        if lang == "latex" then
-          return true
-        end
+        -- Ex:
+        -- if lang == "latex" then
+        --   return true
+        -- end
 
         -- Disable on large files
         local max_filesize = 100 * 1024 -- 100 KB

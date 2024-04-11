@@ -187,7 +187,13 @@ require("lazy").setup({
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
+    opts = {
+      highlight = {
+        before = "",
+        keyword = "fg",
+        after = "",
+      },
+    },
     cmd = { "TodoLocList", "TodoTrouble", "TodoQuickFix", "TodoTelescope" },
     event = { "BufRead", "BufNewFile" },
   },
@@ -479,6 +485,7 @@ require("lazy").setup({
     "lervag/vimtex",
     init = function()
       vim.g.vimtex_view_method = "sioyek"
+      vim.g.vimtex_syntax_enabled = 0
     end,
     lazy = false,
   },
