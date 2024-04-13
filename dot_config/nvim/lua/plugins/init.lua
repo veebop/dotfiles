@@ -431,47 +431,12 @@ require("lazy").setup({
     cmd = "ZenMode"
   },
   ----- NOTE TAKING
-  -- Markdown zettelkasten
-  {
-    'renerocksai/telekasten.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim', 'renerocksai/calendar-vim' },
-    opts = { home = vim.fn.expand("~/Documents/Markdown/Notes") },
-    ft = "markdown",
-    cmd = "Telekasten",
-  },
   -- Markdown Preview
   {
     "iamcco/markdown-preview.nvim",
     build = function() vim.fn["mkdp#util#install"]() end,
     ft = { "markdown" },
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-  },
-  -- Run code snippets inside notes!
-  {
-    "michaelb/sniprun",
-    branch = "master",
-    build = "sh install.sh",
-    opts = {
-      display = { "Terminal" },
-      display_options = {
-        terminal_scrollback = vim.o.scrollback,
-        terminal_line_number = false,
-        terminal_signcolumn = false,
-        terminal_position = "vertical",
-        terminal_width = 45,
-        terminal_height = 20,
-      },
-    },
-    event = { "VeryLazy" },
-    -- TODO: The "cmd" lazy load triggers are currently unused. Need to change <Plug>SnipRunOperator to lazy load.
-    cmd = {
-      "SnipRun",
-      "SnipInfo",
-      "SnipReset",
-      "SnipReplMemoryClean",
-      "SnipClose",
-      "SnipLive",
-    },
   },
   -- Preview markdown
   {
@@ -493,14 +458,6 @@ require("lazy").setup({
   {
     "jbyuki/nabla.nvim",
     lazy = true
-  },
-  -- Calendar
-  {
-    'renerocksai/calendar-vim',
-    init = function()
-      vim.g.calendar_no_mappings = 1
-    end,
-    lazy = true,
   },
   ----- LANGUAGE SPECIFIC -----
   -- Rust

@@ -137,13 +137,6 @@ wk.register({
         t = { "<plug>(git-conflict-theirs)", "Choose ours (remote)" },
       }
     },
-    m = {
-      name = "Markdown",
-      c = { "<cmd>Telekasten show_calendar<cr>", "Show calendar" },
-      f = { "<cmd>Telekasten find_notes<cr>", "Find notes" },
-      n = { "<cmd>Telekasten new_note<cr>", "New note" },
-      p = { "<cmd>Telekasten panel<cr>", "Open telekasten panel" },
-    },
     r = {
       name = "Run Code Snippet",
       c = { "<cmd>SnipClose<cr>", "Close SnipRun output" },
@@ -284,26 +277,7 @@ end
 function M.markdown_keybindings(bufnr)
   wk.register({
     ["<localleader>"] = {
-      p = { "<cmd>Telekasten panel<cr>", "Open telekasten panel" },
-      P = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle preview" },
-      t = {
-        name = "Telekasten",
-        f = { "<cmd>Telekasten find_notes<cr>", "Find notes" },
-        t = { "<cmd>Telekasten show_tags<cr>", "Show tags" },
-        s = { "<cmd>Telekasten search_notes<cr>", "Search notes" },
-        l = { "<cmd>Telekasten insert_link<cr>", "Insert link" },
-        K = { "<cmd>Telekasten follow_link<cr>", "Follow link" },
-        n = { "<cmd>Telekasten new_note<cr>", "New note" },
-        y = { "<cmd>Telekasten yank_notelink<cr>", "Yank noteline" },
-        c = { "<cmd>Telekasten show_calendar<cr>", "Show calendar" },
-        i = { "<cmd>Telekasten paste_img_and_link<cr>", "Paste image and link" },
-        T = { "<cmd>Telekasten toggle_todo<cr>", "Toggle todo" },
-        b = { "<cmd>Telekasten show_backlinks<cr>", "Show backlinks" },
-        p = { "<cmd>Telekasten preview_img<cr>", "Preview image" },
-        m = { "<cmd>Telekasten browse_media<cr>", "Browse media" },
-        r = { "<cmd>Telekasten rename_note<cr>", "Rename note" },
-        v = { "<cmd>Telekasten switch_vault<cr>", "Switch vault" },
-      },
+      p = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle preview" },
     }
   }, { buffer = bufnr, mode = "n" })
 end
