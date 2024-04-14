@@ -208,7 +208,7 @@ require("lazy").setup({
   },
   {
     "tpope/vim-sleuth",
-    events = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
   },
   -- Navigation
   {
@@ -341,7 +341,7 @@ require("lazy").setup({
   {
     "f-person/auto-dark-mode.nvim",
     dependencies = { "bamboo.nvim", "nightfox.nvim" },
-    config = {
+    opts = {
       update_interval = 1000,
       set_dark_mode = function()
         vim.api.nvim_set_option("background", "dark")
@@ -431,13 +431,6 @@ require("lazy").setup({
     cmd = "ZenMode"
   },
   ----- NOTE TAKING
-  -- Markdown Preview
-  {
-    "iamcco/markdown-preview.nvim",
-    build = function() vim.fn["mkdp#util#install"]() end,
-    ft = { "markdown" },
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-  },
   -- Preview markdown
   {
     "iamcco/markdown-preview.nvim",
