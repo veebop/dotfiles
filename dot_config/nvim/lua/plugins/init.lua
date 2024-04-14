@@ -173,6 +173,10 @@ require("lazy").setup({
     event = { "BufReadPre", "BufNewFile" },
     lazy = true,
   },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
   -- Editing
   {
     "numToStr/Comment.nvim",
@@ -205,6 +209,11 @@ require("lazy").setup({
     },
     opts = {},
     event = "InsertEnter",
+  },
+  {
+    "kylechui/nvim-surround",
+    event = { "BufRead", "BufNewFile" },
+    opts = {},
   },
   {
     "tpope/vim-sleuth",
