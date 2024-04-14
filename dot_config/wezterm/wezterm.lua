@@ -96,6 +96,7 @@ end)
 -- }
 
 ----- KEY BINDINGS -----
+config.enable_kitty_keyboard = true
 config.keys = {
   ----- PANES -----
   -- Create and destroy panes
