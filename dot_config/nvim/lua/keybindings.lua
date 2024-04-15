@@ -145,17 +145,6 @@ wk.register({
       r = { "<plug>SnipRunOperator", "Run snippet" },
       R = { "<cmd>SnipReset<cr>", "Reset SnipRun" },
     },
-    t = {
-      name = "Trouble",
-      c = { "<cmd>TroubleClose<cr>", "Close trouble window" },
-      d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document diagnostics" },
-      q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
-      r = { "<cmd>TroubleToggle lsp_references<cr>", "LSP references" },
-      t = { "<cmd>TodoTrouble<cr>", "Todo comments" },
-      w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace diagnostics" },
-      D = { "<cmd>TroubleToggle lsp_definitions<cr>", "LSP definitions" },
-      T = { "<cmd>TroubleToggle lsp_type_definitions<cr>", "LSP type definitions" },
-    },
     P = {
       name = "Copilot Chat",
       e = { "<cmd>CopilotChatExplain<cr>", "Explain yanked code" },

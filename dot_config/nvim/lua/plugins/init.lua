@@ -91,12 +91,6 @@ require("lazy").setup({
     opts = {},
     event = "LspAttach",
   },
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
-    cmd = { "Trouble", "TroubleToggle", "TroubleClose", "TroubleRefresh", "TodoTrouble" },
-  },
   -- Completions
   {
     "hrsh7th/nvim-cmp",
