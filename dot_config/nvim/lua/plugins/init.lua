@@ -121,7 +121,10 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
       "hrsh7th/nvim-cmp",
     },
-    opts = {},
+    opts = {
+      enable_chat = true,
+    },
+    cmd = { "Codeium" },
     event = { "BufReadPre", "BufNewFile" },
   },
   -- Debugging
