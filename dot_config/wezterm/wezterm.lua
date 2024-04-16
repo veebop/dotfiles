@@ -123,6 +123,8 @@ config.keys = {
   -- Tabs
   { key = '[',     mods = 'SUPER|SHIFT|CTRL', action = act.MoveTabRelative(-1) },
   { key = ']',     mods = 'SUPER|SHIFT|CTRL', action = act.MoveTabRelative(1) },
+  { key = '^',     mods = 'SUPER|SHIFT',      action = act.ActivateLastTab },
+  { key = 't',     mods = 'SUPER|SHIFT',      action = act.ShowTabNavigator },
   -- Misc
   { key = 'p',     mods = 'SUPER|SHIFT',      action = act.ActivateCommandPalette, },
   { key = 'u',     mods = 'SUPER|SHIFT',      action = act.CharSelect },
