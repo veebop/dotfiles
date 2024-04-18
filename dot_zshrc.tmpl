@@ -59,6 +59,9 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 ##### CUSTOM KEYBINDS #####
+# Ensure emacs-like keybinds for editing commands
+bindkey -e
+
 # Edit the current command line in $EDITOR
 autoload -U edit-command-line
 zle -N edit-command-line
