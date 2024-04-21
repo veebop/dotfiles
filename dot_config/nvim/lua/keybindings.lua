@@ -209,7 +209,7 @@ function M.lsp_keybindings(bufnr)
               vim.diagnostic.disable(bufnr)
             end
           end,
-          "Toggle diagnositics",
+          "Toggle diagnostics",
         },
         I = { "<cmd>NullLsInfo<cr>", "Null-LS info" },
         K = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Show diagnostics float" },
