@@ -12,6 +12,10 @@ vim.keymap.set('n', '<M-j>', '<C-w>+')
 vim.keymap.set('n', '<M-k>', '<C-w>-')
 vim.keymap.set('n', '<M-l>', '<C-w>>')
 
+-- Center the cursor when scrolling through pages
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+
 -- Move text up and down
 -- Visual --
 vim.keymap.set("v", "<A-j>", ":m .+1<cr>==", { noremap = true, silent = true })
