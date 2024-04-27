@@ -106,7 +106,7 @@ alias yt-1080="yt-dlp -f 'bestvideo[height<=1080][ext=mp4]+bestaudio/best[height
 # Alias to recursively remove .DS_Store files
 alias rmdsstore="find . -name ".DS_Store" -delete"
 # Yazi wrapper from https://yazi-rs.github.io/docs/quick-start/
-function ya() {
+function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
   yazi "$@" --cwd-file="$tmp"
   if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
