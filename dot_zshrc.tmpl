@@ -77,10 +77,11 @@ bindkey '\C-x\C-e' edit-command-line
 if command -v eza &>/dev/null; then
   alias es="eza --icons=auto"
   alias esa="eza -a --icons=auto"
-  alias e="eza -lha --git --git-repos --icons=auto"
+  alias e="eza -lha --icons=auto"
+  alias eg="eza -lha --git --git-repos --icons=auto"
   alias et="eza --icons=auto --tree"
-  alias etl="eza -lh --git --git-repos --icons=auto --tree"
-  alias eta="eza -lha --git --git-repos --icons=auto --tree"
+  alias etl="eza -lh --icons=auto --tree"
+  alias eta="eza -lha --icons=auto --tree"
 fi
 # Quicker NeoVim Command
 alias nv="nvim"
