@@ -34,6 +34,9 @@ if not current_scheme then
   current_scheme = wez.color.load_scheme(wez.config_dir .. "/colors/" .. config.color_scheme .. ".toml")
 end
 
+----- CURSOR -----
+
+
 ----- FONT -----
 config.font = wez.font_with_fallback {
   {
@@ -47,7 +50,7 @@ config.font = wez.font_with_fallback {
   'Apple Color Emoji',
   'Symbols Nerd Font',
 }
-config.font_size = 11
+config.font_size = 12
 config.underline_position = "300%"
 config.underline_thickness = "500%"
 
