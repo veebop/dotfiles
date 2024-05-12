@@ -34,6 +34,7 @@ require("lazy").setup({
         "bashls",
         "clangd",
         "cmake",
+        "gopls",
         "jdtls",
         "jsonls",
         "ltex",

@@ -20,6 +20,7 @@ function M.setup()
     capabilities = capabilities,
   }
   lspconfig.cmake.setup {}
+  lspconfig.gopls.setup {}
   lspconfig.jdtls.setup {}
   lspconfig.jsonls.setup {}
   lspconfig.ltex.setup {
