@@ -180,7 +180,6 @@ function M.lsp_keybindings(bufnr)
       i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "List implementations" },
       r = { "<cmd>lua vim.lsp.buf.references()<cr>", "List references" },
     },
-    K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover info" },
     ["<leader>"] = {
       a = { function() require("actions-preview").code_actions() end, "Code actions" },
       l = {
