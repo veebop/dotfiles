@@ -34,15 +34,8 @@ if not current_scheme then
   current_scheme = wez.color.load_scheme(wez.config_dir .. "/colors/" .. config.color_scheme .. ".toml")
 end
 
------ CURSOR -----
-
-
 ----- FONT -----
 config.font = wez.font_with_fallback {
-  {
-    family = 'FiraCode Nerd Font',
-    harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
-  },
   {
     family = 'Fira Code',
     harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
