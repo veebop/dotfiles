@@ -61,7 +61,7 @@ require("lazy").setup({
       "none-ls.nvim",
     },
     opts = {
-      ensure_installed = { "alex", "codespell", "proselint", "yapf", "write-good" },
+      ensure_installed = { "codespell", "yapf", },
     },
     cmd = { "NullLsInstall", "NullLsUninstall" },
     event = { "BufReadPre", "BufNewFile" },
@@ -219,6 +219,7 @@ require("lazy").setup({
   },
   -- Navigation
   {
+    -- FIXME: The default keybinds are overwritten by nvim-surround
     "ggandor/leap.nvim",
     config = function()
       require("leap").add_default_mappings()
@@ -469,7 +470,6 @@ require("lazy").setup({
     "saecki/crates.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
-      src = { cmp = { enabled = true, }, },
       null_ls = { enabled = true, name = "Crates" },
     },
     event = { "BufRead Cargo.toml" },
