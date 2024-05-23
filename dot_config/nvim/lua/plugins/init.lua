@@ -211,7 +211,20 @@ require("lazy").setup({
   {
     "kylechui/nvim-surround",
     event = { "BufRead", "BufNewFile" },
-    opts = {},
+    opts = {
+      keymaps = {
+        insert          = '<C-g>z',
+        insert_line     = '<C-g>Z',
+        normal          = 'gz',
+        normal_cur      = 'gZ',
+        normal_line     = 'gzz',
+        normal_cur_line = 'gZZ',
+        visual          = 'gz',
+        visual_line     = 'gZ',
+        delete          = 'gzd',
+        change          = 'gzr',
+      }
+    },
   },
   {
     "tpope/vim-sleuth",
@@ -341,6 +354,9 @@ require("lazy").setup({
     opts = {
       options = {
         transparent = true,
+        styles = {
+          comments = "italic",
+        },
       },
     },
     priority = 1000,

@@ -91,7 +91,7 @@ end)
 --   },
 -- }
 
------ KEY BINDINGS -----
+----- KEYBINDINGS -----
 config.enable_kitty_keyboard = true
 config.keys = {
   ----- PANES -----
