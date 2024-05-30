@@ -31,3 +31,13 @@
 
 [commit]
   verbose = true
+
+[rerere]
+  enabled = true
+  autoUpdate = true
+
+[push]
+  useForceIfIncludes = true
+
+[alias]
+  fpush = push --force-with-lease
