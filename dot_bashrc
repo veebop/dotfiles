@@ -1,4 +1,9 @@
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# FZF integration
+if command -v fzf &>/dev/null; then
+  eval "$(fzf --bash)"
+fi
+
+# Cargo
 . "$HOME/.cargo/env"
 
 # Golang

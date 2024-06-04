@@ -43,7 +43,9 @@ if command -v asdf &>/dev/null; then
 fi
 
 # FZF integration
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if command -v fzf &>/dev/null; then
+  source <(fzf --zsh)
+fi
 
 # zsh-autocomplete fuzzy completion
 zstyle ':completion:*' completer _expand _complete _complete:-loose _complete:-fuzzy _ignored
