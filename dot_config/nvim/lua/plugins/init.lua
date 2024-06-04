@@ -332,10 +332,6 @@ require("lazy").setup({
     cmd = { "CopilotChatExplain", "CopilotChatReview", "CopilotChatTests", "CopilotChatRefactor" }
   },
   {
-    "folke/neodev.nvim",
-    lazy = true,
-  },
-  {
     "LunarVim/bigfile.nvim",
     opts = {},
     event = { "FileReadPre", "BufReadPre", "BufRead" },
@@ -368,11 +364,11 @@ require("lazy").setup({
     opts = {
       update_interval = 1000,
       set_dark_mode = function()
-        vim.api.nvim_set_option("background", "dark")
+        vim.opt.background = "dark"
         vim.cmd('colorscheme bamboo')
       end,
       set_light_mode = function()
-        vim.api.nvim_set_option("background", "light")
+        vim.opt.background = "light"
         vim.cmd('colorscheme dayfox')
       end,
     },
@@ -490,4 +486,15 @@ require("lazy").setup({
     },
     event = { "BufRead Cargo.toml" },
   },
+  -- Lua
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "wezterm-types", mods = { "wezterm" } },
+      }
+    },
+  },
+  { "justinsgithub/wezterm-types", lazy = true, }, -- Wezterm types for lazydev
 })

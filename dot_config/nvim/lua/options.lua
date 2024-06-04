@@ -1,5 +1,5 @@
 -- These will be overridden by auto-dark-mode.nvim, but it prevents a brief flash on startup
-vim.api.nvim_set_option("background", "dark")
+vim.opt.background = "light"
 vim.cmd('colorscheme bamboo')
 
 vim.opt.backup = false -- creates a backup file

@@ -57,6 +57,7 @@ function M.setup()
 
     sources = cmp.config.sources({
       { name = 'vimtex',   priority = 1050, filetype = { "tex", "bib" } },
+      { name = 'lazydev',  priority = 1050, filetype = { "lua" } },
       { name = 'nvim_lsp', priority = 1000 },
       { name = 'luasnip',  priority = 950 },
       { name = 'codeium',  priority = 750 },

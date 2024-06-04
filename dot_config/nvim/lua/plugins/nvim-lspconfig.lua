@@ -1,7 +1,6 @@
 local M = {}
 
 function M.setup()
-  require("neodev").setup()
   local lspconfig = require('lspconfig')
   local lsp_defaults = lspconfig.util.default_config
 
