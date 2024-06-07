@@ -175,10 +175,10 @@ vim.keymap.set("v", "<leader>r", ":'<,'>SnipRun<cr>", { noremap = true, silent =
 function M.lsp_keybindings(bufnr)
   wk.register({
     g = {
-      d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to definition" },
+      d = { "<cmd>Telescope lsp_definitions bufnr=0 theme=get_ivy<cr>", "Go to definition" },
       D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to declaration" },
-      i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "List implementations" },
-      r = { "<cmd>lua vim.lsp.buf.references()<cr>", "List references" },
+      i = { "<cmd>Telescope lsp_implementations bufnr=0 theme=get_ivy<cr>", "List implementations" },
+      r = { "<cmd>Telescope lsp_references bufnr=0 theme=get_ivy<cr>", "List references" },
     },
     ["<leader>"] = {
       a = { function() require("actions-preview").code_actions() end, "Code actions" },
@@ -186,37 +186,36 @@ function M.lsp_keybindings(bufnr)
         name = "LSP",
         a = { function() require("actions-preview").code_actions() end, "Code action" },
         d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer diagnostics" },
-        e = { "<cmd>Telescope quickfix<cr>", "Telescope quickfix" },
+        e = { "<cmd>Telescope quickfix bufnr=0 theme=get_ivy<cr>", "Telescope quickfix" },
         f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
         h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Show signature help" },
         i = { "<cmd>LspInfo<cr>", "Info" },
         j = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next diagnostic", },
         k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev diagnostic", },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens action" },
-        q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
         r = { "Rename" },
+        t = { "<cmd>Telescope lsp_type_definitions bufnr=0 theme=get_ivy<cr>" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document symbols" },
         w = {
           name = "Workspace",
-          d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
           a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", "Add workspace folder" },
-          r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove workspace folder" },
+          d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
           l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List workspace folders" },
+          r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove workspace folder" },
           s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace symbols", },
         },
         D = {
           function()
-            if vim.diagnostic.is_disabled(bufnr) then
-              vim.diagnostic.enable(bufnr)
+            if vim.diagnostic.is_enabled(bufnr) then
+              vim.diagnostic.enable(false, bufnr)
             else
-              vim.diagnostic.disable(bufnr)
+              vim.diagnostic.enable(bufnr)
             end
           end,
           "Toggle diagnostics",
         },
         I = { "<cmd>NullLsInfo<cr>", "Null-LS info" },
         K = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Show diagnostics float" },
-        T = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Go to type definition" },
       },
     },
   }, { buffer = bufnr, mode = "n" })
