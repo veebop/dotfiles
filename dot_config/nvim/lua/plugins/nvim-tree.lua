@@ -9,11 +9,19 @@ function M.setup()
     end
 
     api.config.mappings.default_on_attach(bufnr)
-    vim.keymap.set("n", "l", api.node.open.edit, opts "Open")
-    vim.keymap.set("n", "v", api.node.open.vertical, opts "Open: Vertical Split")
-    vim.keymap.set("n", "h", api.node.navigate.parent_close, opts "Close Directory")
-    vim.keymap.set("n", "C", api.tree.change_root_to_node, opts "CD")
+    vim.keymap.set("n", "<CR>", function()
+      api.node.open.edit()
+      api.tree.focus()
+    end, opts("Open Without Focus"))
+    vim.keymap.set("n", "l", function()
+      api.node.open.edit()
+      api.tree.close()
+    end, opts("Open and Close Tree"))
+    vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
+    vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
+    vim.keymap.set("n", "C", api.tree.change_root_to_node, opts("CD"))
   end
+
   require("nvim-tree").setup {
     on_attach = my_on_attach,
     sync_root_with_cwd = true,
@@ -22,11 +30,6 @@ function M.setup()
       enable = true,
       update_root = true
     },
-    actions = {
-      open_file = {
-        quit_on_open = true,
-      }
-    }
   }
 end
 
