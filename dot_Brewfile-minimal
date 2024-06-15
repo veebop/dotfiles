@@ -54,6 +54,7 @@ brew "rclone"
 brew "ripgrep"
 brew "sk"
 brew "starship"
+brew "swift-format"
 brew "syncthing", restart_service: true
 brew "tmux"
 brew "w3m"
