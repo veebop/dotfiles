@@ -109,6 +109,7 @@ require("lazy").setup({
   {
     "L3MON4D3/LuaSnip",
     dependencies = { "sar/friendly-snippets.nvim", lazy = true },
+    build = "make install_jsregexp",
     config = function()
       require("luasnip.loaders.from_lua").lazy_load()
       require("luasnip.loaders.from_vscode").lazy_load()
@@ -174,6 +175,13 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    opts = {
+      mode = 'topline',
+    },
+    event = { "BufRead", "BufNewFile" },
   },
   -- Editing
   {
