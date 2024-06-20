@@ -3,22 +3,24 @@
 # Add ~/.zsh_custom/completions to fpath
 export FPATH=$HOME/.zsh_custom/completions:$FPATH
 # Set XDG base directories
+# Initialize homebrew
+if type brew &>/dev/null; then
+  eval "$(brew --prefix)/bin/brew shellenv"
+  # Completions from homebrew
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+# XDG base directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
+# HACK: zsh-autocomplete is currently broken, this option fixes it - see https://github.com/marlonrichert/zsh-autocomplete/issues/724
+setopt interactivecomments
 # Load antidote
 source $HOME/.antidote/antidote.zsh
 antidote load
 
 ##### MANUAL INTEGRATIONS #####
-# Initialize homebrew
-if type brew &>/dev/null; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  # Setup zsh-completions for homebrew
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-fi
 
 # Initialize zoxide
 if command -v zoxide &>/dev/null; then
@@ -45,14 +47,18 @@ fi
 # FZF integration
 if command -v fzf &>/dev/null; then
   source <(fzf --zsh)
+  # Re-add tab binding for zsh-autocomplete
+  bindkey -M emacs '^I' menu-complete
 fi
 
 # zsh-autocomplete fuzzy completion
 zstyle ':completion:*' completer _expand _complete _complete:-loose _complete:-fuzzy _ignored
-zstyle ':autocomplete:*' min-input 1
-# zsh-autocomplete tab through completions
-bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
-bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+# Insert common substring/prefix
+zstyle ':autocomplete:*complete*:*' insert-unambiguous yes # all Tab widgets
+zstyle ':autocomplete:*history*:*' insert-unambiguous yes # all history widgets
+zstyle ':autocomplete:menu-search:*' insert-unambiguous yes # ^S
+# Autocomplete common prefix instead of common substring
+zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
 
 {{ if eq .chezmoi.os "darwin" -}}
 # Wezterm shell integration

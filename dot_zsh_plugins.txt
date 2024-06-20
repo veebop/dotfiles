@@ -15,11 +15,9 @@ trystan2k/zsh-tab-title
 # Git aliases
 $HOME/.zsh_custom/plugins/git
 
+# Compinit plugins should be near the end .zsh_plugins.txt so that $fpath has been fully populated.
 # 🤖 Real-time type-ahead completion for Zsh. Asynchronous find-as-you-type autocompletion.
 marlonrichert/zsh-autocomplete
-
-# Compinit plugins should be near the end .zsh_plugins.txt so that $fpath has been fully populated.
-belak/zsh-utils path:completion
 
 # Feature-rich syntax highlighting for ZSH
 zdharma-continuum/fast-syntax-highlighting kind:defer
