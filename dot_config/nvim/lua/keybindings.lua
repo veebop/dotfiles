@@ -100,6 +100,7 @@ wk.register({
       p = { "<cmd>Telescope git_files<cr>", "Project files", },
       r = { "<cmd>Telescope oldfiles<cr>", "Recent files" },
       t = { "<cmd>Telescope<cr>", "Telescope" },
+      u = { "<cmd>Telescope undo<cr>", "Undo tree" },
       H = { "<cmd>Telescope highlights<cr>", "Highlight groups" },
       M = { "<cmd>Telescope man_pages<cr>", "Man pages" },
       P = { "<cmd>Telescope projects<cr>", "Projects" },

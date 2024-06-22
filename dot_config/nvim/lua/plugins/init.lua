@@ -218,21 +218,8 @@ require("lazy").setup({
   },
   {
     "kylechui/nvim-surround",
+    opts = {},
     event = { "BufRead", "BufNewFile" },
-    opts = {
-      keymaps = {
-        insert          = '<C-g>z',
-        insert_line     = '<C-g>Z',
-        normal          = 'gz',
-        normal_cur      = 'gZ',
-        normal_line     = 'gzz',
-        normal_cur_line = 'gZZ',
-        visual          = 'gz',
-        visual_line     = 'gZ',
-        delete          = 'gzd',
-        change          = 'gzr',
-      }
-    },
   },
   {
     "tpope/vim-sleuth",
@@ -240,10 +227,14 @@ require("lazy").setup({
   },
   -- Navigation
   {
-    -- FIXME: The default keybinds are overwritten by nvim-surround
-    "ggandor/leap.nvim",
+    -- NOTE: Consider using "idanarye/nvim-impairative" instead
+    "afreakk/unimpaired-which-key.nvim",
+    dependencies = { "tpope/vim-unimpaired" },
     config = function()
-      require("leap").add_default_mappings()
+      local wk = require("which-key")
+      local uwk = require("unimpaired-which-key")
+      wk.register(uwk.normal_mode)
+      wk.register(uwk.normal_and_visual_mode, { mode = { "n", "v" } })
     end,
     event = "VeryLazy",
   },
@@ -256,6 +247,7 @@ require("lazy").setup({
       require('telescope').setup {}
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('media_files')
+      require("telescope").load_extension("undo")
     end,
     event = "VeryLazy",
     lazy = true,
@@ -272,21 +264,14 @@ require("lazy").setup({
     lazy = true,
   },
   {
+    "debugloop/telescope-undo.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    lazy = true,
+  },
+  {
     "folke/which-key.nvim",
     opts = {},
     cmd = "WhichKey",
-    event = "VeryLazy",
-  },
-  {
-    -- NOTE: Consider using "idanarye/nvim-impairative" instead
-    "afreakk/unimpaired-which-key.nvim",
-    dependencies = { "tpope/vim-unimpaired" },
-    config = function()
-      local wk = require("which-key")
-      local uwk = require("unimpaired-which-key")
-      wk.register(uwk.normal_mode)
-      wk.register(uwk.normal_and_visual_mode, { mode = { "n", "v" } })
-    end,
     event = "VeryLazy",
   },
   {
