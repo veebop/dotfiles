@@ -234,7 +234,6 @@ require("lazy").setup({
     config = function()
       require('telescope').setup {}
       require('telescope').load_extension('fzf')
-      require('telescope').load_extension('media_files')
       require("telescope").load_extension("undo")
     end,
     event = "VeryLazy",
@@ -244,11 +243,6 @@ require("lazy").setup({
     "nvim-telescope/telescope-fzf-native.nvim",
     build =
     "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-    lazy = true,
-  },
-  {
-    "nvim-telescope/telescope-media-files.nvim",
-    dependencies = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim', },
     lazy = true,
   },
   {
