@@ -277,7 +277,11 @@ require("lazy").setup({
   {
     "ahmedkhalf/project.nvim",
     config = function()
-      require("project_nvim").setup()
+      require("project_nvim").setup({
+        manual_mode = true,
+        show_hidden = true,
+        silent_chdir = false,
+      })
       require("telescope").load_extension('projects')
     end,
     event = "VeryLazy",

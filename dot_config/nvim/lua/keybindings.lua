@@ -51,6 +51,7 @@ wk.register({
     h = { "<cmd>nohlsearch<cr>", "No highlight" },
     j = { "<cmd>tabnext<cr>", "Next tab" },
     k = { "<cmd>tabprev<cr>", "Previous tab" },
+    p = { "<cmd>ProjectRoot<cr>", "CD to project root" },
     w = { "<cmd>write<cr>", "Write" },
     q = { "<cmd>quitall<cr>", "Quit all" },
     z = { "<cmd>ZenMode<cr>", "Zen mode" },
