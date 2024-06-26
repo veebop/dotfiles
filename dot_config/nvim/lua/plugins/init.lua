@@ -117,18 +117,6 @@ require("lazy").setup({
     end,
     event = "InsertEnter",
   },
-  {
-    "Exafunction/codeium.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    opts = {
-      enable_chat = true,
-    },
-    cmd = { "Codeium" },
-    event = { "BufReadPre", "BufNewFile" },
-  },
   -- Debugging
   {
     "mfussenegger/nvim-dap",
@@ -317,24 +305,6 @@ require("lazy").setup({
       },
     },
     event = { "BufRead", "BufNewFile" },
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    opts = {
-      show_help = "yes",
-      debug = false,
-      disable_extra_info = 'no',
-      prompts = {
-        Explain = "Explain how it works.",
-        Review = "Review the following code and provide concise suggestions.",
-        Tests = "Briefly explain how the selected code works, then generate unit tests.",
-        Refactor = "Refactor the code to improve clarity and readability.",
-      }
-    },
-    build = function()
-      vim.cmd("UpdateRemotePlugins")
-    end,
-    cmd = { "CopilotChatExplain", "CopilotChatReview", "CopilotChatTests", "CopilotChatRefactor" }
   },
   {
     "LunarVim/bigfile.nvim",

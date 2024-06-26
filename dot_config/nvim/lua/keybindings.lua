@@ -150,13 +150,6 @@ wk.register({
       r = { "<plug>SnipRunOperator", "Run snippet" },
       R = { "<cmd>SnipReset<cr>", "Reset SnipRun" },
     },
-    P = {
-      name = "Copilot Chat",
-      e = { "<cmd>CopilotChatExplain<cr>", "Explain yanked code" },
-      r = { "<cmd>CopilotChatReview<cr>", "Review yanked code" },
-      t = { "<cmd>CopilotChatTests<cr>", "Explain and write tests for yanked code" },
-      R = { "<cmd>CopilotChatRefactor<cr>", "Refactor yanked code" },
-    }
   }
 })
 

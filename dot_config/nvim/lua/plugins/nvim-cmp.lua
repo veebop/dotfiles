@@ -60,7 +60,6 @@ function M.setup()
       { name = 'lazydev',  priority = 1050, filetype = { "lua" } },
       { name = 'nvim_lsp', priority = 1000 },
       { name = 'luasnip',  priority = 950 },
-      { name = 'codeium',  priority = 750 },
       { name = 'buffer',   priority = 500 },
       { name = 'path',     priority = 250 },
     })
