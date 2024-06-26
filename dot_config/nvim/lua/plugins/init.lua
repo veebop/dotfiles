@@ -269,20 +269,6 @@ require("lazy").setup({
     cmd = "Gitsigns",
   },
   {
-    "akinsho/git-conflict.nvim",
-    opts = {},
-    event = { "BufReadPre" },
-    cmd = {
-      "GitConflictChooseOurs",
-      "GitConflictChooseTheirs",
-      "GitConflictChooseBoth",
-      "GitConflictChooseNone",
-      "GitConflictNextConflict",
-      "GitConflictPrevConflict",
-      "GitConflictListQf",
-    },
-  },
-  {
     "nvim-tree/nvim-tree.lua",
     config = require("plugins.nvim-tree").setup,
     cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle" },
