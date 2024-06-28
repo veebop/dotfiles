@@ -11,8 +11,5 @@ set backspace=indent,eol,start
 " Enables syntax highlighting by default
 syntax on
 
-" Enable filetype plugin
-filetype plugin on
-
 " Enables filetype-specific settings
 filetype plugin indent on
