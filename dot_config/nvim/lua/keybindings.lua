@@ -56,6 +56,7 @@ wk.register({
     q = { "<cmd>quitall<cr>", "Quit all" },
     z = { "<cmd>ZenMode<cr>", "Zen mode" },
     C = { "<cmd>bd!<cr>", "Force close buffer" },
+    D = { "<cmd>DiffOrig<cr>", "Diff changes in file" },
     Q = { "<cmd>quitall!<cr>", "Quit all without saving" },
     W = { "<cmd>set eventignore+=BufWritePre | w | set eventignore-=BufWritePre<cr>", "Write without formatting" },
     b = {
