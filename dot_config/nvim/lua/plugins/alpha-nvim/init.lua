@@ -10,12 +10,12 @@ function M.setup()
   header.val = function()
     local alpha_wins = vim.tbl_filter(function(win)
       local buf = vim.api.nvim_win_get_buf(win)
-      return vim.api.nvim_buf_get_option(buf, "filetype") == "alpha"
+      return vim.api.nvim_get_option_value("filetype", { buf = buf })
     end, vim.api.nvim_list_wins())
 
-    if vim.api.nvim_win_get_height(alpha_wins[#alpha_wins]) > 90 then
+    if vim.api.nvim_win_get_height(alpha_wins[#alpha_wins]) > 75 then
       return require("plugins/alpha-nvim/headers").get_large_header()
-    elseif vim.api.nvim_win_get_height(alpha_wins[#alpha_wins]) > 53 then
+    elseif vim.api.nvim_win_get_height(alpha_wins[#alpha_wins]) > 40 then
       return require("plugins/alpha-nvim/headers").get_medium_header()
     else
       return require("plugins/alpha-nvim/headers").get_small_header()
@@ -25,19 +25,18 @@ function M.setup()
     position = "center",
     hl = "Error",
   }
-  -- stylua: ignore
+
+
   buttons.val = {
-    dashboard.button('f', '󰥨  Find file', ':Telescope find_files <CR>'),
-    dashboard.button('p', '  Recent Projects', ':Telescope projects <CR>'),
-    dashboard.button('n', '  New file', ':ene <BAR> startinsert <CR>'),
-    dashboard.button('g', '󰱼  Find text', ':Telescope live_grep <CR>'),
-    dashboard.button('r', '  Recent files', ':Telescope oldfiles <CR>'),
-    dashboard.button('q', '  Quit', ':qa<CR>'),
+    dashboard.button('', ''),
   }
   for _, button in ipairs(buttons.val) do
     button.opts.hl = 'AlphaButtons'
     button.opts.hl_shortcut = 'function'
+    button.opts.position = "center"
+    button.opts.width = 1
   end
+
   footer.opts = {
     hl = "String",
     position = "center",
