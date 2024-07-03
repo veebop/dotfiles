@@ -95,10 +95,11 @@ fi
 alias nv="nvim"
 # Quicker LazyGit command
 alias lg="lazygit"
-# Quicker Chezmoi command
+# Quicker Chezmoi commands
 alias ch="chezmoi"
-# Quicker Himalaya command
-alias hi="himalaya"
+alias chap="chezmoi apply"
+alias chst="chezmoi status"
+alias chd="chezmoi diff"
 # Make with more jobs
 if command -v nproc &>/dev/null; then
   alias makej="make -j$(nproc --ignore=2)"
@@ -118,7 +119,7 @@ alias yt-vid="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/bes
 alias yt-aud="yt-dlp -x -f 'bestaudio[ext=m4a]' --embed-thumbnail" # Downloads audio only, in m4a, and embeds the video thumbnail as cover art
 alias yt-1080="yt-dlp -f 'bestvideo[height<=1080][ext=mp4]+bestaudio/best[height<=1080][ext=m4a]'"
 # Alias to recursively remove .DS_Store files
-alias rmdsstore="find . -name ".DS_Store" -delete"
+alias rmdsstore="find . -name '.DS_Store' -delete"
 # Yazi wrapper from https://yazi-rs.github.io/docs/quick-start/
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
