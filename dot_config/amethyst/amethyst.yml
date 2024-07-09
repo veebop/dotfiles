@@ -236,6 +236,8 @@ floating:
   - "com.raycast.macos"
   # OnyX
   - "com.titanium.OnyX"
+  # Wine and Whisky applications
+  - "org.winehq.wine-crossover.wine"
   ## Specific windows
   # Apple Music
   - id: "com.apple.Music"
