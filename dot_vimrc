@@ -1,15 +1,10 @@
-" Enables hybrid line numbers
+" Load defaults.vim
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
+" Enable hybrid line numbers
 set nu
 set rnu
 
-" Enable ruler
-set ruler
-
-" Enables less annoying backspacing
-set backspace=indent,eol,start
-
-" Enables syntax highlighting by default
-syntax on
-
-" Enables filetype-specific settings
-filetype plugin indent on
+" Disable command line window hint
+autocmd! vimHints
