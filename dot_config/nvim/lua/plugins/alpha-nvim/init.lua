@@ -59,7 +59,7 @@ function M.setup()
       local stats = require('lazy').stats()
       local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
       local platform = function()
-        if vim.loop.os_uname().sysname == "Darwin" then
+        if (vim.uv or vim.loop).os_uname().sysname == "Darwin" then
           return " "
         elseif vim.fn.has('linux') then
           return " "

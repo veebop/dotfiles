@@ -23,7 +23,7 @@ function M.pad_string(str, len, align, num_nerd_font)
 end
 
 function M.is_directory(path)
-  local stat = vim.loop.fs_stat(path)
+  local stat = (vim.uv or vim.loop).fs_stat(path)
   return stat and stat.type == "directory" or false
 end
 
