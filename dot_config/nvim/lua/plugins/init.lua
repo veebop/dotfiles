@@ -317,6 +317,12 @@ require("lazy").setup({
           comments = "italic",
         },
       },
+      groups = {
+        dayfox = {
+          Whitespace = { link = "NonText" },
+          IblWhitespace = { link = "NonText" },
+        }
+      },
     },
     priority = 1000,
     lazy = false,
