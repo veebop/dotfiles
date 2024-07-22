@@ -24,7 +24,7 @@ If you already have the required programs installed, then you can skip this proc
 The script will not ask to run again[¹](#note1).
 
 ## Programs:
-Here some programs I regularly use:
+Here are some programs I regularly use:
 - Any OS
     - [chafa](https://hpjansson.org/chafa/)
     - [chezmoi](https://chezmoi.io/)
@@ -65,7 +65,6 @@ Here some programs I regularly use:
     - [pop-shell](https://github.com/pop-os/shell)
     - [sddm](https://github.com/sddm/sddm)
 
-*(For reference, I primarily use MacOS. Most of these programs are tailored for that.)*
 
 ---
 
