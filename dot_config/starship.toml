@@ -3,8 +3,8 @@ command_timeout = 1000
 
 # Different prompt symbol
 [character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[➜](bold red)"
+success_symbol = '[>](bold green)'
+error_symbol = '[>](bold red)'
 
 # Battery
 [[battery.display]]
@@ -20,196 +20,196 @@ disabled = false
 
 # Status; essentially exit codes
 [status]
-format = "[$symbol-$status]($style) "
+format = '[$symbol$status]($style) '
 disabled = false
 
 [time]
 disabled = true
 
 [aws]
-symbol = "󰸏 "
+symbol = '󰸏 '
 
 [azure]
-symbol = "󰠅 "
+symbol = '󰠅 '
 
 [buf]
-symbol = " "
+symbol = ' '
 
 [c]
-symbol = " "
+symbol = ' '
 
 [cmake]
-symbol = "󰔷 "
+symbol = '󰔷 '
 
 [conda]
-symbol = "󱔎 "
+symbol = '󱔎 '
 
 [crystal]
-symbol = " "
+symbol = ' '
 
 [dart]
-symbol = " "
+symbol = ' '
 
 [directory]
-read_only = " 󰌾"
+read_only = ' 󰌾'
 
 [docker_context]
-symbol = " "
+symbol = ' '
 
 [dotnet]
-symbol = "󰪮 "
+symbol = '󰪮 '
 
 [elixir]
-symbol = " "
+symbol = ' '
 
 [elm]
-symbol = " "
+symbol = ' '
 
 [erlang]
-symbol = " "
+symbol = ' '
 
 [fossil_branch]
-symbol = " "
+symbol = ' '
 
 [git_branch]
-symbol = " "
+symbol = ' '
 
 [golang]
-symbol = " "
+symbol = ' '
 
 [guix_shell]
-symbol = " "
+symbol = ' '
 
 [gradle]
-symbol = " "
+symbol = ' '
 
 [haskell]
-symbol = " "
+symbol = ' '
 
 [haxe]
-symbol = " "
+symbol = ' '
 
 [hg_branch]
-symbol = " "
+symbol = ' '
 
 [hostname]
-ssh_symbol = " "
+ssh_symbol = ' '
 
 [java]
-symbol = " "
+symbol = ' '
 
 [julia]
-symbol = " "
+symbol = ' '
 
 [kotlin]
-symbol = "󱈙 "
+symbol = '󱈙 '
 
 [kubernetes]
-symbol = "󱃾 "
+symbol = '󱃾 '
 
 [lua]
-symbol = " "
+symbol = ' '
 
 [memory_usage]
-symbol = "󰍛 "
+symbol = '󰍛 '
 
 [meson]
-symbol = "󰔷 "
+symbol = '󰔷 '
 
 [nim]
-symbol = " "
+symbol = ' '
 
 [nix_shell]
-symbol = " "
+symbol = ' '
 
 [nodejs]
-symbol = " "
+symbol = ' '
 
 [os.symbols]
-Alpaquita = " "
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Artix = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = " "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = " "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-Redox = " "
-Solus = " "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Windows = "󰨡 "
+Alpaquita = ' '
+Alpine = ' '
+Amazon = ' '
+Android = ' '
+Arch = ' '
+Artix = ' '
+CentOS = ' '
+Debian = ' '
+DragonFly = ' '
+Emscripten = ' '
+EndeavourOS = ' '
+Fedora = ' '
+FreeBSD = ' '
+Garuda = '󰛓 '
+Gentoo = ' '
+HardenedBSD = '󰞌 '
+Illumos = ' '
+Linux = ' '
+Mabox = ' '
+Macos = ' '
+Manjaro = ' '
+Mariner = ' '
+MidnightBSD = ' '
+Mint = ' '
+NetBSD = ' '
+NixOS = ' '
+OpenBSD = ' '
+openSUSE = ' '
+OracleLinux = '󰌷 '
+Pop = ' '
+Raspbian = ' '
+Redhat = ' '
+RedHatEnterprise = ' '
+Redox = ' '
+Solus = ' '
+SUSE = ' '
+Ubuntu = ' '
+Unknown = ' '
+Windows = '󰨡 '
 
 [package]
-symbol = "󰏗 "
+symbol = '󰏗 '
 
 [perl]
-symbol = " "
+symbol = ' '
 
 [php]
-symbol = " "
+symbol = ' '
 
 [pijul_channel]
-symbol = "󱗆 "
+symbol = '󱗆 '
 
 [purescript]
-symbol = " "
+symbol = ' '
 
 [python]
-symbol = " "
+symbol = ' '
 
 [rlang]
-symbol = "󰟔 "
+symbol = '󰟔 '
 
 [raku]
-symbol = " "
+symbol = ' '
 
 [ruby]
-symbol = " "
+symbol = ' '
 
 [rust]
-symbol = " "
+symbol = ' '
 
 [scala]
-symbol = " "
+symbol = ' '
 
 [spack]
-symbol = "🅢 "
+symbol = '🅢 '
 
 [swift]
-symbol = " "
+symbol = ' '
 
 [terraform]
-symbol = "󱁢 "
+symbol = '󱁢 '
 
 [vlang]
-symbol = " "
+symbol = ' '
 
 [zig]
-symbol = " "
+symbol = ' '
