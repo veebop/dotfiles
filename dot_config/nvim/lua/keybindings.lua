@@ -1,206 +1,204 @@
 local M = {}
 local wk = require("which-key")
 
--- Make navigating between splits more ergonomic
-vim.keymap.set('n', '<C-h>', '<C-w>h')
-vim.keymap.set('n', '<C-j>', '<C-w>j')
-vim.keymap.set('n', '<C-k>', '<C-w>k')
-vim.keymap.set('n', '<C-l>', '<C-w>l')
--- And resizing splits
-vim.keymap.set('n', '<M-h>', '<C-w><')
-vim.keymap.set('n', '<M-j>', '<C-w>+')
-vim.keymap.set('n', '<M-k>', '<C-w>-')
-vim.keymap.set('n', '<M-l>', '<C-w>>')
-
--- Center the cursor when scrolling through pages
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-
--- Move text up and down
--- Visual --
-vim.keymap.set("v", "<A-j>", ":m .+1<cr>==", { noremap = true, silent = true })
-vim.keymap.set("v", "<A-k>", ":m .-2<cr>==", { noremap = true, silent = true })
--- Visual Block --
-vim.keymap.set("x", "<A-j>", ":move '>+1<cr>gv-gv", { noremap = true, silent = true })
-vim.keymap.set("x", "<A-k>", ":move '<-2<cr>gv-gv", { noremap = true, silent = true })
-
--- Put and delete without saving text
-vim.keymap.set("v", "<leader>p", "\"_dP", { silent = true })
-vim.keymap.set("v", "<leader>d", "\"_d", { silent = true })
-
--- Auto indent the whole file
-vim.keymap.set("n", "<leader>=", "gg=G<C-o>", { noremap = true, silent = true })
-
--- Keymap for inc-rename.nvim, doesn't work natively with which_key
-vim.keymap.set("n", "<leader>lr", function()
-  return ":IncRename " .. vim.fn.expand("<cword>")
-end, { expr = true })
-
 -- (Basically) How fast which_key opens
 vim.o.timeoutlen = 750
 
 ----- KEYBINDINGS -----
-wk.register({
-  ['<tab>'] = { "<cmd>bnext<cr>", "Next buffer" },
-  ['<s-tab>'] = { "<cmd>bprev<cr>", "Previous buffer" },
-  ["<leader>"] = {
-    [';'] = { "<cmd>Alpha<cr>", "Alpha" },
-    ['='] = { "Auto indent file" },
-    c = { "<cmd>bd<cr>", "Close buffer" },
-    e = { "<cmd>NvimTreeToggle<cr>", "File explorer" },
-    h = { "<cmd>nohlsearch<cr>", "No highlight" },
-    j = { "<cmd>tabnext<cr>", "Next tab" },
-    k = { "<cmd>tabprev<cr>", "Previous tab" },
-    p = { "<cmd>ProjectRoot<cr>", "CD to project root" },
-    w = { "<cmd>write<cr>", "Write" },
-    q = { "<cmd>quitall<cr>", "Quit all" },
-    z = { "<cmd>ZenMode<cr>", "Zen mode" },
-    C = { "<cmd>bd!<cr>", "Force close buffer" },
-    D = { "<cmd>DiffOrig<cr>", "Diff changes in file" },
-    Q = { "<cmd>quitall!<cr>", "Quit all without saving" },
-    W = { "<cmd>set eventignore+=BufWritePre | w | set eventignore-=BufWritePre<cr>", "Write without formatting" },
-    b = {
-      name = "Buffers",
-      b = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
-      e = { "<cmd>BufferLinePickClose<cr>", "Pick which buffer to close", },
-      f = { "<cmd>Telescope buffers <cr>", "Find" },
-      h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
-      l = { "<cmd>BufferLineCloseRight<cr>", "Close all to the right", },
-      n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
-      p = { "<cmd>BufferLineTogglePin<cr>", "Toggle Pin" },
-      s = { "<cmd>BufferLinePick<cr>", "Leap" },
-      D = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by directory", },
-      L = { "<cmd>BufferLineSortByExtension<cr>", "Sort by language", },
+wk.add({
+  mode = "n",
+  -- Move between splits
+  { "<C-h>",   "<C-w>h",         desc = "Move to left split" },
+  { "<C-j>",   "<C-w>j",         desc = "Move to lower split" },
+  { "<C-k>",   "<C-w>k",         desc = "Move to upper split" },
+  { "<C-l>",   "<C-w>l",         desc = "Move to right split" },
+  -- Resize splits
+  { "<M-h>",   "<C-w><",         desc = "Expand split left" },
+  { "<M-j>",   "<C-w>+",         desc = "Expand split down" },
+  { "<M-k>",   "<C-w>-",         desc = "Expand split up" },
+  { "<M-l>",   "<C-w>>",         desc = "Expand split right" },
+  -- Center the cursor when scrolling through pages
+  { "<C-u>",   "<C-u>zz" },
+  { "<C-d>",   "<C-d>zz" },
+  -- Faster tabbing through buffers
+  { "<tab>",   "<cmd>bnext<cr>", desc = "Next buffer" },
+  { "<s-tab>", "<cmd>bprev<cr>", desc = "Previous buffer" },
+  -- LEADER
+  {
+    "<leader>",
+    group = "Leader",
+    { "<leader>;", "<cmd>Alpha<cr>",          desc = "Alpha" },
+    { "<leader>=", "gg=G<C-o>",               desc = "Auto indent file",       noremap = true, silent = true },
+    { "<leader>c", "<cmd>bd<cr>",             desc = "Close buffer" },
+    { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "File explorer" },
+    { "<leader>h", "<cmd>nohlsearch<cr>",     desc = "No highlight" },
+    { "<leader>j", "<cmd>tabnext<cr>",        desc = "Next tab" },
+    { "<leader>k", "<cmd>tabprev<cr>",        desc = "Previous tab" },
+    { "<leader>p", "<cmd>ProjectRoot<cr>",    desc = "CD to project root" },
+    { "<leader>w", "<cmd>write<cr>",          desc = "Write" },
+    { "<leader>q", "<cmd>quitall<cr>",        desc = "Quit all" },
+    { "<leader>z", "<cmd>ZenMode<cr>",        desc = "Zen mode" },
+    { "<leader>C", "<cmd>bd!<cr>",            desc = "Force close buffer" },
+    { "<leader>D", "<cmd>DiffOrig<cr>",       desc = "Diff changes in file" },
+    { "<leader>Q", "<cmd>quitall!<cr>",       desc = "Quit all without saving" },
+    {
+      "<leader>W",
+      "<cmd>set eventignore+=BufWritePre | w | set eventignore-=BufWritePre<cr>",
+      desc = "Write without formatting"
     },
-    d = {
-      name = "Debug",
-      b = { "<cmd>lua require'dap'.step_back()<cr>", "Step back" },
-      c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-      d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
-      g = { "<cmd>lua require'dap'.session()<cr>", "Get session" },
-      i = { "<cmd>lua require'dap'.step_into()<cr>", "Step into" },
-      o = { "<cmd>lua require'dap'.step_over()<cr>", "Step over" },
-      p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
-      q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
-      r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle REPL" },
-      s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
-      t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle breakpoint" },
-      u = { "<cmd>lua require'dap'.step_out()<cr>", "Step out" },
-      C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run to cursor" },
-      U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
+    -- BUFFERS
+    {
+      "<leader>b",
+      group = "Buffers",
+      { "<leader>bb", "<cmd>BufferLineCyclePrev<cr>",       desc = "Previous" },
+      { "<leader>be", "<cmd>BufferLinePickClose<cr>",       desc = "Pick which buffer to close", },
+      { "<leader>bf", "<cmd>Telescope buffers <cr>",        desc = "Find" },
+      { "<leader>bh", "<cmd>BufferLineCloseLeft<cr>",       desc = "Close all to the left" },
+      { "<leader>bl", "<cmd>BufferLineCloseRight<cr>",      desc = "Close all to the right", },
+      { "<leader>bn", "<cmd>BufferLineCycleNext<cr>",       desc = "Next" },
+      { "<leader>bp", "<cmd>BufferLineTogglePin<cr>",       desc = "Toggle Pin" },
+      { "<leader>bs", "<cmd>BufferLinePick<cr>",            desc = "Leap" },
+      { "<leader>bD", "<cmd>BufferLineSortByDirectory<cr>", desc = "Sort by directory", },
+      { "<leader>bL", "<cmd>BufferLineSortByExtension<cr>", desc = "Sort by language", },
     },
-    f = {
-      name = "Find",
-      b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current buffer text" },
-      c = { "<cmd>Telescope commands<cr>", "Commands" },
-      f = { "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", "File" },
-      g = { "<cmd>Telescope live_grep<cr>", "Text" },
-      h = { "<cmd>Telescope help_tags<cr>", "Help" },
-      k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-      l = { "<cmd>Telescope resume<cr>", "Resume last search" },
-      m = { "<cmd>Telescope media_files<cr>", "Media files" },
-      p = { "<cmd>Telescope git_files<cr>", "Project files", },
-      r = { "<cmd>Telescope oldfiles<cr>", "Recent files" },
-      t = { "<cmd>Telescope<cr>", "Telescope" },
-      u = { "<cmd>Telescope undo<cr>", "Undo tree" },
-      H = { "<cmd>Telescope highlights<cr>", "Highlight groups" },
-      M = { "<cmd>Telescope man_pages<cr>", "Man pages" },
-      P = { "<cmd>Telescope projects<cr>", "Projects" },
-      R = { "<cmd>Telescope registers<cr>", "Registers" },
-      T = { "<cmd>TodoTelescope<cr>", "Todo comments" },
+    -- DEBUG
+    {
+      "<leader>d",
+      group = "Debug",
+      { "<leader>db", "<cmd>lua require'dap'.step_back()<cr>",              desc = "Step back" },
+      { "<leader>dc", "<cmd>lua require'dap'.continue()<cr>",               desc = "Continue" },
+      { "<leader>dd", "<cmd>lua require'dap'.disconnect()<cr>",             desc = "Disconnect" },
+      { "<leader>dg", "<cmd>lua require'dap'.session()<cr>",                desc = "Get session" },
+      { "<leader>di", "<cmd>lua require'dap'.step_into()<cr>",              desc = "Step into" },
+      { "<leader>do", "<cmd>lua require'dap'.step_over()<cr>",              desc = "Step over" },
+      { "<leader>dp", "<cmd>lua require'dap'.pause()<cr>",                  desc = "Pause" },
+      { "<leader>dq", "<cmd>lua require'dap'.close()<cr>",                  desc = "Quit" },
+      { "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>",            desc = "Toggle REPL" },
+      { "<leader>ds", "<cmd>lua require'dap'.continue()<cr>",               desc = "Start" },
+      { "<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>",      desc = "Toggle breakpoint" },
+      { "<leader>du", "<cmd>lua require'dap'.step_out()<cr>",               desc = "Step out" },
+      { "<leader>dC", "<cmd>lua require'dap'.run_to_cursor()<cr>",          desc = "Run to cursor" },
+      { "<leader>dU", "<cmd>lua require'dapui'.toggle({reset = true})<cr>", desc = "Toggle UI" },
     },
-    g = {
-      name = "Git",
-      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-      c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-      d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Git diff", },
-      j = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>", "Next hunk" },
-      k = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>", "Prev hunk" },
-      l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-      o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-      p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview hunk" },
-      r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset hunk" },
-      s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage hunk" },
-      u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo stage hunk", },
-      C = { "<cmd>Telescope git_bcommits<cr>", "Checkout commit for current file", },
-      D = { "<cmd>Gitsigns toggle_word_diff<cr>", "Toggle word diff" },
-      L = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle line blame", },
-      R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset buffer" },
-      f = {
-        name = "Find",
-        b = { "<cmd>Telescope git_bcommits<cr>", "Commits for buffer" },
-        c = { "<cmd>Telescope git_commits<cr>", "Commits" },
-        f = { "<cmd>Telescope git_status<cr>", "Changed files" },
-        s = { "<cmd>Telescope git_stash<cr>", "Stash" },
-        B = { "<cmd>Telescope git_branches<cr>", "Branches" },
+    -- FIND
+    {
+      "<leader>f",
+      group = "Find",
+      { "<leader>fb", "<cmd>Telescope current_buffer_fuzzy_find<cr>",                                                                        desc = "Current buffer text" },
+      { "<leader>fc", "<cmd>Telescope commands<cr>",                                                                                         desc = "Commands" },
+      { "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", desc = "File" },
+      { "<leader>fg", "<cmd>Telescope live_grep<cr>",                                                                                        desc = "Text" },
+      { "<leader>fh", "<cmd>Telescope help_tags<cr>",                                                                                        desc = "Help" },
+      { "<leader>fk", "<cmd>Telescope keymaps<cr>",                                                                                          desc = "Keymaps" },
+      { "<leader>fl", "<cmd>Telescope resume<cr>",                                                                                           desc = "Resume last search" },
+      { "<leader>fm", "<cmd>Telescope media_files<cr>",                                                                                      desc = "Media files" },
+      { "<leader>fp", "<cmd>Telescope git_files<cr>",                                                                                        desc = "Project files", },
+      { "<leader>fr", "<cmd>Telescope oldfiles<cr>",                                                                                         desc = "Recent files" },
+      { "<leader>ft", "<cmd>Telescope<cr>",                                                                                                  desc = "Telescope" },
+      { "<leader>fu", "<cmd>Telescope undo<cr>",                                                                                             desc = "Undo tree" },
+      { "<leader>fH", "<cmd>Telescope highlights<cr>",                                                                                       desc = "Highlight groups" },
+      { "<leader>fM", "<cmd>Telescope man_pages<cr>",                                                                                        desc = "Man pages" },
+      { "<leader>fP", "<cmd>Telescope projects<cr>",                                                                                         desc = "Projects" },
+      { "<leader>fR", "<cmd>Telescope registers<cr>",                                                                                        desc = "Registers" },
+      { "<leader>fT", "<cmd>TodoTelescope<cr>",                                                                                              desc = "Todo comments" },
+    },
+    -- GIT
+    {
+      "<leader>g",
+      group = "Git",
+      { "<leader>gb", "<cmd>Telescope git_branches<cr>",                                         desc = "Checkout branch" },
+      { "<leader>gc", "<cmd>Telescope git_commits<cr>",                                          desc = "Checkout commit" },
+      { "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>",                                         desc = "Git diff", },
+      { "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>", desc = "Next hunk" },
+      { "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>", desc = "Prev hunk" },
+      { "<leader>gl", "<cmd>lua require 'gitsigns'.blame_line()<cr>",                            desc = "Blame" },
+      { "<leader>go", "<cmd>Telescope git_status<cr>",                                           desc = "Open changed file" },
+      { "<leader>gp", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>",                          desc = "Preview hunk" },
+      { "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>",                            desc = "Reset hunk" },
+      { "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>",                            desc = "Stage hunk" },
+      { "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",                       desc = "Undo stage hunk", },
+      { "<leader>gC", "<cmd>Telescope git_bcommits<cr>",                                         desc = "Checkout commit for current file", },
+      { "<leader>gD", "<cmd>Gitsigns toggle_word_diff<cr>",                                      desc = "Toggle word diff" },
+      { "<leader>gL", "<cmd>Gitsigns toggle_current_line_blame<cr>",                             desc = "Toggle line blame", },
+      { "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>",                          desc = "Reset buffer" },
+      {
+        "<leader>f",
+        group = "Find",
+        { "<leader>gfb", "<cmd>Telescope git_bcommits<cr>", desc = "Commits for buffer" },
+        { "<leader>gfc", "<cmd>Telescope git_commits<cr>",  desc = "Commits" },
+        { "<leader>gff", "<cmd>Telescope git_status<cr>",   desc = "Changed files" },
+        { "<leader>gfs", "<cmd>Telescope git_stash<cr>",    desc = "Stash" },
+        { "<leader>gfB", "<cmd>Telescope git_branches<cr>", desc = "Branches" },
       },
-      m = {
-        name = "Merge Conflicts",
-        ["0"] = { "<plug>(git-conflict-none)", "Choose neither" },
-        b = { "<plug>(git-conflict-both)", "Choose both" },
-        j = { "<plug>(git-conflict-next-conflict)", "Go to next conflict" },
-        k = { "<plug>(git-conflict-prev-conflict)", "Go to previous conflict" },
-        o = { "<plug>(git-conflict-ours)", "Choose ours (local)" },
-        t = { "<plug>(git-conflict-theirs)", "Choose ours (remote)" },
-      }
-    },
-    r = {
-      name = "Run Code Snippet",
-      c = { "<cmd>SnipClose<cr>", "Close SnipRun output" },
-      i = { "<cmd>SnipInfo<cr>", "SnipRun info" },
-      l = { "<cmd>SnipRun<cr>", "Run current line" },
-      r = { "<plug>SnipRunOperator", "Run snippet" },
-      R = { "<cmd>SnipReset<cr>", "Reset SnipRun" },
     },
   }
 })
 
 ----- VISUAL MODE BINDINGS ------
-wk.register({
-  ["<leader>"] = {
-    d = { "Delete without yanking" },
-    p = { "Paste over without yanking" },
-    r = { "Run selected code" },
+wk.add({
+  mode = "v",
+  { "<A-j>", ":m .+1<cr>==", desc = "Move selected text up",   noremap = true, silent = true, },
+  { "<A-k>", ":m .-2<cr>==", desc = "Move selected text down", noremap = true, silent = true, },
+  {
+    "<leader>",
+    group = "Leader",
+    { "<leader>p", "\"_dP", desc = "Paste over without yanking", silent = true, },
+    { "<leader>d", "\"_d",  desc = "Delete without yanking",     silent = true, },
   },
-}, { mode = "v" })
--- Doesn't work directly with which-key, in any way I can figure out
-vim.keymap.set("v", "<leader>r", ":'<,'>SnipRun<cr>", { noremap = true, silent = true })
+})
+
+wk.add({
+  mode = "x",
+  noremap = true,
+  silent = true,
+  { "<A-j>", ":move '>+1<cr>gv-gv", desc = "Move selected text down" },
+  { "<A-k>", ":move '<-2<cr>gv-gv", desc = "Move selected text up" },
+})
 
 ----- BUFFER SPECIFIC BINDINGS -----
--- Set up LSP Keybindings
+-- LSP keybindings
 function M.lsp_keybindings(bufnr)
-  wk.register({
-    g = {
-      d = { "<cmd>Telescope lsp_definitions bufnr=0 theme=get_ivy<cr>", "Go to definition" },
-      D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to declaration" },
-      i = { "<cmd>Telescope lsp_implementations bufnr=0 theme=get_ivy<cr>", "List implementations" },
-      r = { "<cmd>Telescope lsp_references bufnr=0 theme=get_ivy<cr>", "List references" },
+  wk.add({
+    buffer = bufnr,
+    mode = "n",
+    {
+      "g",
+      group = "g(oto)",
+      { "gd", "<cmd>Telescope lsp_definitions bufnr=0 theme=get_ivy<cr>",     desc = "Go to definition" },
+      { "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>",                       desc = "Go to declaration" },
+      { "gi", "<cmd>Telescope lsp_implementations bufnr=0 theme=get_ivy<cr>", desc = "List implementations" },
+      { "gr", "<cmd>Telescope lsp_references bufnr=0 theme=get_ivy<cr>",      desc = "List references" },
     },
-    ["<leader>"] = {
-      a = { function() require("actions-preview").code_actions() end, "Code actions" },
-      l = {
-        name = "LSP",
-        a = { function() require("actions-preview").code_actions() end, "Code action" },
-        d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer diagnostics" },
-        e = { "<cmd>Telescope quickfix bufnr=0 theme=get_ivy<cr>", "Telescope quickfix" },
-        f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
-        h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Show signature help" },
-        i = { "<cmd>LspInfo<cr>", "Info" },
-        j = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next diagnostic", },
-        k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev diagnostic", },
-        l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens action" },
-        r = { "Rename" },
-        t = { "<cmd>Telescope lsp_type_definitions bufnr=0 theme=get_ivy<cr>" },
-        s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document symbols" },
-        w = {
-          name = "Workspace",
-          a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", "Add workspace folder" },
-          d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-          l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List workspace folders" },
-          r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove workspace folder" },
-          s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace symbols", },
+    {
+      "<leader>",
+      group = "Leader",
+      { "<leader>a", function() require("actions-preview").code_actions() end, desc = "Code actions" },
+      {
+        "l",
+        group = "LSP",
+        { "<leader>la", function() require("actions-preview").code_actions() end,        desc = "Code action" },
+        { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>",          desc = "Buffer diagnostics" },
+        { "<leader>le", "<cmd>Telescope quickfix bufnr=0 theme=get_ivy<cr>",             desc = "Telescope quickfix" },
+        { "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>",                             desc = "Format" },
+        { "<leader>lh", "<cmd>lua vim.lsp.buf.signature_help()<cr>",                     desc = "Show signature help" },
+        { "<leader>li", "<cmd>LspInfo<cr>",                                              desc = "Info" },
+        { "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>",                       desc = "Next diagnostic", },
+        { "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>",                       desc = "Prev diagnostic", },
+        { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>",                           desc = "CodeLens action" },
+        { "<leader>lr", function() return ":IncRename " .. vim.fn.expand("<cword>") end, desc = "Rename",             expr = true },
+        { "<leader>lt", "<cmd>Telescope lsp_type_definitions bufnr=0 theme=get_ivy<cr>", desc = "Type definitions" },
+        { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>",                       desc = "Document symbols" },
+        {
+          "w",
+          group = "Workspace",
+          { "<leader>lwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>",                       desc = "Add workspace folder" },
+          { "<leader>lwd", "<cmd>Telescope diagnostics<cr>",                                        desc = "Diagnostics" },
+          { "<leader>lwl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", desc = "List workspace folders" },
+          { "<leader>lwr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>",                    desc = "Remove workspace folder" },
+          { "<leader>lws", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",                      desc = "Workspace symbols", },
         },
-        D = {
+        {
+          "<leader>lD",
           function()
             if vim.diagnostic.is_enabled(bufnr) then
               vim.diagnostic.enable(false, bufnr)
@@ -208,77 +206,92 @@ function M.lsp_keybindings(bufnr)
               vim.diagnostic.enable(bufnr)
             end
           end,
-          "Toggle diagnostics",
+          desc = "Toggle diagnostics",
         },
-        I = { "<cmd>NullLsInfo<cr>", "Null-LS info" },
-        K = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Show diagnostics float" },
+        { "<leader>lI", "<cmd>NullLsInfo<cr>",                      desc = "Null-LS info" },
+        { "<leader>lK", "<cmd>lua vim.diagnostic.open_float()<cr>", desc = "Show diagnostics float" },
       },
     },
-  }, { buffer = bufnr, mode = "n" })
+  })
 end
 
 -- C/C++ keybindings
 function M.clangd_keybindings(bufnr)
-  wk.register({
-    ["<localleader>"] = {
-      s = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch to source/header" },
+  wk.add({
+    buffer = bufnr,
+    mode = "n",
+    {
+      "<localleader>",
+      group = "C/C++",
+      { "<localleader>s", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch to source/header" },
     },
-  }, { buffer = bufnr, mode = "n" })
+  })
 end
 
 -- Cargo.toml keybindings
 function M.crate_keybindings(bufnr)
-  wk.register({
-    ["<localleader>"] = {
-      r = { "<cmd>lua require'crates'.open_repository()<cr>", "Open repository" },
-      p = { "<cmd>lua require'crates'.show_popup()<cr>", "Show popup" },
-      c = { "<cmd>lua require'crates'.show_crate_popup()<cr>", "Show info" },
-      f = { "<cmd>lua require'crates'.show_features_popup()<cr>", "Show features" },
-      d = { "<cmd>lua require'crates'.show_dependencies_popup()<cr>", "Show dependencies" },
+  wk.add({
+    buffer = bufnr,
+    mode = "n",
+    {
+      "<localleader>",
+      group = "Crate",
+      { "<localleader>r", "<cmd>lua require'crates'.open_repository()<cr>",         desc = "Open repository" },
+      { "<localleader>p", "<cmd>lua require'crates'.show_popup()<cr>",              desc = "Show popup" },
+      { "<localleader>c", "<cmd>lua require'crates'.show_crate_popup()<cr>",        desc = "Show info" },
+      { "<localleader>f", "<cmd>lua require'crates'.show_features_popup()<cr>",     desc = "Show features" },
+      { "<localleader>d", "<cmd>lua require'crates'.show_dependencies_popup()<cr>", desc = "Show dependencies" },
     },
-  }, { buffer = bufnr, mode = "n" })
+  })
 end
 
 -- Rust keybindings
 function M.rust_keybindings(bufnr)
-  wk.register({
-    K = { "<cmd>lua require('rust-tools').hover_actions.hover_actions", "Rust Hover" },
-    ["<localleader>"] = {
-      name = "Rust",
-      a = { "<cmd>RustLsp hover action<cr>", "Code action group" },
-      c = { "<cmd>RustLsp openCargo<cr>", "Open cargo.toml" },
-      f = { "<cmd>RustLsp flyCheck<cr>", "Fly check/clippy" },
-      h = { "<cmd>RustLsp hover range<cr>", "Code action group" },
-      j = { "<cmd>RustLsp moveItem down<cr>", "Move item up" },
-      k = { "<cmd>RustLsp moveItem up<cr>", "Move item down" },
-      m = { "<cmd>RustLsp expandMacro<cr>", "Expand macro" },
-      p = { "<cmd>RustLsp parentModule<cr>", "Parent module" },
-      r = { "<cmd>RustLsp runnables<cr>", "Runnables" },
-      s = { "<cmd>RustLsp syntaxTree<cr>", "View syntax tree" },
-      v = { "<cmd>RustLsp crateGraph<cr>", "Create graph" },
+  wk.add({
+    buffer = bufnr,
+    mode = "n",
+    { "K", "<cmd>lua require('rust-tools').hover_actions.hover_actions", desc = "Rust Hover" },
+    {
+      "<localleader>",
+      group = "Rust",
+      { "<localleader>a", "<cmd>RustLsp hover action<cr>",  desc = "Code action group" },
+      { "<localleader>c", "<cmd>RustLsp openCargo<cr>",     desc = "Open cargo.toml" },
+      { "<localleader>f", "<cmd>RustLsp flyCheck<cr>",      desc = "Fly check/clippy" },
+      { "<localleader>h", "<cmd>RustLsp hover range<cr>",   desc = "Code action group" },
+      { "<localleader>j", "<cmd>RustLsp moveItem down<cr>", desc = "Move item up" },
+      { "<localleader>k", "<cmd>RustLsp moveItem up<cr>",   desc = "Move item down" },
+      { "<localleader>m", "<cmd>RustLsp expandMacro<cr>",   desc = "Expand macro" },
+      { "<localleader>p", "<cmd>RustLsp parentModule<cr>",  desc = "Parent module" },
+      { "<localleader>r", "<cmd>RustLsp runnables<cr>",     desc = "Runnables" },
+      { "<localleader>s", "<cmd>RustLsp syntaxTree<cr>",    desc = "View syntax tree" },
+      { "<localleader>v", "<cmd>RustLsp crateGraph<cr>",    desc = "Create graph" },
     },
-  }, { buffer = bufnr, mode = "n" })
+  })
 end
 
 -- Markdown keybinds
 function M.markdown_keybindings(bufnr)
-  wk.register({
-    ["<localleader>"] = {
-      p = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle preview" },
+  wk.add({
+    buffer = bufnr,
+    mode = "n",
+    { "<localleader>",
+      { "<localleader>p", "<cmd>MarkdownPreviewToggle<cr>", desc = "Toggle preview" },
     }
   }, { buffer = bufnr, mode = "n" })
 end
 
 -- TeX keybinds
 function M.tex_keybindings(bufnr)
-  wk.register({
-    ["<localleader>"] = {
-      p = { "<cmd>lua require('nabla').popup()<cr>", "Preview LaTeX popup" },
-      d = { "<cmd>lua require('nabla').disable_virt()<cr>", "Disable LaTeX preview for buffer" },
-      e = { "<cmd>lua require('nabla').enable_virt()<cr>", "Enable LaTeX preview for buffer" },
-      t = { "<cmd>lua require('nabla').toggle_virt()<cr>", "Toggle LaTeX preview for buffer" },
+  wk.add({
+    buffer = bufnr,
+    mode = "n",
+    { "<localleader>",
+      { "<localleader>p", "<cmd>lua require('nabla').popup()<cr>",        desc = "Preview LaTeX popup" },
+      { "<localleader>d", "<cmd>lua require('nabla').disable_virt()<cr>", desc = "Disable LaTeX preview for buffer" },
+      { "<localleader>e", "<cmd>lua require('nabla').enable_virt()<cr>",  desc = "Enable LaTeX preview for buffer" },
+      { "<localleader>t", "<cmd>lua require('nabla').toggle_virt()<cr>",  desc = "Toggle LaTeX preview for buffer" },
     },
-  }, { buffer = bufnr, mode = "n" })
+  })
 end
 
 return M

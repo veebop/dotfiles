@@ -224,9 +224,7 @@ require("lazy").setup({
     dependencies = { "tpope/vim-unimpaired" },
     config = function()
       local wk = require("which-key")
-      local uwk = require("unimpaired-which-key")
-      wk.register(uwk.normal_mode)
-      wk.register(uwk.normal_and_visual_mode, { mode = { "n", "v" } })
+      wk.add(require("unimpaired-which-key"))
     end,
     event = "VeryLazy",
   },
