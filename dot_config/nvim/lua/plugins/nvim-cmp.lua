@@ -12,7 +12,7 @@ function M.setup()
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        luasnip.lsp_expand(args.body) -- For `luasnip` users.
       end,
     },
     window = {
@@ -36,8 +36,8 @@ function M.setup()
       ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
-        elseif luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
+          -- elseif luasnip.expand_or_jumpable() then
+          --   luasnip.expand_or_jump()
         elseif has_words_before() then
           cmp.complete()
         else
@@ -47,8 +47,8 @@ function M.setup()
       ['<S-Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
-          luasnip.jump(-1)
+          -- elseif luasnip.jumpable(-1) then
+          --   luasnip.jump(-1)
         else
           fallback()
         end
