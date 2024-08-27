@@ -470,6 +470,12 @@ require("lazy").setup({
     },
     event = { "BufRead Cargo.toml" },
   },
+  -- C/C++
+  {
+    "p00f/clangd_extensions.nvim",
+    opts = {},
+    event = "VeryLazy",
+  },
   -- Lua
   {
     "folke/lazydev.nvim",
