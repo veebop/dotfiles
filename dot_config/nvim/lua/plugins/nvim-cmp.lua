@@ -56,12 +56,13 @@ function M.setup()
     }),
 
     sources = cmp.config.sources({
-      { name = 'vimtex',   priority = 1050, filetype = { "tex", "bib" } },
-      { name = 'lazydev',  priority = 1050, filetype = { "lua" } },
-      { name = 'nvim_lsp', priority = 1000 },
-      { name = 'luasnip',  priority = 950 },
-      { name = 'buffer',   priority = 500 },
-      { name = 'path',     priority = 250 },
+      { name = 'vimtex',                priority = 1050, filetype = { "tex", "bib" } },
+      { name = 'lazydev',               priority = 1050, filetype = { "lua" } },
+      { name = 'vim-dadbod-completion', priority = 1050, filetype = { "sql", "mysql", "plsql" } },
+      { name = 'nvim_lsp',              priority = 1000 },
+      { name = 'luasnip',               priority = 950 },
+      { name = 'buffer',                priority = 500 },
+      { name = 'path',                  priority = 250 },
     })
   })
 
