@@ -8,6 +8,7 @@ README.md
 .Brewfile
 .config/karabiner/
 .config/amethyst
+.config/aerospace/
 {{else if ne .chezmoi.os "linux" -}}
 # Linux only configurations
 .config/hypr/
