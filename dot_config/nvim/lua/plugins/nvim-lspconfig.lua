@@ -20,6 +20,7 @@ function M.setup()
   }
   lspconfig.cmake.setup {}
   lspconfig.gopls.setup {}
+  lspconfig.html.setup {}
   lspconfig.jdtls.setup {}
   lspconfig.jsonls.setup {}
   lspconfig.ltex.setup {

@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   desc = "Auto format",
   callback = function()
     -- Format with the LSP/Formatter
-    vim.lsp.buf.format({ async = false })
+    -- vim.lsp.buf.format({ async = false })
     -- Strip trailing whitespace
     local save_cursor = vim.fn.getpos(".")
     vim.cmd([[%s/\s\+$//e]])

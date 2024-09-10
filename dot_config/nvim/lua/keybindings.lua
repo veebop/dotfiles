@@ -28,7 +28,7 @@ wk.add({
     "<leader>",
     group = "Leader",
     { "<leader>;", "<cmd>Alpha<cr>",          desc = "Alpha" },
-    { "<leader>=", "gg=G<C-o>",               desc = "Auto indent file",       noremap = true, silent = true },
+    { "<leader>=", "gg=G<C-o>",               desc = "Auto indent file",    noremap = true, silent = true },
     { "<leader>c", "<cmd>bd<cr>",             desc = "Close buffer" },
     { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "File explorer" },
     { "<leader>h", "<cmd>nohlsearch<cr>",     desc = "No highlight" },
@@ -40,7 +40,19 @@ wk.add({
     { "<leader>z", "<cmd>ZenMode<cr>",        desc = "Zen mode" },
     { "<leader>C", "<cmd>bd!<cr>",            desc = "Force close buffer" },
     { "<leader>D", "<cmd>DiffOrig<cr>",       desc = "Diff changes in file" },
-    { "<leader>Q", "<cmd>quitall!<cr>",       desc = "Quit all without saving" },
+    {
+      "<leader>F",
+      function()
+        -- Format with the LSP/Formatter
+        vim.lsp.buf.format({ async = false })
+        -- Strip trailing whitespace
+        local save_cursor = vim.fn.getpos(".")
+        vim.cmd([[%s/\s\+$//e]])
+        vim.fn.setpos(".", save_cursor)
+      end,
+      desc = "Format buffer"
+    },
+    { "<leader>Q", "<cmd>quitall!<cr>", desc = "Quit all without saving" },
     {
       "<leader>W",
       "<cmd>set eventignore+=BufWritePre | w | set eventignore-=BufWritePre<cr>",
@@ -174,7 +186,7 @@ function M.lsp_keybindings(bufnr)
       group = "Leader",
       { "<leader>a", function() require("actions-preview").code_actions() end, desc = "Code actions" },
       {
-        "l",
+        "<leader>l",
         group = "LSP",
         { "<leader>la", function() require("actions-preview").code_actions() end,        desc = "Code action" },
         { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>",          desc = "Buffer diagnostics" },
@@ -189,7 +201,7 @@ function M.lsp_keybindings(bufnr)
         { "<leader>lt", "<cmd>Telescope lsp_type_definitions bufnr=0 theme=get_ivy<cr>", desc = "Type definitions" },
         { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>",                       desc = "Document symbols" },
         {
-          "w",
+          "<leader>lw",
           group = "Workspace",
           { "<leader>lwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>",                       desc = "Add workspace folder" },
           { "<leader>lwd", "<cmd>Telescope diagnostics<cr>",                                        desc = "Diagnostics" },

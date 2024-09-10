@@ -10,6 +10,7 @@ vim.opt.hidden = true                          -- Required to keep multiple buff
 vim.opt.ignorecase = true                      -- Ignore case in search patterns (see smartcase)
 vim.opt.linebreak = true                       -- Break lines at `breakat` characters
 vim.opt.mouse = "a"                            -- Allow the mouse to be used in neovim
+vim.opt.path:append { "**" }
 vim.opt.smartcase = true                       -- Ignore case until search contains uppercase characters
 vim.opt.splitbelow = true                      -- Force all horizontal splits to go below current window
 vim.opt.splitright = true                      -- Force all vertical splits to go to the right of current window

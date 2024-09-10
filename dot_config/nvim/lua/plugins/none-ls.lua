@@ -6,6 +6,7 @@ function M.setup()
   nls.setup({
     sources = {
       nls.builtins.diagnostics.codespell,
+      nls.builtins.formatting.prettier,
       nls.builtins.formatting.yapf,
       -- You have to install these outside of mason-null-ls
       -- They usually come with the toolchain
