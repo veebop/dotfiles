@@ -48,7 +48,7 @@ require("lazy").setup({
         "rust_analyzer",
         "taplo",
         "texlab",
-        "tsserver",
+        "ts_ls",
         "vale_ls",
         "yamlls",
         "zls",

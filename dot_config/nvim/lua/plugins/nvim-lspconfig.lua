@@ -49,7 +49,7 @@ function M.setup()
   }
   lspconfig.texlab.setup {}
   lspconfig.taplo.setup {}
-  lspconfig.tsserver.setup {}
+  lspconfig.ts_ls.setup {}
   lspconfig.vale_ls.setup {
     init_options = {
       configPath = vim.fn.expand("~/.config/vale/.vale.ini"),
