@@ -440,23 +440,6 @@ require("lazy").setup({
     lazy = true
   },
   ----- LANGUAGE SPECIFIC -----
-  -- SQL
-  {
-    'kristijanhusak/vim-dadbod-ui',
-    dependencies = {
-      { 'tpope/vim-dadbod',                     cmd = 'DB',                       lazy = true },
-      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
-    },
-    init = function()
-      vim.g.db_ui_use_nerd_fonts = 1
-    end,
-    cmd = {
-      'DBUI',
-      'DBUIToggle',
-      'DBUIAddConnection',
-      'DBUIFindBuffer',
-    },
-  },
   -- Rust
   {
     'mrcjkb/rustaceanvim',
