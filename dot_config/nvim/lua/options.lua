@@ -40,7 +40,7 @@ vim.opt.scrolloff = 8             -- Minimal number of screen lines to keep abov
 vim.opt.showcmd = false           -- Show incomplete commands, ex: show `dt` while typing
 vim.opt.showmode = false          -- Lualine makes this redundant
 vim.opt.sidescrolloff = 8         -- Minimal number of screen lines to keep left and right of the cursor.
-vim.opt.signcolumn = "yes"        -- Always show the sign column, otherwise it would shift the text each time
+vim.opt.signcolumn = "auto:1-3"   -- Allow the sign column to grow to fit more elements
 vim.opt.termguicolors = true      -- Set term gui colors (most terminals support this)
 vim.opt.title = true              -- Set the title of window to the value of the titlestring
 
