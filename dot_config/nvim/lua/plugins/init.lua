@@ -25,29 +25,11 @@ require("lazy").setup({
     cmd = { "LspInfo", "LspInstall", "LspUninstall" },
   },
   {
-    "nvimtools/none-ls.nvim",
-    dependencies = { "mason.nvim" },
-    config = require("plugins.none-ls").setup,
-    event = { "BufReadPre", "BufNewFile" },
-  },
-  {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "mason.nvim" },
     config = require("plugins.mason").setup_lspconfig,
     lazy = true,
     cmd = { "LspInstall", "LspUninstall" },
-    event = { "BufReadPre", "BufNewFile" },
-  },
-  {
-    "jay-babu/mason-null-ls.nvim",
-    dependencies = {
-      "mason.nvim",
-      "none-ls.nvim",
-    },
-    opts = {
-      ensure_installed = { "codespell", "yapf", },
-    },
-    cmd = { "NullLsInstall", "NullLsUninstall" },
     event = { "BufReadPre", "BufNewFile" },
   },
   {
@@ -75,6 +57,14 @@ require("lazy").setup({
     "j-hui/fidget.nvim",
     opts = {},
     event = "LspAttach",
+  },
+  -- Formatting
+  {
+    'stevearc/conform.nvim',
+    config = require("plugins/conform").setup,
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo", "Format", "FormatToggle", "FormatDisable", "FormatEnable" },
+    lazy = true,
   },
   -- Completions
   {
@@ -433,7 +423,13 @@ require("lazy").setup({
     "saecki/crates.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
-      null_ls = { enabled = true, name = "Crates" },
+      lsp = {
+        enabled = true,
+        on_attach = function(client, bufnr) end,
+        actions = true,
+        completion = true,
+        hover = true,
+      },
     },
     event = { "BufRead Cargo.toml" },
   },

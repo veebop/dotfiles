@@ -38,27 +38,8 @@ wk.add({
     { "<leader>w", "<cmd>write<cr>",          desc = "Write" },
     { "<leader>q", "<cmd>quitall<cr>",        desc = "Quit all" },
     { "<leader>z", "<cmd>ZenMode<cr>",        desc = "Zen mode" },
-    { "<leader>C", "<cmd>bd!<cr>",            desc = "Force close buffer" },
     { "<leader>D", "<cmd>DiffOrig<cr>",       desc = "Diff changes in file" },
-    {
-      "<leader>F",
-      function()
-        -- Format with the LSP/Formatter
-        vim.lsp.buf.format({ async = false })
-        -- Strip trailing whitespace
-        local save_cursor = vim.fn.getpos(".")
-        vim.cmd([[%s/\s\+$//e]])
-        vim.cmd("nohlsearch")
-        vim.fn.setpos(".", save_cursor)
-      end,
-      desc = "Format buffer"
-    },
-    {
-      "<leader>H",
-      function() vim.o.hlsearch = not vim.o.hlsearch end,
-      desc = "Toggle hlsearch"
-    },
-    { "<leader>Q", "<cmd>quitall!<cr>", desc = "Quit all without saving" },
+    { "<leader>F", "<cmd>Format<cr>",         desc = "Format buffer" },
     {
       "<leader>W",
       "<cmd>set eventignore+=BufWritePre | w | set eventignore-=BufWritePre<cr>",
@@ -149,6 +130,18 @@ wk.add({
         { "<leader>gfB", "<cmd>Telescope git_branches<cr>", desc = "Branches" },
       },
     },
+    -- TOGGLES
+    {
+      "<leader>t",
+      group = "Toggles",
+      { "<leader>tf", "<cmd>FormatToggle<cr>",  desc = "Toggle format on save" },
+      { "<leader>tF", "<cmd>FormatToggle!<cr>", desc = "Toggle format on save for buffer only" },
+      {
+        "<leader>th",
+        function() vim.o.hlsearch = not vim.o.hlsearch end,
+        desc = "Toggle hlsearch"
+      },
+    }
   }
 })
 
