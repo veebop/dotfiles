@@ -48,9 +48,15 @@ wk.add({
         -- Strip trailing whitespace
         local save_cursor = vim.fn.getpos(".")
         vim.cmd([[%s/\s\+$//e]])
+        vim.cmd("nohlsearch")
         vim.fn.setpos(".", save_cursor)
       end,
       desc = "Format buffer"
+    },
+    {
+      "<leader>H",
+      function() vim.o.hlsearch = not vim.o.hlsearch end,
+      desc = "Toggle hlsearch"
     },
     { "<leader>Q", "<cmd>quitall!<cr>", desc = "Quit all without saving" },
     {
@@ -167,6 +173,29 @@ wk.add({
   { "<A-k>", ":move '<-2<cr>gv-gv", desc = "Move selected text up" },
 })
 
+
+----- INSERT MODE BINDINGS -----
+wk.add({
+  mode = "i",
+  -- Builtin completion hints, see :h ins-completion
+  {
+    "<C-x>",
+    desc = "Builtin completions",
+    { "<C-x><C-l>", desc = "Whole lines", },
+    { "<C-x><C-n>", desc = "Keywords in current file", },
+    { "<C-x><C-k>", desc = "Keywords in dictionary", },
+    { "<C-x><C-t>", desc = "Keywords in thesaurus, thesaurus-style", },
+    { "<C-x><C-i>", desc = "Keywords in the current and included files", },
+    { "<C-x><C-]>", desc = "Tags", },
+    { "<C-x><C-f>", desc = "File names", },
+    { "<C-x><C-d>", desc = "Definitions or macros", },
+    { "<C-x><C-v>", desc = "Vim command-line", },
+    { "<C-x><C-u>", desc = "Omni completion", },
+    { "<C-x>s",     desc = "Spelling suggestions", },
+    { "<C-x><C-z>", desc = "Cancel completion", },
+  },
+})
+
 ----- BUFFER SPECIFIC BINDINGS -----
 -- LSP keybindings
 function M.lsp_keybindings(bufnr)
@@ -212,11 +241,7 @@ function M.lsp_keybindings(bufnr)
         {
           "<leader>lD",
           function()
-            if vim.diagnostic.is_enabled(bufnr) then
-              vim.diagnostic.enable(false, bufnr)
-            else
-              vim.diagnostic.enable(bufnr)
-            end
+            vim.diagnostic.enable(not vim.diagnostic.is_enabled({ bufnr }), { bufnr })
           end,
           desc = "Toggle diagnostics",
         },
@@ -247,7 +272,7 @@ function M.crate_keybindings(bufnr)
     mode = "n",
     {
       "<localleader>",
-      group = "Crate",
+      group = "Create",
       { "<localleader>r", "<cmd>lua require'crates'.open_repository()<cr>",         desc = "Open repository" },
       { "<localleader>p", "<cmd>lua require'crates'.show_popup()<cr>",              desc = "Show popup" },
       { "<localleader>c", "<cmd>lua require'crates'.show_crate_popup()<cr>",        desc = "Show info" },

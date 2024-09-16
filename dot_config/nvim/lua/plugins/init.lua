@@ -254,7 +254,11 @@ require("lazy").setup({
   },
   {
     "folke/which-key.nvim",
-    opts = {},
+    opts = {
+      triggers = {
+        { "<auto>", mode = "nixsotc" }, -- Trigger in more modes
+      }
+    },
     cmd = "WhichKey",
     event = "VeryLazy",
   },
