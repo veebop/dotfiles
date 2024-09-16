@@ -1,4 +1,4 @@
-format = """$all"""
+format = """$all$os$jobs$battery$time$status$sudo$container$shell$character"""
 command_timeout = 1000
 
 # Different prompt symbol
@@ -14,18 +14,28 @@ threshold = 20 # default 10
 [cmd_duration]
 show_milliseconds = true
 
-# ----- Git -----
+# Git
 [git_metrics]
 disabled = false
+
+[os]
+format = '[$symbol ]($style)'
+disabled = true
 
 # Status; essentially exit codes
 [status]
 format = '[$symbol$status]($style) '
 disabled = false
 
+[sudo]
+format = '[$symbol]($style)'
+symbol = '! '
+disabled = true
+
 [time]
 disabled = true
 
+# Symbols
 [aws]
 symbol = '󰸏 '
 
