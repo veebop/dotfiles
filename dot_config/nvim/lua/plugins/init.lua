@@ -60,11 +60,17 @@ require("lazy").setup({
   },
   -- Formatting
   {
-    'stevearc/conform.nvim',
+    "stevearc/conform.nvim",
     config = require("plugins/conform").setup,
     event = { "BufWritePre" },
     cmd = { "ConformInfo", "Format", "FormatToggle", "FormatDisable", "FormatEnable" },
     lazy = true,
+  },
+  -- Linting
+  {
+    "mfussenegger/nvim-lint",
+    config = require("plugins/lint").setup,
+    event = { "BufReadPre" },
   },
   -- Completions
   {
