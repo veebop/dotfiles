@@ -9,11 +9,11 @@ function M.setup()
     end
 
     api.config.mappings.default_on_attach(bufnr)
-    vim.keymap.set("n", "<CR>", function()
+    vim.keymap.set("n", "l", function()
       api.node.open.edit()
       api.tree.focus()
     end, opts("Open Without Focus"))
-    vim.keymap.set("n", "l", function()
+    vim.keymap.set("n", "<CR>", function()
       api.node.open.edit()
       api.tree.close()
     end, opts("Open and Close Tree"))
