@@ -102,6 +102,8 @@ wk.add({
       { "<leader>fT", "<cmd>TodoTelescope<cr>",                                                                                              desc = "Todo comments" },
     },
     -- GIT
+    { "]g", "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>", desc = "Next git hunk" },
+    { "[g", "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>", desc = "Prev git hunk" },
     {
       "<leader>g",
       group = "Git",
