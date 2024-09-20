@@ -24,6 +24,21 @@ function M.setup_lspconfig()
         },
       }
     end,
+    ["lua_ls"] = function()
+      local lspconfig = require("lspconfig")
+      lspconfig.lua_ls.setup {
+        settings = {
+          Lua = {
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false },
+            diagnostics = {
+              -- Disable the noisy "missing-fields" warnings
+              disable = { "missing-fields" },
+            },
+          },
+        },
+      }
+    end,
     ["rust_analyzer"] = function()
       -- This is handled via rustaceanvim
     end,
