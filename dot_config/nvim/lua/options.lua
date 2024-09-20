@@ -3,7 +3,7 @@ vim.opt.background = "dark"
 vim.cmd('colorscheme bamboo')
 
 vim.opt.backup = false                         -- Creates a backup file
-vim.opt.clipboard = "unnamedplus"              -- Use the system clipboard by default
+vim.opt.clipboard = {}                         -- Use the system clipboard by default
 vim.opt.fileencoding = "utf-8"                 -- The encoding written to a file
 vim.opt.formatoptions:remove { "l", "t", "c" } -- Don't auto wrap lines in insert mode
 vim.opt.hidden = true                          -- Required to keep multiple buffers and open multiple buffers
