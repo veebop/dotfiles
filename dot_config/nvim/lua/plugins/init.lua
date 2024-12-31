@@ -442,6 +442,17 @@ require("lazy").setup({
     opts = {},
     event = "VeryLazy",
   },
+  {
+    "Badhi/nvim-treesitter-cpp-tools",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {
+      preview = {
+        quit = "<esc>",  -- Quit preview
+        accept = "<cr>", -- Accept preview
+      },
+    },
+    ft = { 'cpp' },
+  },
   -- Lua
   {
     "folke/lazydev.nvim",

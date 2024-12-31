@@ -257,6 +257,12 @@ function M.clangd_keybindings(bufnr)
     {
       "<localleader>",
       group = "C/C++",
+      { -- These are from Badhi/nvim-treesitter-cpp-tools
+        { "<localleader>c", "<cmd>TSCppMakeConcreteClass<cr>", desc = "Create a concrete class" },
+        { "<localleader>f", "<cmd>TSCppDefineClassFunc<cr>",   desc = "Implement out-of-class member function" },
+        { "<localleader>3", "<cmd>TSCppRuleOf3<cr>",           desc = "Add function declarations for rule of 3" },
+        { "<localleader>5", "<cmd>TSCppRuleOf5<cr>",           desc = "Add function declarations for rule of 5" },
+      },
       { "<localleader>s", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch to source/header" },
     },
   })
