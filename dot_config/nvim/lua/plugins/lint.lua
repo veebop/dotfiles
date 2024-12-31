@@ -3,9 +3,9 @@ local M = {}
 function M.setup()
   require("lint").linters_by_ft = {
     -- Prose
-    text = { "proselint", "write-good" },
-    markdown = { "proselint", "write-good" },
-    tex = { "proselint", "write-good" },
+    text = { "proselint", },
+    markdown = { "proselint", },
+    tex = { "proselint", },
   }
 
   vim.api.nvim_create_autocmd({ "BufWritePost" }, {
