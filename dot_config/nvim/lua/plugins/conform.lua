@@ -73,9 +73,6 @@ function M.setup()
       desc = "Re-enable autoformat-on-save",
       bang = true,
     })
-
-  -- Disable autoformat by default
-  vim.g.disable_autoformat = true
 end
 
 return M
