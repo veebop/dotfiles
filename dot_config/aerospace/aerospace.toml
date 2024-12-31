@@ -85,7 +85,11 @@ outer.right = 0
 #     activate
 # end tell'
 # '''
-alt-enter = 'exec-and-forget open /Applications/WezTerm.app'
+
+# Open new instances of a program
+alt-enter = 'exec-and-forget open -a WezTerm -n'
+# alt-shift-enter = 'exec-and-forget /Applications/Floorp.app/Contents/MacOS/floorp --new-window'
+alt-shift-enter = 'exec-and-forget open -a Floorp -n'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
