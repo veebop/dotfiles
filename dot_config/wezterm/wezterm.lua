@@ -1,6 +1,5 @@
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
-local wez = wezterm
+local wez = require('wezterm')
 local act = wez.action
 local gui = wez.gui
 
@@ -58,17 +57,6 @@ config.inactive_pane_hsb = {
 }
 
 ----- WINDOW -----
----@diagnostic disable-next-line: unused-local
-wez.on('toggle-opacity', function(window, pane)
-  local overrides = window:get_config_overrides() or {}
-  if not overrides.window_background_opacity then
-    overrides.window_background_opacity = 0.8
-  else
-    overrides.window_background_opacity = nil
-  end
-  window:set_config_overrides(overrides)
-end)
-
 ----- BACKGROUND IMAGE -----
 -- I'm leaving this here because it is funny, but I can't change the opacity with a hotkey
 -- config.background = {
@@ -90,31 +78,131 @@ end)
 --     repeat_y = 'Repeat',
 --   },
 -- }
+config.window_background_opacity = 0.8
+config.macos_window_background_blur = 20
+-- These are used to toggle blur and opacity on and off
+local old_opacity = config.window_background_opacity
+local old_blur = config.macos_window_background_blur
 
 ----- KEYBINDINGS -----
 config.enable_kitty_keyboard = true
 config.keys = {
   ----- PANES -----
   -- Create and destroy panes
-  { key = 'v',     mods = 'SUPER|SHIFT',      action = act.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
-  { key = 's',     mods = 'SUPER|SHIFT',      action = act.SplitVertical { domain = 'CurrentPaneDomain' }, },
-  { key = 'a',     mods = 'SUPER|SHIFT',      action = act.SplitPane { direction = 'Down', size = { Cells = 20 }, }, },
-  { key = 'x',     mods = 'SUPER|SHIFT',      action = act.CloseCurrentPane { confirm = true }, },
+  { key = 'v', mods = 'SUPER|SHIFT',      action = act.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
+  { key = 's', mods = 'SUPER|SHIFT',      action = act.SplitVertical { domain = 'CurrentPaneDomain' }, },
+  { key = 'a', mods = 'SUPER|SHIFT',      action = act.SplitPane { direction = 'Down', size = { Cells = 20 }, }, },
+  { key = 'x', mods = 'SUPER|SHIFT',      action = act.CloseCurrentPane { confirm = true }, },
   -- Move between panes
-  { key = 'h',     mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Left', },
-  { key = 'j',     mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Down', },
-  { key = 'k',     mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Up', },
-  { key = 'l',     mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Right', },
-  { key = 'b',     mods = 'SUPER|SHIFT',      action = act.PaneSelect, },
+  { key = 'h', mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Left', },
+  { key = 'j', mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Down', },
+  { key = 'k', mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Up', },
+  { key = 'l', mods = 'SUPER|SHIFT',      action = act.ActivatePaneDirection 'Right', },
+  { key = 'b', mods = 'SUPER|SHIFT',      action = act.PaneSelect, },
   -- Resize panes
-  { key = 'h',     mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Left', 5 }, },
-  { key = 'j',     mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Down', 5 }, },
-  { key = 'k',     mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Up', 5 }, },
-  { key = 'l',     mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Right', 5 }, },
-  { key = 'z',     mods = 'SUPER|SHIFT',      action = act.TogglePaneZoomState, },
+  { key = 'h', mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Left', 5 }, },
+  { key = 'j', mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Down', 5 }, },
+  { key = 'k', mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Up', 5 }, },
+  { key = 'l', mods = 'SUPER|SHIFT|CTRL', action = act.AdjustPaneSize { 'Right', 5 }, },
+  { key = 'z', mods = 'SUPER|SHIFT',      action = act.TogglePaneZoomState, },
   -- Rotate panes
-  { key = 'n',     mods = 'SUPER|SHIFT',      action = act.RotatePanes 'Clockwise' },
-  { key = 'm',     mods = 'SUPER|SHIFT',      action = act.RotatePanes 'CounterClockwise' },
+  { key = 'n', mods = 'SUPER|SHIFT',      action = act.RotatePanes 'Clockwise' },
+  { key = 'm', mods = 'SUPER|SHIFT',      action = act.RotatePanes 'CounterClockwise' },
+
+  ----- OPACITY/BLUR -----
+  { -- Increase opacity
+    key = 'UpArrow',
+    mods = 'SUPER|SHIFT',
+    action = wez.action_callback(function(window, pane)
+      local overrides = window:get_config_overrides() or {}
+      overrides.window_background_opacity =
+          (overrides.window_background_opacity or config.window_background_opacity)
+          + 0.1
+
+      if overrides.window_background_opacity > 1.0 then
+        overrides.window_background_opacity = 1.0
+      end
+
+      window:set_config_overrides(overrides)
+    end),
+  },
+  { -- Decrease opacity
+    key = 'DownArrow',
+    mods = 'SUPER|SHIFT',
+    action = wez.action_callback(function(window, pane)
+      local overrides = window:get_config_overrides() or {}
+      overrides.window_background_opacity =
+          (overrides.window_background_opacity or config.window_background_opacity)
+          - 0.1
+
+      if overrides.window_background_opacity < 0.0 then
+        overrides.window_background_opacity = 0.0
+      end
+
+      window:set_config_overrides(overrides)
+    end),
+  },
+  { -- Decrease blur
+    key = 'LeftArrow',
+    mods = 'SUPER|SHIFT',
+    action = wez.action_callback(function(window, pane)
+      local overrides = window:get_config_overrides() or {}
+      overrides.macos_window_background_blur =
+          math.floor((overrides.macos_window_background_blur or config.macos_window_background_blur) - 10)
+
+      if overrides.macos_window_background_blur < 0 then
+        overrides.macos_window_background_blur = 0
+      end
+
+      window:set_config_overrides(overrides)
+    end),
+  },
+  { -- Increase blur
+    key = 'RightArrow',
+    mods = 'SUPER|SHIFT',
+    action = wez.action_callback(function(window, pane)
+      local overrides = window:get_config_overrides() or {}
+      overrides.macos_window_background_blur =
+          math.floor((overrides.macos_window_background_blur or config.macos_window_background_blur) + 10)
+
+      if overrides.macos_window_background_blur > 100 then
+        overrides.macos_window_background_blur = 100
+      end
+
+      window:set_config_overrides(overrides)
+    end),
+  },
+  { -- Toggle window opacity
+    key = 'u',
+    mods = 'SUPER',
+    action = wez.action_callback(function(window, pane)
+      local overrides = window:get_config_overrides() or {}
+      if not overrides.window_background_opacity or overrides.window_background_opacity < 1 then
+        old_opacity = overrides.window_background_opacity or config.window_background_opacity
+        overrides.window_background_opacity = 1
+      else
+        overrides.window_background_opacity =
+            old_opacity or config.window_background_opacity
+      end
+      window:set_config_overrides(overrides)
+    end),
+  },
+  { -- Toggle background blur
+    key = 'u',
+    mods = 'SUPER|SHIFT|CTRL',
+    action = wez.action_callback(function(window, pane)
+      local overrides = window:get_config_overrides() or {}
+      if not overrides.macos_window_background_blur or overrides.macos_window_background_blur > 0 then
+        old_blur = overrides.macos_window_background_blur or config.macos_window_background_blur
+        overrides.macos_window_background_blur = 0
+      else
+        overrides.macos_window_background_blur =
+            old_blur or config.macos_window_background_blur
+      end
+      window:set_config_overrides(overrides)
+    end),
+  },
+
   ----- OTHER KEYBINDINGS -----
   -- Tabs
   { key = '[',     mods = 'SUPER|SHIFT|CTRL', action = act.MoveTabRelative(-1) },
@@ -126,7 +214,6 @@ config.keys = {
   { key = 'u',     mods = 'SUPER|SHIFT',      action = act.CharSelect },
   { key = ' ',     mods = 'SUPER|SHIFT',      action = act.QuickSelect, },
   { key = 'f',     mods = 'SUPER|SHIFT',      action = act.ActivateCopyMode, },
-  { key = 'u',     mods = 'SUPER',            action = act.EmitEvent 'toggle-opacity', },
   { key = 'Enter', mods = 'SUPER',            action = act.ToggleFullScreen, },
   ------ UNBIND KEYS -----
   { key = 'Enter', mods = 'META',             action = act.DisableDefaultAssignment, },
@@ -152,7 +239,7 @@ wez.on('update-right-status', function(window, pane)
       ---@diagnostic disable-next-line: undefined-field
       cwd = cwd_uri.file_path
       ---@diagnostic disable-next-line: undefined-field
-      hostname = wezterm.hostname() or cwd_uri.host
+      hostname = wez.hostname() or cwd_uri.host
     else
       -- an older version of wezterm, 20230712-072601-f4abf8fd or earlier,
       -- which doesn't have the Url object
@@ -173,7 +260,7 @@ wez.on('update-right-status', function(window, pane)
       hostname = hostname:sub(1, dot - 1)
     end
     if hostname == '' then
-      hostname = wezterm.hostname()
+      hostname = wez.hostname()
     end
 
     table.insert(cells, cwd)
@@ -220,19 +307,19 @@ wez.on('update-right-status', function(window, pane)
 end)
 
 -- Neovim zen-mode.nvim integration
-wezterm.on('user-var-changed', function(window, pane, name, value)
+wez.on('user-var-changed', function(window, pane, name, value)
   local overrides = window:get_config_overrides() or {}
   if name == "ZEN_MODE" then
     local incremental = value:find("+")
     local number_value = tonumber(value)
     if incremental ~= nil then
       while (number_value > 0) do
-        window:perform_action(wezterm.action.IncreaseFontSize, pane)
+        window:perform_action(wez.action.IncreaseFontSize, pane)
         number_value = number_value - 1
       end
       overrides.enable_tab_bar = false
     elseif number_value < 0 then
-      window:perform_action(wezterm.action.ResetFontSize, pane)
+      window:perform_action(wez.action.ResetFontSize, pane)
       overrides.font_size = nil
       overrides.enable_tab_bar = true
     else
