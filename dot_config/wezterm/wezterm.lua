@@ -57,27 +57,6 @@ config.inactive_pane_hsb = {
 }
 
 ----- WINDOW -----
------ BACKGROUND IMAGE -----
--- I'm leaving this here because it is funny, but I can't change the opacity with a hotkey
--- config.background = {
---   {
---     source = {
---       Color = current_scheme.background
---     },
---     width = '100%',
---     height = '100%',
-
---   },
---   {
---     source = {
---       File = wez.config_dir .. "/long.gif"
---     },
---     hsb = { brightness = 0.1 },
---     attachment = 'Scroll',
---     repeat_x = 'NoRepeat',
---     repeat_y = 'Repeat',
---   },
--- }
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 20
 -- These are used to toggle blur and opacity on and off
