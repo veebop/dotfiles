@@ -269,11 +269,6 @@ require("lazy").setup({
     },
     event = { "BufRead", "BufNewFile" },
   },
-  {
-    "LunarVim/bigfile.nvim",
-    opts = {},
-    event = { "FileReadPre", "BufReadPre", "BufRead" },
-  },
   -- Aesthetics
   {
     'ribru17/bamboo.nvim',
