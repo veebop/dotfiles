@@ -89,24 +89,8 @@ config.keys = {
   { key = 'm', mods = 'SUPER|SHIFT',      action = act.RotatePanes 'CounterClockwise' },
 
   ----- OPACITY/BLUR -----
-  { -- Increase opacity
-    key = 'UpArrow',
-    mods = 'SUPER|SHIFT',
-    action = wez.action_callback(function(window, pane)
-      local overrides = window:get_config_overrides() or {}
-      overrides.window_background_opacity =
-          (overrides.window_background_opacity or config.window_background_opacity)
-          + 0.1
-
-      if overrides.window_background_opacity > 1.0 then
-        overrides.window_background_opacity = 1.0
-      end
-
-      window:set_config_overrides(overrides)
-    end),
-  },
   { -- Decrease opacity
-    key = 'DownArrow',
+    key = '(',
     mods = 'SUPER|SHIFT',
     action = wez.action_callback(function(window, pane)
       local overrides = window:get_config_overrides() or {}
@@ -121,9 +105,25 @@ config.keys = {
       window:set_config_overrides(overrides)
     end),
   },
-  { -- Decrease blur
-    key = 'LeftArrow',
+  { -- Increase opacity
+    key = ')',
     mods = 'SUPER|SHIFT',
+    action = wez.action_callback(function(window, pane)
+      local overrides = window:get_config_overrides() or {}
+      overrides.window_background_opacity =
+          (overrides.window_background_opacity or config.window_background_opacity)
+          + 0.1
+
+      if overrides.window_background_opacity > 1.0 then
+        overrides.window_background_opacity = 1.0
+      end
+
+      window:set_config_overrides(overrides)
+    end),
+  },
+  { -- Decrease blur
+    key = '(',
+    mods = 'CTRL|SUPER|SHIFT',
     action = wez.action_callback(function(window, pane)
       local overrides = window:get_config_overrides() or {}
       overrides.macos_window_background_blur =
@@ -137,8 +137,8 @@ config.keys = {
     end),
   },
   { -- Increase blur
-    key = 'RightArrow',
-    mods = 'SUPER|SHIFT',
+    key = ')',
+    mods = 'CTRL|SUPER|SHIFT',
     action = wez.action_callback(function(window, pane)
       local overrides = window:get_config_overrides() or {}
       overrides.macos_window_background_blur =
@@ -153,7 +153,7 @@ config.keys = {
   },
   { -- Toggle window opacity
     key = 'u',
-    mods = 'SUPER',
+    mods = 'SUPER|SHIFT',
     action = wez.action_callback(function(window, pane)
       local overrides = window:get_config_overrides() or {}
       if not overrides.window_background_opacity or overrides.window_background_opacity < 1 then
@@ -168,7 +168,7 @@ config.keys = {
   },
   { -- Toggle background blur
     key = 'u',
-    mods = 'SUPER|SHIFT|CTRL',
+    mods = 'CTRL|SUPER|SHIFT',
     action = wez.action_callback(function(window, pane)
       local overrides = window:get_config_overrides() or {}
       if not overrides.macos_window_background_blur or overrides.macos_window_background_blur > 0 then
@@ -190,7 +190,7 @@ config.keys = {
   { key = 't',     mods = 'SUPER|SHIFT',      action = act.ShowTabNavigator },
   -- Misc
   { key = 'p',     mods = 'SUPER|SHIFT',      action = act.ActivateCommandPalette, },
-  { key = 'u',     mods = 'SUPER|SHIFT',      action = act.CharSelect },
+  { key = 'u',     mods = 'SUPER',            action = act.CharSelect },
   { key = ' ',     mods = 'SUPER|SHIFT',      action = act.QuickSelect, },
   { key = 'f',     mods = 'SUPER|SHIFT',      action = act.ActivateCopyMode, },
   { key = 'Enter', mods = 'SUPER',            action = act.ToggleFullScreen, },
