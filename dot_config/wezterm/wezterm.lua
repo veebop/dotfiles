@@ -59,9 +59,19 @@ config.inactive_pane_hsb = {
 ----- WINDOW -----
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 20
+
+if wez.target_triple:find('linux') then -- Aerospace handles this on macOS
+  wez.on("gui-startup", function()
+    local tab, pane, window = wez.mux.spawn_window {}
+    window:gui_window():maximize()
+  end)
+end
+
 -- These are used to toggle blur and opacity on and off
 local old_opacity = config.window_background_opacity
 local old_blur = config.macos_window_background_blur
+
+
 
 ----- KEYBINDINGS -----
 config.enable_kitty_keyboard = true
