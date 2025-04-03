@@ -64,13 +64,14 @@ zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
 # zmv - ZSH File renamer
 autoload -U zmv
 
-{{ if eq .chezmoi.os "darwin" -}}
 # Wezterm shell integration
-# This is only automatically installed via brew on MacOS
+# For MacOS, it is included in the binary
 if [ -f /Applications/Wezterm.app/Contents/Resources/wezterm.sh ]; then
   source "/Applications/WezTerm.app/Contents/Resources/wezterm.sh"
+  # For others, we can use a copy
+else
+  source "${HOME}/.config/wezterm/shell-integration.sh"
 fi
-{{ end }}
 
 # iTerm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

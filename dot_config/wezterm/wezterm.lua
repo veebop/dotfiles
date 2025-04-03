@@ -228,7 +228,7 @@ wez.on('update-right-status', function(window, pane)
       ---@diagnostic disable-next-line: undefined-field
       cwd = cwd_uri.file_path
       ---@diagnostic disable-next-line: undefined-field
-      hostname = wez.hostname() or cwd_uri.host
+      hostname = cwd_uri.host or wez.hostname()
     else
       -- an older version of wezterm, 20230712-072601-f4abf8fd or earlier,
       -- which doesn't have the Url object
