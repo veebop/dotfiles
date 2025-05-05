@@ -11,3 +11,11 @@ url = "https://github.com/Sonico98/exifaudio.yazi/archive/master.tar.gz"
 exact = true
 stripComponents = 1
 refreshPeriod = "672h"
+
+{{- if ne .chezmoi.os "linux" -}}
+# Linux only external files
+[".local/share/fonts/FiraCodeNerdFont"]
+type = "archive"
+url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.tar.xz"
+refreshPeriod = "672h"
+{{- end -}}

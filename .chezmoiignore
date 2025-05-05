@@ -9,6 +9,6 @@ README.md
 .config/karabiner/
 .config/amethyst
 .config/aerospace/
-{{else if ne .chezmoi.os "linux" -}}
+{{- else if ne .chezmoi.os "linux" -}}
 # Linux only configurations
 {{- end -}}
