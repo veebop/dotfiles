@@ -19,14 +19,11 @@ require("lazy").setup({
   -- LSP
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "mason-lspconfig.nvim" },
-    config = require("plugins.nvim-lspconfig").setup,
-    event = { "BufReadPost", "BufNewFile" },
-    cmd = { "LspInfo", "LspInstall", "LspUninstall" },
+    lazy = true,
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    dependencies = { "mason.nvim" },
+    dependencies = { "nvim-lspconfig", "mason.nvim" },
     config = require("plugins.mason").setup_lspconfig,
     lazy = true,
     cmd = { "LspInstall", "LspUninstall" },
