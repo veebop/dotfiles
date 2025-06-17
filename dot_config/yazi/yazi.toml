@@ -2,7 +2,7 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[manager]
+[mgr]
 ratio = [1, 2, 3]
 sort_by = "natural"
 sort_sensitive = false
@@ -14,7 +14,7 @@ show_symlink = true
 
 [opener]
 open = [
-  { run = 'xdg-open "$@"', desc = "Open", for = "linux" },
+  { run = 'xdg-open "$@"', orphan = true, desc = "Open", for = "linux" },
   { run = 'open "$@"', desc = "Open", for = "macos" },
   { run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
   { run = 'open -a "Hex Fiend" -- "$@"', orphan = true, desc = "Hex Fiend", for = "macos" },
