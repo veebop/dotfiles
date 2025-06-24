@@ -33,6 +33,36 @@ if not current_scheme then
   current_scheme = wez.color.load_scheme(wez.config_dir .. "/colors/" .. config.color_scheme .. ".toml")
 end
 
+-- Change color scheme when using wezterm ssh/serial
+-- https://github.com/wezterm/wezterm/issues/1680
+local is_wezterm_ssh = false
+local in_ssh_session = false
+wez.on("window-config-reloaded", function(window, pane)
+  -- If there's no foreground process, assume that we are "wezterm ssh" and
+  -- set is_wezterm_ssh to true
+  is_wezterm_ssh = pane:get_foreground_process_name() == nil or is_wezterm_ssh
+end)
+
+-- Change color scheme when in an ssh session
+wez.on('update-status', function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  if pane:get_foreground_process_name() and
+      pane:get_foreground_process_name():find("/ssh$")
+      or is_wezterm_ssh
+      and not overrides.color_scheme then
+    overrides.color_schemes = {SSH = wez.color.load_scheme(wez.config_dir .. "/colors/" .. config.color_scheme .. " SSH.toml")}
+    overrides.color_scheme = 'SSH'
+    in_ssh_session = true
+  elseif not is_wezterm_ssh then
+    overrides.color_schemes = nil
+    overrides.color_scheme = nil
+    in_ssh_session = false
+  end
+
+  -- Change color scheme
+  window:set_config_overrides(overrides)
+end)
+
 ----- FONT -----
 config.font = wez.font_with_fallback {
   {
@@ -70,7 +100,6 @@ end
 -- These are used to toggle blur and opacity on and off
 local old_opacity = config.window_background_opacity
 local old_blur = config.macos_window_background_blur
-
 
 
 ----- KEYBINDINGS -----
@@ -266,7 +295,12 @@ wez.on('update-right-status', function(window, pane)
   end
 
   -- Background color
-  local text_bg = current_scheme.tab_bar.active_tab.bg_color
+  local overrides = window:get_config_overrides() or {}
+  local text_bg = overrides.color_schemes
+      and overrides.color_schemes.SSH
+      and overrides.color_schemes.SSH.tab_bar
+      and overrides.color_schemes.SSH.tab_bar.active_tab.bg_color
+    or current_scheme.tab_bar.active_tab.bg_color
 
   -- Foreground color
   local text_fg = current_scheme.tab_bar.active_tab.fg_color or current_scheme.foreground
