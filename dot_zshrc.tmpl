@@ -52,6 +52,11 @@ if command -v fzf &>/dev/null; then
   bindkey -M emacs '^I' menu-complete
 fi
 
+# Enable Keychain (https://www.funtoo.org/Funtoo:Keychain)
+if command -v keychain &>/dev/null; then
+  eval $(keychain --eval --quiet id_ed25519)
+fi
+
 # zsh-autocomplete fuzzy completion
 zstyle ':completion:*' completer _expand _complete _complete:-loose _complete:-fuzzy _ignored
 # Insert common substring/prefix
