@@ -11,7 +11,15 @@ function M.setup()
       javascript = { "prettierd", "prettier", stop_after_first = true },
       typescript = { "prettierd", "prettier", stop_after_first = true },
       -- Run on all filetypes
-      ["*"] = { "trim_newlines", "trim_whitespace" },
+      -- ["*"] = { "example_formatter_here" },
+      -- Run on filetypes without an explicit configuration
+      ["_"] = { "trim_newlines", "trim_whitespace", lsp_format = "last" },
+    },
+
+    -- Format options
+    default_format_opts = {
+      -- Only run the lsp formatter if another is not specified
+      lsp_format = "fallback",
     },
 
     -- Format on save
@@ -20,7 +28,7 @@ function M.setup()
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
       end
-      return { timeout_ms = 500, lsp_format = "fallback" }
+      return { timeout_ms = 500, }
     end,
   })
 
@@ -32,7 +40,7 @@ function M.setup()
       range = {
         start = { args.line1, 0 }, ["end"] = { args.line2, end_line:len() }, }
     end
-    require("conform").format({ async = true, lsp_format = "fallback", range = range })
+    require("conform").format({ async = true, range = range })
   end, { range = true })
 
   -- Commands to enable/disable formatting
