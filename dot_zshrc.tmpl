@@ -3,14 +3,16 @@
 # These should be set before plugins are loaded
 # Add ~/.zsh_custom/completions to fpath
 export FPATH=$HOME/.zsh_custom/completions:$FPATH
-# Set XDG base directories
 # Initialize homebrew
+test -d /usr/local/bin/brew && eval "$(/usr/local/bin/brew shellenv)" # x86 MacOS
+test -d /opt/homebrew && eval "$(/opt/homebrew/bin/brew shellenv)" # ARM MacOS
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)" # Single-user Linux
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" # Multi-user Linux
 if type brew &>/dev/null; then
-  eval "$(brew --prefix)/bin/brew shellenv"
   # Completions from homebrew
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
-# XDG base directories
+# Set XDG base directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -45,6 +47,9 @@ if command -v asdf &>/dev/null; then
   . $(brew --prefix asdf)/libexec/asdf.sh
 fi
 
+# Initialize swiftly
+test -f "${HOME}/.swiftly/env.sh" && . "${HOME}/.swiftly/env.sh"
+
 # FZF integration
 if command -v fzf &>/dev/null; then
   source <(fzf --zsh)
@@ -70,7 +75,7 @@ zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
 autoload -U zmv
 
 # Wezterm shell integration
-# For MacOS, it is included in the binary
+# For MacOS, it is included in the application bundle
 if [ -f /Applications/Wezterm.app/Contents/Resources/wezterm.sh ]; then
   source "/Applications/WezTerm.app/Contents/Resources/wezterm.sh"
   # For others, we can use a copy
