@@ -78,6 +78,6 @@ strikethrough = false
 underline = "None"
 
 [metadata]
-name = 'Bamboo V'
+name = 'Bamboo V SSH'
 author = 'Riley Bruins'
 origin_url = "https://github.com/ribru17/bamboo.nvim"
