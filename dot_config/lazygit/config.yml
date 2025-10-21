@@ -1,10 +1,7 @@
 gui:
   nerdFontsVersion: "3"
   authorColors:
-    'Eve Jensen': '#6d3dde'
+    "Eve Jensen": "#6d3dde"
 os:
   editPreset: "nvim"
-git:
-  paging:
-    colorArg: always
-notARepository: 'skip'
+notARepository: "skip"
