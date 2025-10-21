@@ -221,6 +221,16 @@ config.keys = {
       window:set_config_overrides(overrides)
     end),
   },
+  { -- Reset opacity & blur to default
+    key = 'u',
+    mods = 'CTRL|META|SUPER|SHIFT',
+    action = wez.action_callback(function(window, pane)
+      local overrides = window:get_config_overrides() or {}
+      overrides.window_background_opacity = nil
+      overrides.macos_window_background_blur = nil
+      window:set_config_overrides(overrides)
+    end)
+  },
 
   ----- OTHER KEYBINDINGS -----
   -- Tabs
