@@ -1,7 +1,12 @@
 gui:
-  nerdFontsVersion: "3"
   authorColors:
-    "Eve Jensen": "#6d3dde"
+    "Eve Jensen": "magenta"
+  nerdFontsVersion: "3"
+  showNumstatInFilesView: true
+  statusPanelView: "allBranchesLog"
+  theme:
+    selectedLineBgColor:
+      - underline
 os:
   editPreset: "nvim"
 notARepository: "skip"
