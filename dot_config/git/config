@@ -22,7 +22,7 @@
   tool = nvimdiff
   conflictstyle = diff3
 
-[mergetool "vimdiff"]
+[mergetool "nvimdiff"]
   layout = LOCAL,MERGED,REMOTE + (LOCAL,BASE,REMOTE)/MERGED
 
 [diff]
