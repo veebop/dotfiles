@@ -8,6 +8,17 @@
                         "manipulators": [
                             {
                                 "from": {
+                                    "modifiers": { "optional": ["any"] },
+                                    "simultaneous": [
+                                        { "key_code": "caps_lock" },
+                                        { "key_code": "escape" }
+                                    ]
+                                },
+                                "to": { "key_code": "escape" },
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": { "optional": ["any"] }
                                 },
@@ -37,6 +48,7 @@
                     },
                     {
                         "description": "Change right_command+hjkl to arrow keys",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
