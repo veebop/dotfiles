@@ -50,8 +50,10 @@ wez.on('update-status', function(window, pane)
       pane:get_foreground_process_name():find("/ssh$")
       or is_wezterm_ssh
       and not overrides.color_scheme then
-    overrides.color_schemes = { SSH = wez.color.load_scheme(wez.config_dir ..
-    "/colors/" .. config.color_scheme .. " SSH.toml") }
+    overrides.color_schemes = {
+      SSH = wez.color.load_scheme(wez.config_dir ..
+        "/colors/" .. config.color_scheme .. " SSH.toml")
+    }
     overrides.color_scheme = 'SSH'
     in_ssh_session = true
   elseif not is_wezterm_ssh then
