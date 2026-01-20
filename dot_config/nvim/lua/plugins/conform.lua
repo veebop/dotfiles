@@ -4,7 +4,8 @@ function M.setup()
   require("conform").setup({
     -- Formatters
     formatters_by_ft = {
-      python = { "yapf" },
+      python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+      sh = { "shfmt" },
       -- Web
       css = { "prettierd", "prettier", stop_after_first = true },
       html = { "prettierd", "prettier", stop_after_first = true },

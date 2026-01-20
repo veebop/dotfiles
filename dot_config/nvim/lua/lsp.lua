@@ -1,7 +1,7 @@
 -- LSP configurations
 
 -- ltex
-vim.lsp.config('ltex',  {
+vim.lsp.config('ltex', {
   settings = {
     ltex = {
       disabledRules = {
@@ -23,4 +23,13 @@ vim.lsp.config('lua_ls', {
       },
     },
   },
+})
+
+-- tinymist
+vim.lsp.config('tinymist', {
+  settings = {
+    formatterMode = 'typstyle',
+    formatterProseWrap = true,
+    formatterPrintWidth = 79,
+  }
 })

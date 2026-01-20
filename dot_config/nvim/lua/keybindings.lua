@@ -295,7 +295,7 @@ function M.rust_keybindings(bufnr)
   wk.add({
     buffer = bufnr,
     mode = "n",
-    { "K", "<cmd>lua require('rust-tools').hover_actions.hover_actions", desc = "Rust Hover", },
+    { "K", "<cmd>lua require('rust-tools').hover_actions.hover_actions<CR>", desc = "Rust Hover", },
     {
       "<localleader>",
       group = "Rust",
