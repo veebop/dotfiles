@@ -194,4 +194,6 @@ if command -v starship &>/dev/null; then
 fi
 
 # Pretty screen when opening terminal
-fastfetch
+if command -v fastfetch &>/dev/null; then
+  fastfetch
+fi
