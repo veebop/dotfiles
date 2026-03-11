@@ -3,7 +3,7 @@ vim.opt.background = "dark"
 vim.cmd('colorscheme bamboo')
 
 vim.opt.backup = false                         -- Creates a backup file
-vim.opt.clipboard = {}                         -- Use the system clipboard by default
+vim.opt.clipboard = {}
 vim.opt.fileencoding = "utf-8"                 -- The encoding written to a file
 vim.opt.formatoptions:remove { "l", "t", "c" } -- Don't auto wrap lines in insert mode
 vim.opt.hidden = true                          -- Required to keep multiple buffers and open multiple buffers
@@ -43,6 +43,7 @@ vim.opt.sidescrolloff = 8         -- Minimal number of screen lines to keep left
 vim.opt.signcolumn = "auto:1-3"   -- Allow the sign column to grow to fit more elements
 vim.opt.termguicolors = true      -- Set term gui colors (most terminals support this)
 vim.opt.title = true              -- Set the title of window to the value of the titlestring
+vim.opt.winborder = "rounded"     -- Display rounded border around floating windows
 
 -- Tabs/indents
 vim.opt.expandtab = true -- Insert spaces instead of tabs
