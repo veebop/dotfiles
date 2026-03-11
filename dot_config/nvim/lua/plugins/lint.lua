@@ -2,8 +2,6 @@ local M = {}
 
 function M.setup()
   require("lint").linters_by_ft = {
-    python = { "ruff" },
-
     -- Prose
     markdown = { "proselint", },
     tex = { "proselint", },
