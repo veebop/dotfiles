@@ -170,15 +170,6 @@ require("lazy").setup({
     event = { "BufRead", "BufNewFile" },
   },
   {
-    "windwp/nvim-autopairs",
-    dependencies = {
-      "nvim-treesitter",
-      "nvim-cmp",
-    },
-    opts = {},
-    event = "InsertEnter",
-  },
-  {
     "kylechui/nvim-surround",
     opts = {},
     event = { "BufRead", "BufNewFile" },
