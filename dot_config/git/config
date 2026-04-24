@@ -40,4 +40,21 @@
   useForceIfIncludes = true
 
 [alias]
-  fpush = push --force-with-lease
+  a = add
+  br = branch
+  bra = branch --all
+  c = commit
+  ca = commit -a
+  cam = commit -am
+  d = diff
+  f = fetch
+  ff = merge --ff-only
+  l = pull
+  m = merge
+  p = push
+  pf = push --force-with-lease
+  r = remote
+  rb = rebase
+  rst = reset
+  s = status
+  sw = switch
