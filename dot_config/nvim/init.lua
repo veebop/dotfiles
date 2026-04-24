@@ -1,9 +1,7 @@
--- Set leader and localleader before any plugins are initialized
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
-require('plugins')
-require('options')
-require('lsp')
-require('autocmds')
-require('keybindings')
+require("my.options")
+require("my.keymaps")
+require("my.plugins")
+require("my.lsp")
