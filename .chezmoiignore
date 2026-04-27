@@ -11,4 +11,7 @@ README.md
 .config/aerospace/
 {{- else if ne .chezmoi.os "linux" -}}
 # Linux only configurations
+.config/sway
+.config/swaylock
+.config/waybar
 {{- end -}}
