@@ -180,6 +180,9 @@ export BROWSER='none'
 # Add ~/.local/bin to PATH
 export PATH=$HOME/.local/bin:$PATH
 
+# gpg-agent(1)
+export GPG_TTY="$(tty)"
+
 # Add Doom Emacs to path
 export PATH=$HOME/.config/emacs/bin:$PATH
 
