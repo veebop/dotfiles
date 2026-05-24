@@ -81,3 +81,16 @@ vim.keymap.set("n", "<leader>gd", "<CMD>lua MiniDiff.toggle_overlay()<CR>", { de
 vim.keymap.set("n", "<leader>gl", "<CMD>Git log --topo-order --follow -- %<CR>", { desc = "Git log for buffer" })
 vim.keymap.set("n", "<leader>gL", "<CMD>Git log --topo-order<CR>", { desc = "Git log" })
 vim.keymap.set("n", "<leader>gs", "<CMD>lua MiniGit.show_at_cursor()<CR>", { desc = "Show at cursor" })
+
+-- LSP
+local function toggle_codelens()
+  vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
+  print("Codelens is " .. (vim.lsp.codelens.is_enabled() and "enabled" or "disabled"))
+end
+local function toggle_inlay()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+  print("Inlay hints are " .. (vim.lsp.inlay_hint.is_enabled() and "enabled" or "disabled"))
+end
+vim.keymap.set("n", "<leader>li", toggle_inlay, { desc = "Toggle inlay hints" })
+vim.keymap.set("n", "<leader>ll", toggle_codelens, { desc = "Toggle codelens" })
+vim.keymap.set("n", "grd", "<CMD>lua vim.lsp.buf.definition()<CR>", { desc = "vim.lsp.buf.definition()" })
