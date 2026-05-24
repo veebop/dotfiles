@@ -1,5 +1,5 @@
--- This file is for defining language servers to use
--- Configuration should be done in `after/lsp/`
+-- This file is for configuring Neovim's LSP and for enabling servers
+-- Server-specific configuration should be done in `after/lsp/`
 vim.lsp.enable({
   "basedpyright",
   "bashls", -- Requires shellcheck and shfmt
@@ -10,4 +10,5 @@ vim.lsp.enable({
   "sourcekit",
   "tinymist",
   "ts_ls",
+  "zls",
 })

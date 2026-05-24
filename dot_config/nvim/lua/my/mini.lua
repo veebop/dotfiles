@@ -21,6 +21,9 @@ ai.setup({
     D = MiniExtra.gen_ai_spec.diagnostic(),
     I = MiniExtra.gen_ai_spec.indent(),
 
+    -- Match around/inside bar
+    ["|"] = ai.gen_spec.pair("|", "|"),
+
     -- Treesitter textobjects
     ["?"] = ai.gen_spec.treesitter({ a = "@conditional.outer", i = "@conditional.inner" }),
     a = ai.gen_spec.treesitter({ a = "@parameter.outer", i = "@parameter.inner" }),

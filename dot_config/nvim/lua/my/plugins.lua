@@ -68,6 +68,7 @@ require("conform").setup({
   -- Formatters
   formatters_by_ft = {
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports", lsp_format = "last" },
+    zig = { "zigfmt", lsp_format = "never" },
     -- Web
     css = { "prettierd", "prettier", stop_after_first = true },
     html = { "prettierd", "prettier", stop_after_first = true },
