@@ -51,6 +51,9 @@ require("mini.operators").setup({
   sort = { prefix = "gS" },
 })
 
+-- Autopairs
+require("mini.pairs").setup()
+
 -- Manage and expand snippets
 local snippets = require("mini.snippets")
 snippets.setup({
@@ -155,11 +158,7 @@ require("mini.git").setup()
 require("mini.misc").setup()
 
 -- Pick anything
-require("mini.pick").setup({
-  mappings = {
-    mark_all = "<C-A>",
-  },
-})
+require("mini.pick").setup()
 
 ----- Appearance -----
 
