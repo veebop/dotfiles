@@ -1,1 +1,17 @@
-. "$HOME/.cargo/env"
+# Set XDG base directories
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# Add ~/.local/bin to PATH
+export PATH="${HOME}/.local/bin:${PATH}"
+
+# Go vars
+export GOPATH="${HOME}/.go"
+export PATH="${GOPATH}/bin:${PATH}"
+
+# Set JAVA_HOME
+if command -v brew &>/dev/null && [ -d "$(brew --prefix openjdk)/libexec/openjdk.jdk/Contents/Home/" ]; then
+  export JAVA_HOME="$(brew --prefix openjdk)/libexec/openjdk.jdk/Contents/Home/"
+fi

@@ -1,3 +1,25 @@
+# Zsh plugins
+[".config/zsh/plugins/zsh-completions"]
+type = "git-repo"
+url = "https://github.com/zsh-users/zsh-completions"
+refreshPeriod = "672h"
+
+[".config/zsh/plugins/zsh-tab-title"]
+type = "git-repo"
+url = "https://github.com/trystan2k/zsh-tab-title"
+refreshPeriod = "672h"
+
+[".config/zsh/plugins/fast-syntax-highlighting"]
+type = "git-repo"
+url = "https://github.com/zdharma-continuum/fast-syntax-highlighting"
+refreshPeriod = "672h"
+
+[".config/zsh/plugins/zsh-autosuggestions"]
+type = "git-repo"
+url = "https://github.com/zsh-users/zsh-autosuggestions"
+refreshPeriod = "672h"
+
+# Yazi plugins
 [".config/yazi/plugins/exifaudio.yazi"]
 type = "archive"
 url = "https://github.com/Sonico98/exifaudio.yazi/archive/master.tar.gz"

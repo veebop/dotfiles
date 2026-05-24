@@ -1,0 +1,81 @@
+## Setup FPATH
+# Add custom completions
+export FPATH=$HOME/.config/zsh/completions:$FPATH
+# Completions from homebrew
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
+## Options
+setopt EXTENDED_GLOB
+
+## Plugins
+# See .chezmoiexternal.toml for downloading plugins
+source "${HOME}/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh"
+source "${HOME}/.config/zsh/plugins/zsh-tab-title/zsh-tab-title.plugin.zsh"
+source "${HOME}/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+source "${HOME}/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+# Add "up" command
+source "${HOME}/.config/zsh/up.zsh"
+
+## History
+source "${HOME}/.config/zsh/history.zsh"
+
+## Integrations
+source "${HOME}/.config/zsh/integrations.zsh"
+
+# zmv - ZSH File renamer, see zshcontrib(1)
+autoload -U zmv
+
+## Completion
+source "$HOME/.config/zsh/completion.zsh"
+
+## KEYBINDS
+# Ensure emacs-like keybinds for editing commands
+bindkey -e
+
+# Edit the current command line in $EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
+
+## Aliases & shortcuts
+source "${HOME}/.config/zsh/alias.zsh"
+
+# Git aliases
+source "${HOME}/.config/zsh/git-aliases.zsh"
+
+## Variables
+# Set default editor to nvim instead of vim
+export EDITOR=nvim
+export SYSTEMD_EDITOR=nvim
+
+# Set PAGER to less w/ color
+export PAGER='less -R'
+
+# Set HELPDIR for ZSH
+export HELPDIR="/usr/share/zsh/$ZSH_VERSION/help/"
+
+# Set man pager to neovim
+export MANPAGER='nvim +Man!'
+
+# Don't automatically open a browser
+export BROWSER='none'
+
+# gpg-agent(1)
+export GPG_TTY="$(tty)"
+
+# Cmake export compile commands by default
+export CMAKE_EXPORT_COMPILE_COMMANDS=1
+
+## pretty :)
+# Setup starship
+if command -v starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
+
+# Pretty screen when opening terminal
+if command -v fastfetch &>/dev/null; then
+  fastfetch
+fi

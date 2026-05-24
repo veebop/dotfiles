@@ -1,0 +1,8 @@
+# Initialize homebrew
+test -d /usr/local/bin/brew && eval "$(/usr/local/bin/brew shellenv)" # x86 MacOS
+test -d /opt/homebrew && eval "$(/opt/homebrew/bin/brew shellenv)" # ARM MacOS
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)" # Single-user Linux
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" # Multi-user Linux
+
+# Cargo
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

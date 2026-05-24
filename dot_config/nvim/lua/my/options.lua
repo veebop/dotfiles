@@ -1,4 +1,6 @@
 vim.opt.clipboard = {}
+vim.opt.complete:append("o")
+vim.opt.completeopt = { "menuone", "popup", "noselect", "fuzzy" }
 vim.opt.fileencoding = "utf-8"                  -- The encoding written to a file
 vim.opt.formatoptions:remove({ "l", "t", "c" }) -- Don't auto wrap lines in insert mode
 vim.opt.hidden = true                           -- Required to keep multiple buffers and open multiple buffers
@@ -62,7 +64,7 @@ vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 
 -- Add a custom filetype for dot_zshrc.tmpl for chezmoi
-vim.filetype.add({ pattern = { ["dot_zshrc.tmpl"] = "zsh" } })
+vim.filetype.add({ filename = { ["dot_zshrc"] = "zsh", ["dot_zshenv"] = "zsh", ["dot_zprofile"] = "zsh" } })
 
 -- Command that shows the diff between the current buffer and last write
 -- See ':help :DiffOrig' and https://www.reddit.com/r/neovim/comments/15ue6vh/comment/jwpbbvr/
