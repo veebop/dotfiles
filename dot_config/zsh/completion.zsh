@@ -8,7 +8,7 @@ unsetopt MENU_COMPLETE
 autoload -Uz compinit bashcompinit && compinit && bashcompinit
 
 # Define completers - zshcompsys(1) under "CONTROL FUNCTIONS"
-zstyle ':completion:*' completer _extensions _complete _approximate
+zstyle ':completion:*' completer  _extensions _expand _complete _approximate
 
 # Cache completions
 zstyle ':completion:*' use-cache on
