@@ -24,9 +24,8 @@ play = [
 
 [plugin]
 prepend_previewers = [
-  { mime = "audio/midi", run = "hexfile" },
   { mime = "audio/*", run = "exifaudio" },  # exifaudio.yazi
 ]
 append_previewers = [
-  { url = "*", run = "hexfile" }, # Shows filetype and hexdump via hexyl
+  { url = "*", run = 'piper -- file "$1" && printf "\n" && hexyl "$1" 2>/dev/null || hexdump -C "$1"' },
 ]

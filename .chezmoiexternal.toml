@@ -19,21 +19,6 @@ type = "git-repo"
 url = "https://github.com/zsh-users/zsh-autosuggestions"
 refreshPeriod = "672h"
 
-# Yazi plugins
-[".config/yazi/plugins/exifaudio.yazi"]
-type = "archive"
-url = "https://github.com/Sonico98/exifaudio.yazi/archive/master.tar.gz"
-exact = true
-stripComponents = 1
-refreshPeriod = "672h"
-
-[".config/yazi/plugins/starship.yazi"]
-type = "archive"
-url = "https://github.com/Rolv-Apneseth/starship.yazi/archive/master.tar.gz"
-exact = true
-stripComponents = 1
-refreshPeriod = "672h"
-
 {{- if ne .chezmoi.os "linux" -}}
 # Linux only external files
 [".local/share/fonts/FiraCodeNerdFont"]

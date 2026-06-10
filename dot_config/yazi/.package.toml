@@ -1,0 +1,17 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:piper"
+rev = "598cdb6"
+hash = "d99cfbc3812e7738505f9e4bedb759cd"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "a837101"
+hash = "635b0feb9215772d22020eb0abf0bb34"
+
+[[plugin.deps]]
+use = "Sonico98/exifaudio"
+rev = "4506f9d"
+hash = "4761fffb60a12d37096c34a356380cdf"
+
+[flavor]
+deps = []
