@@ -12,3 +12,6 @@ Thumbs.db
 .cache/
 compile_commands.json
 
+# Syncthing
+.stfolder
+.stignore
