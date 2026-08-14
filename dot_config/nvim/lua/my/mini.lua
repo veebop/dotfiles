@@ -170,11 +170,12 @@ require("mini.cursorword").setup()
 local hipatterns = require("mini.hipatterns")
 hipatterns.setup({
   highlighters = {
-    -- Highlight standalone "FIXME", "WARN", "HACK", "TODO", "NOTE"
+    -- Highlight standalone "FIXME", "WARN", "HACK", "TODO", "DEBUG", "NOTE"
     fixme     = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
     warn      = { pattern = "%f[%w]()WARN()%f[%W]", group = "@comment.warning" },
     hack      = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
     todo      = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+    debug     = { pattern = "%f[%w]()DEBUG()%f[%W]", group = "@comment.note" },
     note      = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 
     -- Highlight hex color strings (`#rrggbb`) using that color
