@@ -1,3 +1,5 @@
+config-version = 2
+
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
@@ -37,6 +39,9 @@ key-mapping.preset = 'qwerty'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# AutoRaise works better for me, for now
+focus-follows-mouse.enabled = false
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
