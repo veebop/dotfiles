@@ -49,7 +49,10 @@
   d = diff
   f = fetch
   ff = merge --ff-only
-  l = pull
+  l = log
+  ll = pull
+  lg = log --graph --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lga = log --graph --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
   m = merge
   p = push
   pf = push --force-with-lease
@@ -57,5 +60,4 @@
   rb = rebase
   rst = reset
   s = status
-  st = status
   sw = switch
