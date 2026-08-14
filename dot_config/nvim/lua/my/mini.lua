@@ -60,6 +60,7 @@ snippets.setup({
   snippets = {
     -- Global snippets from friendly-snippets
     snippets.gen_loader.from_file(vim.fn.stdpath("data") .. "/site/pack/core/opt/friendly-snippets/snippets/global.json"),
+    snippets.gen_loader.from_file(vim.fn.stdpath("data") .. "/site/pack/core/opt/friendly-snippets/snippets/license.json"),
     -- Load snippets based on current language
     snippets.gen_loader.from_lang(),
   },
