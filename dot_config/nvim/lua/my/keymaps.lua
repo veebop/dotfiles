@@ -15,6 +15,7 @@ vim.keymap.set("n", "<leader>E", "<CMD>lua MiniFiles.open()<CR>", { desc = "Open
 vim.keymap.set("n", "<leader>h", "<CMD>nohlsearch<cr>", { desc = "Hide highlights", })
 vim.keymap.set("n", "<leader>F", "<CMD>Format<cr>", { desc = "Format file", })
 vim.keymap.set("n", "<leader>z", "<CMD>lua MiniMisc.zoom()<cr>", { desc = "Zoom", })
+vim.keymap.set("n", "<leader>t", "<CMD>tab term<cr>", { desc = "Open terminal in new tab", })
 
 -- Find (using Snacks.picker)
 vim.keymap.set("n", "<leader>f/", "<CMD>lua Snacks.picker.search_history()<CR>", { desc = "'/' history" })
