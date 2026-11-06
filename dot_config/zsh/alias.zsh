@@ -7,6 +7,10 @@ alias ggrep='ggrep --color=auto'
 alias nv="nvim"
 alias lg="lazygit"
 
+# gpu-screen-recorder aliases
+alias start-replay='gpu-screen-recorder -w portal -c mp4 -k av1 -f 60 -a default_output -r 300 -o "$HOME/Videos/replays"'
+alias save-replay='pkill -SIGUSR1 -f "^gpu-screen-recorder"'
+
 # Aliases for eza
 if command -v eza &>/dev/null; then
   alias es="eza --icons=auto"
