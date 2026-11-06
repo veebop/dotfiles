@@ -16,8 +16,8 @@ ai.setup({
     inside_last = "iL",
   },
   custom_textobjects = {
-    -- Set `aB` / `iB` to act on whole buffer
-    B = MiniExtra.gen_ai_spec.buffer(),
+    -- Set `ag` / `ig` to act on whole buffer
+    g = MiniExtra.gen_ai_spec.buffer(),
     D = MiniExtra.gen_ai_spec.diagnostic(),
     I = MiniExtra.gen_ai_spec.indent(),
 
