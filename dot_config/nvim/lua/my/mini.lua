@@ -51,9 +51,6 @@ require("mini.operators").setup({
   sort = { prefix = "gS" },
 })
 
--- Autopairs
-require("mini.pairs").setup()
-
 -- Manage and expand snippets
 local snippets = require("mini.snippets")
 snippets.setup({
