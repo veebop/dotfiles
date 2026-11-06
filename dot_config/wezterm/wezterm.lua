@@ -93,6 +93,10 @@ config.inactive_pane_hsb = {
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 20
 
+-- This fixes the issue where the fastfetch display breaks on first launch
+config.initial_cols = 1000 -- Default 80
+config.initial_rows = 1000 -- Default 24
+
 if wez.target_triple:find('linux') then -- Aerospace handles this on macOS
   wez.on("gui-startup", function()
     local tab, pane, window = wez.mux.spawn_window {}
