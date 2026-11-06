@@ -5,6 +5,7 @@ vim.lsp.enable({
   "bashls", -- Requires shellcheck and shfmt
   "clangd",
   "lua_ls",
+  "marksman",
   "ruff",
   "rust_analyzer",
   "sourcekit",
