@@ -1,12 +1,16 @@
+git:
+  autoFetch: false
 gui:
-  authorColors:
-    "Eve Jensen": "magenta"
   nerdFontsVersion: "3"
   showNumstatInFilesView: true
   statusPanelView: "allBranchesLog"
   theme:
+    authorColors:
+      "Eve Jensen": "magenta"
     selectedLineBgColor:
       - underline
 os:
   editPreset: "nvim"
 notARepository: "skip"
+update:
+  method: "never"
