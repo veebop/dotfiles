@@ -105,7 +105,7 @@ vim.api.nvim_create_user_command("Format", function(args)
       ["end"] = { args.line2, end_line:len() },
     }
   end
-  require("conform").format({ async = true, lsp_format = "fallback", range = range })
+  require("conform").format({ async = true, range = range })
 end, { range = true })
 
 -- Commands to enable/disable formatting
