@@ -28,6 +28,7 @@
 [diff]
   tool = nvimdiff
   colorMoved = default
+  wsErrorHighlight = all
 
 [commit]
   verbose = true
