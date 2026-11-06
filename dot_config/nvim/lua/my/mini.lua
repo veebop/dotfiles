@@ -73,7 +73,10 @@ require("mini.surround").setup({
 ----- General workflow -----
 
 -- Go forward/backward with square brackets
-require("mini.bracketed").setup()
+require("mini.bracketed").setup({
+  -- Default "c" conflicts with nvim diff mode's "go to change"
+  comment = { suffix = "k", options = {} },
+})
 
 -- Show next key clues
 local miniclue = require("mini.clue")
