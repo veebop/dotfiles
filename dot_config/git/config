@@ -42,18 +42,22 @@
 
 [alias]
   a = add
-  br = branch
-  bra = branch --all
+  b = branch
   c = commit
   ca = commit -a
   cam = commit -am
   d = diff
+  ds = diff --staged
+  dt = difftool
+  dts = difftool --staged
   f = fetch
   ff = merge --ff-only
   l = log
+  lf = log --pretty=fuller
   ll = pull
   lg = log --graph --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   lga = log --graph --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+  lo = log --pretty=oneline
   m = merge
   p = push
   pf = push --force-with-lease
@@ -61,4 +65,7 @@
   rb = rebase
   rst = reset
   s = status
+  sh = show
+  shn = show --name-status
   sw = switch
+  wt = worktree
