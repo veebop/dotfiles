@@ -31,7 +31,8 @@
 
 ### Variables
 #
-set $mod Mod1
+# Mod1 for alt, Mod4 for super
+set $mod Mod4
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -85,10 +86,10 @@ input * repeat_rate 35
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindsym Super+Space exec $menu
+    bindsym $mod+Space exec $menu
 
     # Qalc
-    bindsym $mod+Super+Space exec 'wezterm start qalc'
+    bindsym $mod+Shift+Alt+Space exec 'wezterm start qalc'
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -196,7 +197,7 @@ input * repeat_rate 35
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    bindsym $mod+Alt+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -263,8 +264,8 @@ bindsym $mod+Escape mode "passthrough"
     # Screenshots
     bindsym Print exec grim - | tee ~/Pictures/screenshots/screenshot-$(date +%F-%T%z).png | wl-copy
     bindsym Shift+Print exec slurp | grim -g - - | tee ~/Pictures/screenshots/screenshot-$(date +%F-%T%z).png | wl-copy
-    bindsym Super+Shift+3 exec grim - | tee ~/Pictures/screenshots/screenshot-$(date +%F-%T%z).png | wl-copy
-    bindsym Super+Shift+4 exec slurp | grim -g - - | tee ~/Pictures/screenshots/screenshot-$(date +%F-%T%z).png | wl-copy
+    # bindsym Super+Shift+3 exec grim - | tee ~/Pictures/screenshots/screenshot-$(date +%F-%T%z).png | wl-copy
+    # bindsym Super+Shift+4 exec slurp | grim -g - - | tee ~/Pictures/screenshots/screenshot-$(date +%F-%T%z).png | wl-copy
 
 #
 # Status Bar:
